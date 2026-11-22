@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>魔兽世界：无限 · 全职业练级笔记</title>
-<meta name="description" content="《魔兽世界：无限》1–60 级全职业练级笔记：按职业整理练级路线、技能全表、宏命令与三系天赋模拟器。目前收录兽王猎人与亡灵圣骑士。">
-<meta name="keywords" content="魔兽世界无限,全职业练级笔记,练级路线,天赋模拟器,职业宏,1-60级,兽王猎,亡灵圣骑士">
+<meta name="description" content="《魔兽世界：无限》1–60 级全职业练级笔记：按职业整理练级路线、技能全表、宏命令与三系天赋模拟器。目前收录兽王猎人、亡灵圣骑士与武器战士。">
+<meta name="keywords" content="魔兽世界无限,全职业练级笔记,练级路线,天赋模拟器,职业宏,1-60级,兽王猎,亡灵圣骑士,武器战,战士">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://nose996.github.io/wow-class-notes/">
 <meta property="og:type" content="website">
@@ -37,12 +37,13 @@
   .sec-head h2{font-family:"Noto Serif SC","Songti SC",serif;font-size:19px;font-weight:600}
   .sec-head span{margin-left:auto;font-size:12.5px;color:var(--ink2)}
 
-  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
   .class-card{position:relative;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 20px 16px;text-decoration:none;overflow:hidden;transition:border-color .15s,box-shadow .15s}
   .class-card:hover{border-color:var(--gold);box-shadow:0 4px 14px rgba(60,40,15,.08)}
   .class-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
   .class-card.hunter{--accent:#5E7A42}
   .class-card.paladin{--accent:#9A6A22}
+  .class-card.warrior{--accent:#A2542E}
   .class-name{font-family:"Noto Serif SC","Songti SC",serif;font-size:20px;font-weight:700;display:flex;align-items:baseline;gap:8px}
   .class-spec{font-size:12px;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:1px 8px;font-family:"Noto Sans SC",sans-serif;font-weight:400}
   .class-desc{font-size:13.5px;color:var(--ink2);margin:9px 0 12px}
@@ -85,7 +86,7 @@
 <main class="wrap">
   <div class="sec-head">
     <h2>已收录职业</h2>
-    <span>2 个职业 · 持续补充</span>
+    <span>3 个职业 · 持续补充</span>
   </div>
 
   <div class="grid">
@@ -102,10 +103,17 @@
       <div class="tags"><span class="tag">练级指南</span><span class="tag">20 条宏</span><span class="tag">圣印审判</span><span class="tag">三系天赋</span></div>
       <div class="go">进入圣骑士笔记 <i>→</i></div>
     </a>
+
+    <a class="class-card warrior" href="warrior/index.html">
+      <div class="class-name">战士 <span class="class-spec">武器 · 练级</span></div>
+      <p class="class-desc">武器战 1–60 路线：怒气与三姿态、致死打击、防护复仇替代方案、18 条姿态与坦克宏，以及武器 / 狂怒 / 防护三系天赋模拟器。</p>
+      <div class="tags"><span class="tag">练级指南</span><span class="tag">18 条宏</span><span class="tag">怒气姿态</span><span class="tag">三系天赋</span></div>
+      <div class="go">进入战士笔记 <i>→</i></div>
+    </a>
   </div>
 
   <div class="soon">
-    <b>接下来：</b>战士、法师、术士、牧师、盗贼、德鲁伊、萨满祭司等职业按同样结构补上——每篇都包含等级路线、技能表、宏命令和三系天赋模拟。做好一个上线一个，不占位空链接。
+    <b>接下来：</b>法师、术士、牧师、盗贼、德鲁伊、萨满祭司等职业按同样结构补上——每篇都包含等级路线、技能表、宏命令和三系天赋模拟。做好一个上线一个，不占位空链接。
   </div>
 
   <div class="principles">

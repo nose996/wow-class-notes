@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>战士练级笔记 · 1–60 指南与天赋模拟</title>
+<meta name="description" content="魔兽世界：无限 战士 1–60 练级笔记：武器练级路线、怒气与姿态、技能全表、18 条战士宏命令，以及武器 / 狂怒 / 防护三系天赋模拟器与逐级加点顺序。">
+<meta name="keywords" content="魔兽世界无限,战士,战士练级,战士宏,战士天赋模拟器,1-60级,武器战,狂怒,防护,致死打击,复仇">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://nose996.github.io/wow-class-notes/warrior/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="魔兽世界：无限 · 全职业笔记">
+<meta property="og:title" content="战士练级笔记 · 1–60 指南与天赋模拟">
+<meta property="og:description" content="武器练级路线、怒气与姿态、技能全表、18 条战士宏，以及武器 / 狂怒 / 防护三系天赋模拟器与逐级加点顺序。">
+<meta property="og:url" content="https://nose996.github.io/wow-class-notes/warrior/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="战士练级笔记 · 1–60">
+<meta name="twitter:description" content="魔兽世界：无限 战士 1–60 练级笔记与三系天赋模拟器。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 L19 13 L16 22 L13 13 Z' fill='%23FBF3E2'/%3E%3Cpath d='M13 21 H19 L18 27 H14 Z' fill='%238F5E1E'/%3E%3Cpath d='M11 15 H21 V18 H11 Z' fill='%238F5E1E'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#ECE4D1; --panel:#FDF9F0; --panel2:#F0E6D0; --ink:#292015; --ink2:#6B5B43;
+    --line:#D1C09C; --gold:#8F5E1E; --gold-soft:#EAD9B6; --green:#587344; --warn:#A84E32; --radius:6px;
+    --code-bg:#221A10; --code-text:#EBDBB6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,sans-serif;line-height:1.7;min-width:320px}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+
+  header.hero{padding:34px 0 18px}
+  .crumb{display:inline-block;font-size:12.5px;color:var(--ink2);text-decoration:none;margin-bottom:12px;border-bottom:1px dotted #B99A64}
+  .crumb:hover{color:var(--gold);border-color:var(--gold)}
+  h1{font-family:"Noto Serif SC","Songti SC",serif;font-size:30px;line-height:1.3;font-weight:700;letter-spacing:.01em;color:var(--ink)}
+  .sub{color:var(--ink2);font-size:14px;margin-top:8px}
+  .notice{margin-top:12px;color:var(--ink2);font-size:12.5px;line-height:1.65}
+  .notice strong{color:var(--gold)}
+
+  nav.viewnav{border-bottom:1px solid var(--line)}
+  nav.viewnav .wrap{display:flex;gap:6px;padding:14px 22px;flex-wrap:wrap}
+  nav.viewnav button{border:1px solid var(--line);background:transparent;color:var(--ink2);font-size:14px;font-weight:600;padding:8px 16px;border-radius:6px;cursor:pointer;font-family:inherit}
+  nav.viewnav button:hover{color:var(--ink);border-color:var(--gold)}
+  nav.viewnav button.active{background:var(--gold);border-color:var(--gold);color:#FBF3E2}
+
+  nav.guide-tabs{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;background:var(--paper)}
+  nav.guide-tabs .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  nav.guide-tabs ul{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:11px 0}
+  nav.guide-tabs button{border:1px solid transparent;background:none;color:var(--ink2);font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:6px;cursor:pointer;font-family:inherit}
+  nav.guide-tabs button:hover{background:var(--panel2);color:var(--ink)}
+  nav.guide-tabs button.active{background:var(--gold);color:#FBF3E2;font-weight:600}
+  .toggle-all{margin-left:auto;background:none;border:1px solid var(--line);color:var(--ink2);font-size:12.5px;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .toggle-all:hover{background:var(--panel2);color:var(--ink)}
+
+  nav.tabs{border-bottom:1px solid var(--line);background:var(--paper)}
+  nav.tabs .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  nav.tabs ul{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:11px 0}
+  nav.tabs button{border:1px solid transparent;background:none;color:var(--ink2);font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:6px;cursor:pointer;font-family:inherit}
+  nav.tabs button:hover{background:var(--panel2);color:var(--ink)}
+  nav.tabs button.active{background:var(--gold);color:#FBF3E2;font-weight:600}
+
+  main{padding:26px 0 40px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px}
+  .card-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .card-name{font-size:15.5px;font-weight:600}
+  .card-desc{color:var(--ink2);font-size:13.5px;margin:6px 0 10px}
+  .caret{margin-left:auto;color:var(--ink2);flex:none;display:inline-flex}
+  .caret svg{width:14px;height:14px;display:block}
+  .caret .ic-right{display:none}
+  .cat-group.collapsed .ic-right,.howto.collapsed .ic-right,.g-section.collapsed .ic-right{display:block}
+  .cat-group.collapsed .ic-down,.howto.collapsed .ic-down,.g-section.collapsed .ic-down{display:none}
+  .cat-group.collapsed .card{display:none}
+  .cat-head{display:flex;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:"Noto Serif SC","Songti SC",serif;font-size:18px;font-weight:700;color:var(--ink);padding:0;margin:26px 0 12px;cursor:pointer;user-select:none;text-align:left}
+  .cat-head::before{content:"";width:16px;height:2px;background:var(--gold);flex:none}
+
+  .codebar{display:flex;gap:10px;align-items:stretch}
+  pre{flex:1;background:var(--code-bg);color:var(--code-text);border-radius:6px;padding:12px 14px;font-family:ui-monospace,"Cascadia Code",Consolas,Menlo,monospace;font-size:13px;line-height:1.7;overflow-x:auto;white-space:pre}
+  .copy{flex:none;align-self:center;border:1px solid #B99A64;background:#FBF3E2;color:#7A531E;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .copy:hover{background:var(--gold);border-color:var(--gold);color:#FBF3E2}
+  .copy.done{background:var(--green);border-color:var(--green);color:#F2F8EC}
+  .note{margin-top:8px;font-size:12.5px;color:var(--ink2)}
+
+  .howto{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-top:26px}
+  .howto h2{font-family:"Noto Serif SC","Songti SC",serif;font-size:18px;margin-bottom:12px}
+  .howto-head{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+  .howto-head h2{margin-bottom:0}
+  .howto.collapsed ol{display:none}
+  .howto ol{padding-left:20px}
+  .howto li{margin-bottom:8px;font-size:14px}
+  .howto code{background:var(--panel2);border-radius:4px;padding:1px 6px;font-size:13px}
+
+  footer{padding:22px 0 44px;color:var(--ink2);font-size:12.5px}
+  footer p{margin-bottom:8px}
+  .feedback-line{margin-top:10px}
+
+  .guide{padding:26px 0 40px}
+  .guide-intro{margin:0 0 22px;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+  .guide-intro p{margin:0 0 12px;font-size:14px;color:var(--ink2);line-height:1.7}
+  .quick-chips{display:flex;gap:8px;flex-wrap:wrap}
+  .quick-chips button{border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:13.5px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;font-family:inherit}
+  .quick-chips button:hover{background:var(--gold-soft)}
+  .g-section{padding:26px 0;border-bottom:1px solid var(--line);scroll-margin-top:68px}
+  .g-section:last-child{border-bottom:none}
+  .g-head{display:flex;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:"Noto Serif SC","Songti SC",serif;font-size:18.5px;font-weight:700;color:var(--ink);padding:0;margin-bottom:6px;cursor:pointer;user-select:none;text-align:left}
+  .g-head::before{content:"";width:16px;height:2px;background:var(--gold);flex:none}
+  .g-section h3{font-size:15px;font-weight:600;margin:16px 0 10px;color:var(--ink)}
+  .g-section .sub{color:var(--ink2);font-size:14px;margin-bottom:16px}
+  .g-section.collapsed .g-body{display:none}
+
+  .table-scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-word}
+  th{color:var(--ink);font-weight:600;font-size:13px;background:var(--panel2)}
+  tr:last-child td{border-bottom:none}
+
+  ul.points{margin:0;padding-left:20px}
+  ul.points li{margin-bottom:10px;font-size:14px}
+  ul.points li b{color:var(--ink)}
+  .hint{color:var(--ink2);font-size:13px}
+  .todo{display:inline-block;border:1px dashed var(--gold);color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:1px 8px;font-size:12px;white-space:nowrap}
+
+  .route{display:flex;flex-direction:column}
+  .stage{display:grid;grid-template-columns:96px 30px 1fr;gap:0 14px;padding:24px 0;position:relative}
+  .stage:not(:last-child)::after{content:"";position:absolute;left:calc(96px + 14px + 14px);top:52px;bottom:-6px;width:1px;background:var(--line)}
+  .stage-badge{text-align:right;padding-top:4px}
+  .stage-badge .lv{font-family:"Noto Serif SC","Songti SC",serif;font-size:19px;font-weight:700;color:var(--gold)}
+  .stage-badge .seg{display:block;font-size:12px;color:var(--ink2);margin-top:2px}
+  .stage-dot{display:flex;justify-content:center;position:relative;z-index:1}
+  .stage-dot i{width:13px;height:13px;border-radius:50%;background:var(--panel2);border:2px solid var(--gold);margin-top:8px}
+  .stage-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+  .stage-title{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .stage-tag{color:var(--ink2);font-size:13.5px;margin-bottom:10px}
+  .rg{display:grid;grid-template-columns:82px 1fr;gap:6px 12px;padding:9px 0;border-top:1px dashed var(--line)}
+  .rg:first-of-type{border-top:none;padding-top:2px}
+  .rg-tag{color:var(--gold);font-size:13px;font-weight:600;padding-top:1px}
+  .rg-body{font-size:14px;min-width:0}
+  .rg-body ul{margin:0;padding-left:18px}
+  .rg-body li{margin-bottom:6px}
+  .rg-body li:last-child{margin-bottom:0}
+  .rg-body b{color:var(--ink)}
+
+  /* ===== 天赋模拟器 ===== */
+  .talent-wrap{padding:26px 0 40px}
+  .sim-frame{background:linear-gradient(180deg,#2A2015,#1C150D);border:1px solid #6B5330;border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(40,26,10,.35)}
+  .sim-bar{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:14px}
+  .sim-stat{font-size:13px;color:#C9B894}
+  .sim-stat b{color:#F0D9A0;font-size:17px;font-family:"Noto Serif SC",serif;margin-left:2px}
+  .sim-stat.tree-arms b{color:#E0A266}
+  .sim-stat.tree-prot b{color:#8FB9CC}
+  .sim-stat.tree-fury b{color:#E0705A}
+  .sim-bar .spacer{flex:1}
+  .btn{border:1px solid #6B5330;background:#332716;color:#E9D9B4;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer;font-family:inherit}
+  .btn:hover{border-color:#E6C88A}
+  .btn.primary{background:#E5B25A;color:#241A0C;border-color:#E5B25A;font-weight:600}
+
+  .sim-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .tree{border:1px solid #574226;border-radius:12px;overflow:hidden}
+  .tree.arms{background:linear-gradient(180deg,#3A2A18,#1C1408)}
+  .tree.prot{background:linear-gradient(180deg,#1F2C36,#101820)}
+  .tree.fury{background:linear-gradient(180deg,#3A1C16,#1C0C09)}
+  .tree-head{display:flex;align-items:center;gap:9px;padding:11px 13px;border-bottom:1px solid rgba(120,90,45,.4)}
+  .tree-name{font-size:14px;font-weight:600;color:#F0D9A0}
+  .tree-pts{margin-left:auto;font-size:12.5px;color:#C9B894}
+  .tree-pts b{color:#F0D9A0}
+  .tree-body{padding:14px 12px 18px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(7,66px);gap:12px 2px;min-height:120px;position:relative}
+  .talent{display:flex;flex-direction:column;align-items:center;gap:4px;width:62px;justify-self:center;align-self:start;position:relative;z-index:1}
+  .tree-lines{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:visible}
+  .tree-line{stroke:#5C4722;stroke-width:2;fill:none;stroke-linecap:round}
+  .tree-line.hot{stroke:#7E9A55}
+  .ticon{position:relative;width:46px;height:46px;border-radius:9px;border:1px solid #4A3A22;background:#221A10;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+  .ticon-img{width:100%;height:100%;object-fit:cover;display:block}
+  .talent.avail .ticon-img{filter:grayscale(.45) brightness(.8)}
+  .talent.on .ticon-img{filter:none}
+  .talent.locked .ticon-img{filter:grayscale(.85) brightness(.55)}
+  .talent.avail .ticon{border-color:#6B5330}
+  .talent.avail .ticon:hover{border-color:#E6C88A;box-shadow:0 0 9px rgba(216,164,65,.4)}
+  .talent.on .ticon{border-color:#AAD372;background:#2E3316;box-shadow:0 0 11px rgba(170,211,114,.4)}
+  .talent.locked{opacity:.74}
+  .rank{position:absolute;right:3px;bottom:1px;font-size:10px;color:#E6C88A;text-shadow:0 1px 2px #000}
+  .order-badge{position:absolute;left:2px;top:2px;min-width:15px;height:15px;padding:0 3px;border-radius:4px;background:rgba(20,14,6,.88);color:#E6C88A;font-size:10px;font-weight:700;line-height:15px;text-align:center}
+  .tname{font-size:10.5px;color:#C9B894;text-align:center;line-height:1.2;white-space:nowrap}
+  .talent.on .tname{color:#F0D9A0}
+  .talent.locked .tname{color:#8A7A5E}
+
+  .tip{position:fixed;z-index:30;max-width:270px;background:#1C150C;border:1px solid #8A6A36;border-radius:8px;padding:10px 12px;font-size:12.5px;color:#E9D9B4;box-shadow:0 6px 18px rgba(0,0,0,.6);display:none;pointer-events:none}
+  .tip .tip-name{font-size:14px;font-weight:600;color:#E6C88A;margin-bottom:3px}
+  .tip .tip-rank{color:#C9B894;margin-bottom:5px}
+  .tip .tip-desc{color:#D8C9A8;line-height:1.55}
+  .tip .tip-req{margin-top:6px;color:#B9A67F;font-size:11px}
+  .tip .tip-flag{display:inline-block;margin-bottom:4px;border:1px solid #8A6A36;border-radius:4px;padding:0 6px;font-size:10.5px;color:#E6C88A}
+  .sim-note{margin-top:14px;font-size:13px;color:#B9A67F;line-height:1.7}
+  .sim-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12px;color:#B9A67F}
+  .sim-legend span{display:inline-flex;align-items:center;gap:6px}
+  .sim-legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+  .build-table td:first-child{font-weight:600;color:var(--gold);white-space:nowrap}
+  .build-note{background:var(--panel2);border-left:3px solid var(--gold);padding:12px 14px;font-size:13.5px;color:var(--ink2);margin-top:14px;line-height:1.7}
+
+  @media (max-width:640px){
+    .codebar{flex-direction:column}
+    .copy{align-self:stretch}
+    h1{font-size:23px}
+    .stage{grid-template-columns:1fr;gap:8px;padding:18px 0}
+    .stage:not(:last-child)::after{display:none}
+    .stage-badge{text-align:left;display:flex;align-items:baseline;gap:10px}
+    .stage-dot{display:none}
+    .rg{grid-template-columns:1fr;gap:2px}
+    .sim-cols{grid-template-columns:1fr}
+    .tree-body{gap:8px 2px;padding:12px 8px;grid-template-rows:repeat(7,62px)}
+    .talent{width:58px}
+    .ticon{width:42px;height:42px}
+    .tname{font-size:9px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="crumb" href="../index.html">← 魔兽世界：无限 · 全职业笔记</a>
+    <h1>战士练级笔记</h1>
+    <p class="sub">1–60 级 · 武器练级 · 怒气与姿态 · 三系天赋模拟，《魔兽世界：无限》。</p>
+    <div class="notice">
+      <strong>数据口径：</strong>技能等级、天赋列位与父子关系按《魔兽世界：无限》客户端 1.60 数据整理；战士在该版本全体可学乘胜追击与战术掌握，天赋树也有新增与改动节点。标注「待核」的路线、掉落与数值请回客户端核对，本页不替代游戏内实测。
+    </div>
+  </div>
+</header>
+
+<nav class="viewnav">
+  <div class="wrap">
+    <button data-view="guide" class="active">练级指南</button>
+    <button data-view="macros">宏命令</button>
+    <button data-view="talent">天赋模拟</button>
+  </div>
+</nav>
+
+<div id="view-guide">
+  <nav class="guide-tabs" id="guideTabs">
+    <div class="wrap">
+      <ul>
+        <li><button data-target="g-route" class="active">路线图</button></li>
+        <li><button data-target="g-spells">技能全表</button></li>
+        <li><button data-target="g-build">天赋配点</button></li>
+        <li><button data-target="g-race">种族与专业</button></li>
+      </ul>
+      <button id="guideToggleAll" class="toggle-all">全部收起</button>
+    </div>
+  </nav>
+  <main class="wrap guide">
+
+    <div class="guide-intro">
+      <p>顺着 1–60 级往下走：去哪张图、几级拿什么技能、天赋怎么点都在本页；要抄一键宏去「宏命令」，想自己改配点去「天赋模拟」。</p>
+      <div class="quick-chips">
+        <button type="button" data-view="macros">宏命令速查</button>
+        <button type="button" data-view="talent">天赋模拟器</button>
+      </div>
+    </div>
+
+    <section class="g-section" id="g-route">
+      <button class="g-head" type="button">练级路线图 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <div class="g-body">
+        <p class="sub">按等级段往下翻：每段写这几级去哪张图、拿什么关键技能、天赋点在哪。战士联盟 / 部落都能玩，路线并列给出两边的图；新区域和任务密度以游戏内为准。</p>
+        <div class="route" id="guide-route"></div>
+      </div>
+    </section>
+
+    <section class="g-section" id="g-spells">
+      <button class="g-head" type="button">技能全表 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <div class="g-body">
+        <p class="sub">各等级首次可学的新技能；技能等级仍要在训练师处花钱提升，别只学一级就上路。</p>
+        <div class="card table-scroll">
+          <table>
+            <colgroup><col style="width:12%"><col style="width:31%"><col style="width:57%"></colgroup>
+            <thead><tr><th>等级</th><th>技能</th><th>用途 / 备注</th></tr></thead>
+            <tbody id="guide-spells"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="g-section" id="g-build">
+      <button class="g-head" type="button">天赋配点：武器 31 / 狂怒 20 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <div class="g-body">
+        <p class="sub">练级主武器：双手慢速武器 + 致死打击，单体和精英怪都稳；40 级武器系 31 点成型后转投狂怒，补暴击与怒气。想站桩清怪可以改防护复仇，见下面的替代方案。</p>
+
+        <div class="card">
+          <h3 style="margin-top:0">为什么是武器</h3>
+          <ul class="points">
+            <li><b>40 级致死打击</b>：武器系 31 点大招，单体最高，还带减疗，打精英和 PvP 都好用。</li>
+            <li><b>双手武器收益高</b>：武器大师、双手武器专精、穿刺都吃单次武器伤害，慢速高上限武器最划算。</li>
+            <li><b>双目标不虚</b>：横扫攻击配合顺劈斩 / 旋风斩，清两三个怪比防护快。</li>
+            <li><b>起手快</b>：强化冲锋、强化英勇打击、强化撕裂让前 20 级怒气更顺，不用一直等白字。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">替代方案：防护复仇</h3>
+          <ul class="points">
+            <li><b>核心</b>：防护系把盾牌专精、强化复仇点满，复仇伤害 +60%，格挡还能回怒；被围时站得住。</li>
+            <li><b>适合</b>：想站桩、要坦副本、懒得风筝的人；代价是单体慢，得靠挨打才有复仇可按。</li>
+            <li><b>怎么转</b>：40 级双天赋留一套防护，武器这套继续做野外主天赋；副本切防护，不必洗点。</li>
+            <li><b>别硬套</b>：防护练级在 20 级前很憋，盾牌专精和复仇都要点出来才成立。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">无限版的改动要点</h3>
+          <ul class="points">
+            <li><b>普攻暴击额外 100% 怒气</b>：白字暴击也回怒，练级期怒气明显比经典旧世顺。</li>
+            <li><b>20 级全体乘胜追击</b>：击杀后回血，战士终于有了稳定的战斗内续航。</li>
+            <li><b>雷霆一击可在防御姿态用</b>：坦克也能 AoE；各大冷却技能不再共享计时。</li>
+            <li><b>战术掌握 14 级可学</b>：切姿态最多保留 10 点怒气，拦截 / 斩杀 / 盾墙的切姿态成本低了。</li>
+            <li><b>天赋树每系 7 层</b>：每排需本系先投 5 点，60 级共 51 点，40 级开双天赋；部分节点是本版本新增或改动的。</li>
+          </ul>
+        </div>
+
+        <h3>逐级加点顺序</h3>
+        <div class="card table-scroll">
+          <table class="build-table">
+            <colgroup><col style="width:16%"><col style="width:84%"></colgroup>
+            <thead><tr><th>等级</th><th>加点</th></tr></thead>
+            <tbody>
+              <tr><td>10–19</td><td>武器 · 强化英勇打击 3/3 → 强化撕裂 3/3 → 强化冲锋 2/2 → 强化压制 2/2</td></tr>
+              <tr><td>20–29</td><td>武器 · 重伤 3/3 → 强化战术掌握 2/3 → 双手武器专精 3/3 → 穿刺 2/2</td></tr>
+              <tr><td>30–39</td><td>武器 · 横扫攻击 1/1 → 武器大师 5/5 → 强化战术掌握 补到 3/3 → 愤怒掌控 1/1 → 血之气息 2/2</td></tr>
+              <tr><td>40–49</td><td>武器 · 致死打击 1/1（31 点成型）→ 狂怒 · 残忍 5/5 → 怒不可遏 4/5</td></tr>
+              <tr><td>50–59</td><td>狂怒 · 怒不可遏 补到 5/5 → 震耳嗓音 2/5 → 血之狂热 3/3 → 狂怒 4/5</td></tr>
+              <tr><td>60</td><td>狂怒 · 狂怒 5/5（最终 武器 31 / 狂怒 20）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="build-note">
+          <b>天赋规则：</b>10 级拿第一点，每级一点，60 级共 51 点；每棵树每排解锁，需要在本系先投满 5 点/排；11 / 16 / 21 / 31 点是关键节点，部分节点在本版本新增或改动，模拟器图标提示里会标「新」「改」。40 级起可开双天赋，练级一套、副本一套。
+        </div>
+      </div>
+    </section>
+
+    <section class="g-section" id="g-race">
+      <button class="g-head" type="button">种族与专业 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <div class="g-body">
+        <p class="sub">《魔兽世界：无限》放开了种族职业组合，联盟和部落的种族都能当战士。种族技能独立于职业，下面按「能补什么」来看，没有唯一最优。</p>
+
+        <div class="card">
+          <h3 style="margin-top:0">种族怎么挑</h3>
+          <ul class="points">
+            <li><b>人类</b>：剑 / 锤专精让武器选择更宽，声望加成省时间；没有位移和硬减伤，靠操作。</li>
+            <li><b>矮人</b>：石像形态解流血、毒、疾病并加护甲，冰霜抗性；打带 debuff 的怪很舒服。</li>
+            <li><b>暗夜精灵</b>：影遁脱战、躲闪加成，野外被围时比别的种族多一条退路。</li>
+            <li><b>兽人</b>：血性狂暴加攻击强度，斧专精配斧头；抗晕在 PvP 很实用。</li>
+            <li><b>牛头人</b>：战争践踏群控，耐力加成；血多、控场强，适合当坦。</li>
+            <li><b>巨魔</b>：狂暴加攻速，再生回血，打野兽加伤害；练级续航略好。</li>
+            <li><b>亡灵（已放开）</b>：亡灵意志解恐惧 / 魅惑，食尸回血；战士怕恐惧，这条很值。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">专业怎么选</h3>
+          <ul class="points">
+            <li><b>采矿 + 锻造</b>：自己做武器和板甲，练级期省钱；锻造专精按你用的武器选，别选错。</li>
+            <li><b>采矿 + 工程</b>：炸弹、假人、加速器，假人能救命；PvP 和拉怪都好用，投入也高。</li>
+            <li><b>双采集（采矿 + 剥皮 / 草药）</b>：路上顺手采，攒钱买坐骑和技能书最实在。</li>
+            <li><b>急救</b>：绷带是战士少有的稳定回血手段，没治疗职业时必练；厚绒绷带常备。</li>
+            <li><b>烹饪 / 钓鱼</b>：食物 buff 加耐力和属性，钓鱼顺带赚钱，属于锦上添花。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">上手三句话</h3>
+          <ul class="points">
+            <li>冲锋开怪，撕裂挂上，英勇打击泄怒；怒气快满时别舍不得按。</li>
+            <li>战士没有自愈：打不过就撤，常备食物和绷带；20 级后靠乘胜追击减少坐地。</li>
+            <li>双手武器看秒伤，慢速高上限；练级别追防御装，力量和耐力优先。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /view-guide -->
+
+<div id="view-macros" hidden>
+<nav class="tabs" id="tabsNav">
+  <div class="wrap">
+    <ul id="tabs">
+      <li><button data-cat="all" class="active">全部</button></li>
+      <li><button data-cat="dps">输出与练级</button></li>
+      <li><button data-cat="stance">姿态与机动</button></li>
+      <li><button data-cat="tank">坦克与保命</button></li>
+      <li><button data-cat="util">实用</button></li>
+    </ul>
+    <button id="toggleAll" class="toggle-all">全部展开</button>
+  </div>
+</nav>
+<main class="wrap" id="list"></main>
+
+<section class="wrap">
+  <div class="howto" id="howtoBox">
+    <h2 class="howto-head" id="howtoHead">宏怎么放进游戏 <span class="caret" id="howtoCaret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></h2>
+    <ol>
+      <li>按 <code>Esc</code> → 打开「宏命令设置」→ 点「新建」，选个图标、起个名字。</li>
+      <li>把代码块里的内容整段复制粘贴进去。</li>
+      <li>以 <code>#showtooltip</code> 开头的行只控制动作条图标和提示，不执行动作。</li>
+      <li>把宏图标拖到动作条，打怪时点按即可。</li>
+      <li>指向类宏按「鼠标悬停目标 &gt; 当前目标 &gt; 自己」的顺序自动选人；撕裂、嘲讽这类指向技能尤其适合这样写。</li>
+    </ol>
+  </div>
+</section>
+</div><!-- /view-macros -->
+
+<div id="view-talent" hidden>
+<main class="wrap talent-wrap">
+  <div class="sim-frame">
+    <div class="sim-bar">
+      <span class="sim-stat">已用点数 <b id="tp-used">0</b> / 51</span>
+      <span class="sim-stat">对应等级 <b id="tp-level">10</b></span>
+      <span class="sim-stat tree-arms">武器 <b id="tp-arms">0</b></span>
+      <span class="sim-stat tree-fury">狂怒 <b id="tp-fury">0</b></span>
+      <span class="sim-stat tree-prot">防护 <b id="tp-prot">0</b></span>
+      <span class="spacer"></span>
+      <button class="btn primary" id="btn-preset">推荐配点</button>
+      <button class="btn" id="btn-reset">清空</button>
+    </div>
+    <div class="sim-cols" id="sim-cols">
+      <div class="tree arms" data-tree="arms">
+        <div class="tree-head"><span class="tree-name">武器</span><span class="tree-pts"><b>0</b> 点</span></div>
+        <div class="tree-body" id="body-arms"><svg class="tree-lines"></svg></div>
+      </div>
+      <div class="tree fury" data-tree="fury">
+        <div class="tree-head"><span class="tree-name">狂怒</span><span class="tree-pts"><b>0</b> 点</span></div>
+        <div class="tree-body" id="body-fury"><svg class="tree-lines"></svg></div>
+      </div>
+      <div class="tree prot" data-tree="prot">
+        <div class="tree-head"><span class="tree-name">防护</span><span class="tree-pts"><b>0</b> 点</span></div>
+        <div class="tree-body" id="body-prot"><svg class="tree-lines"></svg></div>
+      </div>
+    </div>
+    <div class="sim-legend">
+      <span><i style="background:#AAD372"></i>已点亮</span>
+      <span><i style="background:#6B5330"></i>可加点</span>
+      <span><i style="background:#4A3A22"></i>未解锁</span>
+      <span>角标数字 = 推荐配点的投入顺序</span>
+    </div>
+    <p class="sim-note">点击图标加一点，右键或 Shift+点击退一点。每排需要在本系先投满 5 点/排；有前置的天赋要先把父天赋点到要求等级。连线只表示前置关系，不是每个天赋都相连。11 / 16 / 21 / 31 点是关键节点；悬停图标可看「新」「改」标记。</p>
+  </div>
+</main>
+</div><!-- /view-talent -->
+
+<footer class="wrap">
+  <p>本页面为玩家自制非官方工具，与暴雪娱乐 / 网易无关。技能等级、天赋列位按《魔兽世界：无限》客户端数据整理；路线、掉落与数值标注「待核」处请以游戏内实测为准。</p>
+  <p class="feedback-line">战士 · 1–60 练级笔记</p>
+</footer>
+
+<script>
+  var ROUTES = [{"lv": "1–9", "seg": "起步", "title": "怒气从零开始", "tag": "联盟 / 部落各自的新手区，先把姿态和开怪手法练顺。", "blocks": [{"tag": "去哪", "items": [{"text": "联盟：艾尔文森林、丹莫罗、泰达希尔；部落：杜隆塔尔、莫高雷、提瑞斯法林地。跟着新手任务链走到 10 级，别跳图。"}]}, {"tag": "技能", "items": [{"text": "1 级 英勇打击 / 战斗怒吼 / 战斗姿态；4 级 冲锋、撕裂；6 级 雷霆一击；8 级 断筋。"}]}, {"tag": "打法", "items": [{"text": "冲锋开怪 → 撕裂（耐打的怪）→ 英勇打击泄怒。断筋防止逃跑；两只以上用雷霆一击。"}]}, {"tag": "装备", "items": [{"text": "双手武器优先看秒伤和上限，慢速高上限更适合英勇与压制；护甲选力量 + 耐力，锁甲皮甲都能穿。"}]}]}, {"lv": "10–19", "seg": "天赋开局", "title": "防御姿态与压制", "tag": "10 级拿第一点天赋，同时学会坦克工具；副本从怒焰 / 哀嚎开始。", "blocks": [{"tag": "去哪", "items": [{"text": "联盟：西部荒野、洛克莫丹、赤脊山；部落：贫瘠之地、银松森林、石爪山。"}, {"text": "副本：怒焰裂谷 13–18、哀嚎洞穴 17–24、死亡矿井 17–24、影牙城堡 18–25。"}]}, {"tag": "技能", "items": [{"text": "10 防御姿态、嘲讽、破甲攻击、血性狂暴；12 盾击、压制；14 复仇、战术掌握、挫志怒吼；16 盾牌格挡、惩戒痛击；18 缴械。"}]}, {"tag": "天赋", "items": [{"text": "武器 · 强化英勇打击 3/3 → 强化撕裂 3/3 → 强化冲锋 2/2 → 强化压制 2/2。"}]}, {"tag": "打法", "items": [{"text": "目标躲闪后立刻压制；副本当坦就切防御姿态、叠破甲、复仇亮就按。"}, {"text": "战术掌握 14 级就有，切姿态最多保留 10 点怒气，别在满怒时切。"}]}]}, {"lv": "20–29", "seg": "AoE 与续航", "title": "乘胜追击改变节奏", "tag": "20 级起每次击杀都能回血，坐地次数明显变少。", "blocks": [{"tag": "去哪", "items": [{"text": "联盟：赤脊山、暮色森林、湿地；部落：贫瘠之地、石爪山、希尔斯布莱德丘陵。"}, {"text": "副本：黑暗深渊 20–27、剃刀沼泽 25–33、诺莫瑞根 25–33。"}]}, {"tag": "技能", "items": [{"text": "20 乘胜追击、顺劈斩、猛击；22 破胆怒吼；24 斩杀；26 挑战怒吼、冲锋 2 级；28 盾墙、雷霆一击 3 级。"}]}, {"tag": "天赋", "items": [{"text": "武器 · 重伤 3/3 → 强化战术掌握 2/3 → 双手武器专精 3/3 → 穿刺 2/2。"}]}, {"tag": "打法", "items": [{"text": "先杀一个小怪触发乘胜追击回血，再打大的；两只一起顺劈斩，20% 以下用斩杀。"}, {"text": "破胆怒吼当控场或逃跑，注意别把怪吼进另一堆。"}]}]}, {"lv": "30–39", "seg": "姿态齐全", "title": "狂暴姿态与旋风斩", "tag": "30 级三姿态齐全，机动和 AoE 都上来了。", "blocks": [{"tag": "去哪", "items": [{"text": "荆棘谷、阿拉希高地、凄凉之地；副本：血色修道院 30–40、剃刀高地 35–45、奥达曼 35–45。"}]}, {"tag": "技能", "items": [{"text": "30 狂暴姿态、拦截、狂暴之怒；32–34 各技能升级（复仇 3 级等）；36 旋风斩；38 拳击。"}]}, {"tag": "天赋", "items": [{"text": "武器 · 横扫攻击 1/1 → 武器大师 5/5 → 强化战术掌握 补到 3/3 → 愤怒掌控 1/1 → 血之气息 2/2。"}]}, {"tag": "打法", "items": [{"text": "3 个以上目标：横扫攻击 + 顺劈斩 / 旋风斩；拦截追逃跑的怪；拳击打断施法。"}, {"text": "被围先雷霆一击再旋风斩，别站原地硬吃。"}]}]}, {"lv": "40–49", "seg": "武器成型", "title": "致死打击与双天赋", "tag": "40 级点出致死打击，武器系 31 点成型，同时开双天赋。", "blocks": [{"tag": "去哪", "items": [{"text": "塔纳利斯、菲拉斯、荒芜之地、辛特兰；副本：祖尔法拉克 40–50、玛拉顿 40–50、黑石深渊 48–60。"}]}, {"tag": "技能", "items": [{"text": "40 致死打击（天赋）、双天赋；42 拦截 2 级；44 压制 3 级；46 猛击 4 级；48 嗜血、盾牌猛击、致死打击 2 级。"}]}, {"tag": "天赋", "items": [{"text": "武器 · 致死打击 1/1（31 点成型）→ 狂怒 · 残忍 5/5 → 怒不可遏 4/5。"}]}, {"tag": "打法", "items": [{"text": "致死打击保持减疗，单目标优先级最高；打副本换第二套防护天赋。"}, {"text": "48 级后技能变多，动作条要重排，把常用技能放顺手的位置。"}]}]}, {"lv": "50–60", "seg": "收尾", "title": "鲁莽爆发与满级准备", "tag": "最后 10 级把狂怒补满，顺手把武器技能和防御技能练满。", "blocks": [{"tag": "去哪", "items": [{"text": "安戈洛环形山、费伍德森林、东 / 西瘟疫之地、冬泉谷、希利苏斯；副本：通灵学院、斯坦索姆、厄运之槌、黑石塔。"}]}, {"tag": "技能", "items": [{"text": "50 鲁莽；52–58 各技能升级；60 满级技能（英勇 9、致死 4、嗜血 4 等）。"}]}, {"tag": "天赋", "items": [{"text": "狂怒 · 怒不可遏 补到 5/5 → 震耳嗓音 2/5 → 血之狂热 3/3 → 狂怒 5/5；最终 武器 31 / 狂怒 20。"}]}, {"tag": "打法", "items": [{"text": "鲁莽 + 饰品做爆发；长时间战斗注意怒气不要溢出。"}, {"text": "满级前把武器技能练到 300，防御技能也别落下，副本进门槛会看。"}]}]}];
+
+  var SKILLS = [["1", "英勇打击 / 战斗怒吼 / 战斗姿态", "英勇打击是主要泄怒技；战斗怒吼常驻；战斗姿态是默认输出姿态。"], ["4", "冲锋 / 撕裂", "冲锋起手并生成怒气；撕裂给耐打的怪挂持续伤害。"], ["6", "雷霆一击", "多目标起手 AoE，本版本防御姿态也能用。"], ["8", "断筋", "减速防逃跑，PvP 和追怪都用。"], ["10", "防御姿态 / 嘲讽 / 破甲攻击 / 血性狂暴", "坦副本的基础；破甲叠 5 层；血性狂暴用最大生命换怒气。"], ["12", "盾击 / 压制", "盾击打断施法；目标躲闪后压制亮，优先按。"], ["14", "复仇 / 战术掌握 / 挫志怒吼", "复仇是防御姿态主力；战术掌握切姿态保留怒气；挫志降攻。"], ["16", "盾牌格挡 / 惩戒痛击", "格挡提高生存；惩戒痛击是应急仇恨。"], ["18", "缴械", "对武器怪很有效，PvP 也能用。"], ["20", "乘胜追击 / 顺劈斩 / 猛击", "击杀后回血，练级续航关键；顺劈双目标；猛击是读条填充。"], ["22", "破胆怒吼", "群体恐惧，控场或逃跑；怪会乱跑，注意别 add。"], ["24", "斩杀", "20% 以下高伤害，怒气越多伤害越高。"], ["26", "挑战怒吼 / 冲锋 2 级", "群体嘲讽应急；冲锋升级。"], ["28", "盾墙 / 雷霆一击 3 级", "盾墙是坦克最后底牌；雷霆升级。"], ["30", "狂暴姿态 / 拦截 / 狂暴之怒", "三姿态齐全；拦截近身；狂暴之怒解恐惧 / 闷棍并加怒。"], ["36", "旋风斩", "双手武器 AoE 核心，3 个以上目标用。"], ["38", "拳击", "狂暴姿态打断，和盾击二选一。"], ["40", "致死打击（天赋）/ 双天赋", "武器系大招，单体核心；40 级开第二套天赋。"], ["48", "嗜血 / 盾牌猛击 / 致死打击 2 级", "嗜血是狂怒系大招；盾牌猛击是防护核心；技能开始变多。"], ["50", "鲁莽", "爆发技能，配合饰品和爆发药。"], ["60", "满级技能", "英勇 9、致死 4、嗜血 4、复仇 6、盾牌猛击 4 等，记得回训练师。"]];
+
+  var CATS = {"dps": "输出与练级", "stance": "姿态与机动", "tank": "坦克与保命", "util": "实用"};
+
+  var MACROS = [{"cat": "dps", "name": "英勇打击 + 自动攻击", "desc": "按技能的同时开启自动攻击，避免空放。", "code": ["#showtooltip 英勇打击", "/startattack", "/cast 英勇打击"]}, {"cat": "dps", "name": "乘胜追击 + 自动攻击", "desc": "击杀后回血，并继续自动攻击；练级时在两个敌人之间用最划算。", "code": ["#showtooltip 乘胜追击", "/startattack", "/cast 乘胜追击"], "note": "20 级起所有战士都能学；经典旧世没有这个技能。"}, {"cat": "dps", "name": "顺劈斩 / 英勇打击", "desc": "单目标用英勇打击，按住 Shift 对多个敌人用顺劈斩。", "code": ["#showtooltip", "/startattack", "/cast [mod:shift] 顺劈斩; 英勇打击"]}, {"cat": "dps", "name": "任意姿态雷霆一击", "desc": "不在战斗姿态时先切姿态，再放雷霆一击；适合多目标起手。", "code": ["#showtooltip 雷霆一击", "/cast [stance:1] 雷霆一击; 战斗姿态"]}, {"cat": "dps", "name": "鼠标指向撕裂", "desc": "对鼠标指向的敌人挂撕裂，不用改当前目标。", "code": ["#showtooltip", "/cast [@mouseover,harm,nodead][] 撕裂"]}, {"cat": "dps", "name": "压制", "desc": "不在战斗姿态时先切姿态；目标躲闪后按。", "code": ["#showtooltip", "/cast [stance:1] 压制; 战斗姿态"]}, {"cat": "stance", "name": "冲锋或拦截", "desc": "非战斗时冲锋，战斗中拦截；需要时自动切姿态。", "code": ["#showtooltip", "/cast [nocombat,stance:1] 冲锋; [combat,stance:3] 拦截; [nocombat] 战斗姿态; 狂暴姿态"]}, {"cat": "stance", "name": "任意姿态斩杀", "desc": "防御姿态下先切狂暴姿态；斩杀只能在战斗 / 狂暴姿态用。", "code": ["#showtooltip 斩杀", "/cast [stance:2] 狂暴姿态; 斩杀"]}, {"cat": "stance", "name": "任意姿态拦截", "desc": "必要时切狂暴姿态并拦截目标。", "code": ["#showtooltip 拦截", "/cast [stance:3] 拦截; 狂暴姿态"], "note": "本版本战术掌握 14 级就有，切姿态最多保留 10 点怒气。"}, {"cat": "stance", "name": "断筋 + 自动攻击", "desc": "给目标减速；防御姿态下第一次按会切战斗姿态。", "code": ["#showtooltip 断筋", "/startattack", "/cast [stance:2] 战斗姿态; 断筋"]}, {"cat": "stance", "name": "任意姿态缴械", "desc": "必要时切防御姿态并缴械目标。", "code": ["#showtooltip 缴械", "/cast [stance:2] 缴械; 防御姿态"]}, {"cat": "tank", "name": "嘲讽", "desc": "不在防御姿态时先切姿态，再嘲讽。", "code": ["#showtooltip", "/cast [stance:2] 嘲讽; 防御姿态"]}, {"cat": "tank", "name": "鼠标指向嘲讽", "desc": "优先嘲讽鼠标指向的敌人，否则嘲讽当前目标。", "code": ["#showtooltip 嘲讽", "/cast [stance:2,@mouseover,harm,nodead][stance:2] 嘲讽; 防御姿态"]}, {"cat": "tank", "name": "破甲攻击 + 自动攻击", "desc": "坦克一键叠破甲，同时保持自动攻击。", "code": ["#showtooltip 破甲攻击", "/startattack", "/cast 破甲攻击"]}, {"cat": "tank", "name": "任意姿态盾墙", "desc": "紧急按键：必要时切防御姿态并开盾墙。", "code": ["#showtooltip 盾墙", "/cast [stance:2] 盾墙; 防御姿态"]}, {"cat": "tank", "name": "任意姿态打断", "desc": "狂暴姿态下拳击，否则盾击。", "code": ["#showtooltip", "/cast [stance:3] 拳击; 盾击"]}, {"cat": "util", "name": "积攒怒气", "desc": "狂暴姿态下用狂暴之怒，否则用血性狂暴；急需怒气时按。", "code": ["#showtooltip", "/cast [stance:3] 狂暴之怒; 血性狂暴"]}, {"cat": "util", "name": "鲁莽 + 饰品", "desc": "狂暴姿态下同时用上方饰品（栏位 13）和鲁莽，否则切狂暴姿态。", "code": ["#showtooltip 鲁莽", "/use [stance:3] 13", "/cast [stance:3] 鲁莽; 狂暴姿态"]}];
+
+  var TALENTS = [{"id": 124, "tree": "arms", "row": 0, "col": 0, "max": 3, "name": "强化英勇打击", "parent": 0, "parentRank": 0, "d1": "使你的英勇打击消耗的怒气减少1点。", "dn": "使你的英勇打击消耗的怒气减少3点。", "icon": "ability_rogue_ambush", "flag": null}, {"id": 130, "tree": "arms", "row": 0, "col": 1, "max": 5, "name": "偏斜", "parent": 0, "parentRank": 0, "d1": "使你的招架几率提高1%。", "dn": "使你的招架几率提高5%。", "icon": "ability_parry", "flag": null}, {"id": 127, "tree": "arms", "row": 0, "col": 2, "max": 3, "name": "强化撕裂", "parent": 0, "parentRank": 0, "d1": "使你的撕裂技能造成的流血伤害提高12%。", "dn": "使你的撕裂技能造成的流血伤害提高35%。", "icon": "ability_gouge", "flag": null}, {"id": 126, "tree": "arms", "row": 1, "col": 0, "max": 2, "name": "强化冲锋", "parent": 0, "parentRank": 0, "d1": "使你的冲锋技能产生的怒气提高3点。", "dn": "使你的冲锋技能产生的怒气提高6点。", "icon": "ability_warrior_charge", "flag": null}, {"id": 641, "tree": "arms", "row": 1, "col": 1, "max": 3, "name": "强化战术掌握", "parent": 0, "parentRank": 0, "d1": "战术掌握使你在改变姿态时最多额外保留5点怒气。", "dn": "战术掌握使你在改变姿态时最多额外保留9点怒气。", "icon": "spell_nature_enchantarmor", "flag": "changed"}, {"id": 131, "tree": "arms", "row": 1, "col": 3, "max": 2, "name": "强化压制", "parent": 0, "parentRank": 0, "d1": "使你的压制技能造成爆击的几率提高25%。", "dn": "使你的压制技能造成爆击的几率提高50%。", "icon": "inv_sword_05", "flag": "changed"}, {"id": 137, "tree": "arms", "row": 2, "col": 1, "max": 1, "name": "愤怒掌控", "parent": 641, "parentRank": 3, "d1": "在战斗中每3秒获得1点怒气，并使脱战怒气衰减降低30%。", "dn": "在战斗中每3秒获得1点怒气，并使脱战怒气衰减降低30%。", "icon": "spell_holy_blessingofstamina", "flag": null}, {"id": 121, "tree": "arms", "row": 2, "col": 2, "max": 3, "name": "重伤", "parent": 127, "parentRank": 3, "d1": "你的爆击会使对手流血，在12秒内造成相当于你近战武器平均伤害20%的伤害。", "dn": "你的爆击会使对手流血，在12秒内造成相当于你近战武器平均伤害60%的伤害。", "icon": "ability_backstab", "flag": null}, {"id": 105949, "tree": "arms", "row": 3, "col": 0, "max": 1, "name": "穿刺打击", "parent": 0, "parentRank": 0, "d1": "一次残忍的攻击，造成75%的武器伤害。对巨人、龙类以及骑乘状态下的目标额外造成75%的武器伤害。骑乘状态下的目标会被迫下马。", "dn": "一次残忍的攻击，造成75%的武器伤害。对巨人、龙类以及骑乘状态下的目标额外造成75%的武器伤害。骑乘状态下的目标会被迫下马。", "icon": "inv_spear_01", "flag": "new"}, {"id": 136, "tree": "arms", "row": 3, "col": 1, "max": 3, "name": "双手武器专精", "parent": 0, "parentRank": 0, "d1": "使你的双手近战武器造成的伤害提高2%。", "dn": "使你的双手近战武器造成的伤害提高6%。", "icon": "inv_axe_09", "flag": "changed"}, {"id": 662, "tree": "arms", "row": 3, "col": 2, "max": 2, "name": "穿刺", "parent": 121, "parentRank": 3, "d1": "使你的技能爆击伤害加成提高10%。", "dn": "使你的技能爆击伤害加成提高20%。", "icon": "ability_searingarrow", "flag": null}, {"id": 110524, "tree": "arms", "row": 4, "col": 0, "max": 2, "name": "血之气息", "parent": 0, "parentRank": 0, "d1": "对受你撕裂影响的敌人使用主手武器发动近战攻击时，有10%的几率激活压制。", "dn": "对受你撕裂影响的敌人使用主手武器发动近战攻击时，有20%的几率激活压制。", "icon": "inv_sword_01", "flag": "new"}, {"id": 133, "tree": "arms", "row": 4, "col": 1, "max": 1, "name": "横扫攻击", "parent": 0, "parentRank": 0, "d1": "你在接下来的5次近战攻击中可以攻击到一个额外的敌人。", "dn": "你在接下来的5次近战攻击中可以攻击到一个额外的敌人。", "icon": "ability_rogue_slicedice", "flag": null}, {"id": 105944, "tree": "arms", "row": 4, "col": 2, "max": 5, "name": "武器大师", "parent": 0, "parentRank": 0, "d1": "根据你所使用的武器，为你的近战武器攻击提供一定的加成效果。 斧/长柄武器：使你的 爆击几率提高1%。 锤/法杖：你的攻击忽略 目标3%的护甲值。 剑：你成功的近战 攻击有1%的几率对目标 造成一次额外的 攻击。", "dn": "根据你所使用的武器，为你的近战武器攻击提供一定的加成效果。 斧/长柄武器：使你的 爆击几率提高5%。 锤/法杖：你的攻击忽略 目标15%的护甲值。 剑：你成功的近战 攻击有5%的几率对目标 造成一次额外的 攻击。", "icon": "garrison_weaponupgrade", "flag": "new"}, {"id": 168, "tree": "arms", "row": 5, "col": 0, "max": 2, "name": "强化猛击", "parent": 0, "parentRank": 0, "d1": "使你的猛击技能的冷却时间缩短2.5秒，施法时间和公共冷却时间缩短0.2秒，且猛击不再打断或延迟你的近战挥击计时。", "dn": "使你的猛击技能的冷却时间缩短5秒，施法时间和公共冷却时间缩短0.5秒，且猛击不再打断或延迟你的近战挥击计时。", "icon": "ability_warrior_decisivestrike", "flag": "changed"}, {"id": 129, "tree": "arms", "row": 5, "col": 2, "max": 3, "name": "强化断筋", "parent": 0, "parentRank": 0, "d1": "使你的断筋技能有5%的几率令目标无法移动，持续5秒。", "dn": "使你的断筋技能有15%的几率令目标无法移动，持续5秒。", "icon": "ability_shockwave", "flag": null}, {"id": 135, "tree": "arms", "row": 6, "col": 1, "max": 1, "name": "致死打击", "parent": 133, "parentRank": 1, "d1": "一次邪恶的攻击，对目标造成武器伤害外加85点伤害，并使任何形式的治疗对其产生的效果降低50%，持续10秒。", "dn": "一次邪恶的攻击，对目标造成武器伤害外加85点伤害，并使任何形式的治疗对其产生的效果降低50%，持续10秒。", "icon": "ability_warrior_savageblow", "flag": null}, {"id": 158, "tree": "fury", "row": 0, "col": 1, "max": 5, "name": "震耳嗓音", "parent": 0, "parentRank": 0, "d1": "你的怒吼技能的范围扩大10%，怒吼和嚎叫技能的怒气消耗降低5%。", "dn": "你的怒吼技能的范围扩大50%，怒吼和嚎叫技能的怒气消耗降低25%。", "icon": "spell_nature_purge", "flag": null}, {"id": 157, "tree": "fury", "row": 0, "col": 2, "max": 5, "name": "残忍", "parent": 0, "parentRank": 0, "d1": "使你的近战攻击造成爆击的几率提高1%。", "dn": "使你的近战攻击造成爆击的几率提高5%。", "icon": "ability_rogue_eviscerate", "flag": null}, {"id": 110857, "tree": "fury", "row": 1, "col": 1, "max": 5, "name": "余怒未消", "parent": 0, "parentRank": 0, "d1": "使你脱离战斗后怒气开始衰减的时间延后2秒。", "dn": "使你脱离战斗后怒气开始衰减的时间延后10秒。", "icon": "ability_warrior_secondwind", "flag": "new"}, {"id": 159, "tree": "fury", "row": 1, "col": 2, "max": 5, "name": "怒不可遏", "parent": 0, "parentRank": 0, "d1": "使你有12%的几率在使用武器造成近战伤害后额外获得1点怒气。", "dn": "使你有60%的几率在使用武器造成近战伤害后额外获得1点怒气。", "icon": "spell_nature_stoneclawtotem", "flag": null}, {"id": 105953, "tree": "fury", "row": 2, "col": 0, "max": 3, "name": "狂怒精准", "parent": 0, "parentRank": 0, "d1": "使你的副手攻击命中几率提高4%。", "dn": "使你的副手攻击命中几率提高10%。", "icon": "ability_warrior_incite", "flag": "new"}, {"id": 160, "tree": "fury", "row": 2, "col": 1, "max": 1, "name": "刺耳怒吼", "parent": 0, "parentRank": 0, "d1": "使周围0码内的所有敌人眩晕，移动速度降低50%，持续6秒。", "dn": "使周围0码内的所有敌人眩晕，移动速度降低50%，持续6秒。", "icon": "spell_shadow_deathscream", "flag": null}, {"id": 661, "tree": "fury", "row": 2, "col": 2, "max": 3, "name": "血之狂热", "parent": 0, "parentRank": 0, "d1": "受到爆击，或单次攻击使你损失超过20%的最大生命值后，在6秒内恢复总生命值的1%。", "dn": "受到爆击，或单次攻击使你损失超过20%的最大生命值后，在6秒内恢复总生命值的3%。", "icon": "spell_shadow_summonimp", "flag": null}, {"id": 155, "tree": "fury", "row": 2, "col": 3, "max": 5, "name": "狂怒", "parent": 0, "parentRank": 0, "d1": "使你在遭受任何伤害性攻击后，有30%的几率使你造成的物理伤害提高2%，持续12秒。", "dn": "使你在遭受任何伤害性攻击后，有30%的几率使你造成的物理伤害提高10%，持续12秒。", "icon": "spell_shadow_unholyfrenzy", "flag": "changed"}, {"id": 1581, "tree": "fury", "row": 3, "col": 0, "max": 5, "name": "双武器专精", "parent": 0, "parentRank": 0, "d1": "使你的副手武器造成的伤害提高5%，副手攻击产生的怒气提高10%。", "dn": "使你的副手武器造成的伤害提高25%，副手攻击产生的怒气提高50%。", "icon": "ability_dualwield", "flag": null}, {"id": 113636, "tree": "fury", "row": 3, "col": 1, "max": 1, "name": "鲁莽挥击", "parent": 0, "parentRank": 0, "d1": "你接下来的4次近战攻击每次额外产生5点怒气，持续8秒。", "dn": "你接下来的4次近战攻击每次额外产生5点怒气，持续8秒。", "icon": "ability_warrior_bloodfrenzy", "flag": "new"}, {"id": 1542, "tree": "fury", "row": 3, "col": 3, "max": 2, "name": "强化斩杀", "parent": 0, "parentRank": 0, "d1": "使你的斩杀技能的怒气值消耗减少3点。", "dn": "使你的斩杀技能的怒气值消耗减少5点。", "icon": "inv_sword_48", "flag": null}, {"id": 1541, "tree": "fury", "row": 4, "col": 0, "max": 2, "name": "强化狂暴之怒", "parent": 0, "parentRank": 0, "d1": "你的狂暴之怒激活时会立即获得5点怒气，并有50%的几率移除所有移动限制效果。", "dn": "你的狂暴之怒激活时会立即获得10点怒气，并有100%的几率移除所有移动限制效果。", "icon": "spell_nature_ancestralguardian", "flag": "changed"}, {"id": 165, "tree": "fury", "row": 4, "col": 1, "max": 1, "name": "死亡之愿", "parent": 0, "parentRank": 0, "d1": "激活后，你造成的物理伤害提高20%，并免疫恐惧效果，但受到的所有伤害提高5%。持续30秒。", "dn": "激活后，你造成的物理伤害提高20%，并免疫恐惧效果，但受到的所有伤害提高5%。持续30秒。", "icon": "spell_shadow_deathpact", "flag": null}, {"id": 113569, "tree": "fury", "row": 4, "col": 2, "max": 2, "name": "饮血者", "parent": 661, "parentRank": 3, "d1": "你的狂怒、狂暴之怒、血性狂暴、死亡之愿、鲁莽挥击以及嗜血技能使你接下来的3次近战攻击恢复你0.5%的最大生命值。", "dn": "你的狂怒、狂暴之怒、血性狂暴、死亡之愿、鲁莽挥击以及嗜血技能使你接下来的3次近战攻击恢复你1%的最大生命值。", "icon": "racial_troll_berserk", "flag": "new"}, {"id": 1543, "tree": "fury", "row": 4, "col": 3, "max": 2, "name": "强化拦截", "parent": 0, "parentRank": 0, "d1": "使你的拦截技能的冷却时间减少5秒。", "dn": "使你的拦截技能的冷却时间减少10秒。", "icon": "ability_rogue_sprint", "flag": null}, {"id": 105977, "tree": "fury", "row": 5, "col": 0, "max": 2, "name": "强化旋风斩", "parent": 0, "parentRank": 0, "d1": "使你的旋风斩技能的冷却时间缩短1秒，对距离最近的敌人造成的伤害提高15%。", "dn": "使你的旋风斩技能的冷却时间缩短2秒，对距离最近的敌人造成的伤害提高30%。", "icon": "ability_whirlwind", "flag": "new"}, {"id": 156, "tree": "fury", "row": 5, "col": 2, "max": 3, "name": "乱舞", "parent": 0, "parentRank": 0, "d1": "近战攻击造成爆击后，使你接下来的3次攻击的近战攻击速度提高10%。", "dn": "近战攻击造成爆击后，使你接下来的3次攻击的近战攻击速度提高15%。", "icon": "ability_ghoulfrenzy", "flag": "changed"}, {"id": 167, "tree": "fury", "row": 6, "col": 1, "max": 1, "name": "嗜血", "parent": 165, "parentRank": 1, "d1": "立即攻击目标，造成相当于攻击强度45%外加30点的伤害，并使移动速度提高10%，持续10秒。", "dn": "立即攻击目标，造成相当于攻击强度45%外加30点的伤害，并使移动速度提高10%，持续10秒。", "icon": "spell_nature_bloodlust", "flag": null}, {"id": 142, "tree": "prot", "row": 0, "col": 0, "max": 2, "name": "强化血性狂暴", "parent": 0, "parentRank": 0, "d1": "使你的血性狂暴技能产生的所有怒气提高25%。", "dn": "使你的血性狂暴技能产生的所有怒气提高50%。", "icon": "ability_racial_bloodrage", "flag": "changed"}, {"id": 1601, "tree": "prot", "row": 0, "col": 1, "max": 5, "name": "盾牌专精", "parent": 0, "parentRank": 0, "d1": "使你用盾牌格挡攻击的几率提高1%，并使你在格挡时有20%的几率产生5点怒气。", "dn": "使你用盾牌格挡攻击的几率提高5%，并使你在格挡时有100%的几率产生5点怒气。", "icon": "inv_shield_06", "flag": null}, {"id": 113570, "tree": "prot", "row": 0, "col": 2, "max": 5, "name": "钢铁意志", "parent": 0, "parentRank": 0, "d1": "使你受到的昏迷和恐惧效果的持续时间缩短3%。", "dn": "使你受到的昏迷和恐惧效果的持续时间缩短15%。", "icon": "spell_magic_magearmor", "flag": "new"}, {"id": 138, "tree": "prot", "row": 1, "col": 0, "max": 5, "name": "预知", "parent": 0, "parentRank": 0, "d1": "使你的防御技能提高4点。", "dn": "使你的防御技能提高20点。", "icon": "spell_nature_mirrorimage", "flag": "changed"}, {"id": 147, "tree": "prot", "row": 1, "col": 2, "max": 3, "name": "强化复仇", "parent": 0, "parentRank": 0, "d1": "使你的复仇技能造成的伤害提高20%。", "dn": "使你的复仇技能造成的伤害提高60%。", "icon": "ability_warrior_revenge", "flag": "changed"}, {"id": 128, "tree": "prot", "row": 1, "col": 3, "max": 3, "name": "强化雷霆一击", "parent": 0, "parentRank": 0, "d1": "使你的雷霆一击技能消耗的怒气减少2点。", "dn": "使你的雷霆一击技能消耗的怒气减少6点。", "icon": "ability_thunderclap", "flag": "changed"}, {"id": 153, "tree": "prot", "row": 2, "col": 0, "max": 1, "name": "破釜沉舟", "parent": 0, "parentRank": 0, "d1": "激活后，该技能会使你暂时获得相当于最大生命值30%的生命值，持续20秒。效果结束后会失去这些生命值。", "dn": "激活后，该技能会使你暂时获得相当于最大生命值30%的生命值，持续20秒。效果结束后会失去这些生命值。", "icon": "spell_holy_ashestoashes", "flag": null}, {"id": 105971, "tree": "prot", "row": 2, "col": 1, "max": 2, "name": "防御大师", "parent": 1601, "parentRank": 5, "d1": "使你有50%的几率在装备盾牌并躲闪或招架时产生5点怒气。", "dn": "使你有100%的几率在装备盾牌并躲闪或招架时产生5点怒气。", "icon": "ability_warrior_shieldguard", "flag": "new"}, {"id": 151, "tree": "prot", "row": 2, "col": 2, "max": 3, "name": "强化缴械", "parent": 0, "parentRank": 0, "d1": "使你的缴械技能冷却时间缩短7秒。", "dn": "使你的缴械技能冷却时间缩短20秒。", "icon": "ability_warrior_disarm", "flag": "changed"}, {"id": 110856, "tree": "prot", "row": 2, "col": 3, "max": 3, "name": "挑衅", "parent": 0, "parentRank": 0, "d1": "说明尚未经游戏内核对", "dn": "说明尚未经游戏内核对", "icon": "ability_warrior_innerrage", "flag": "new"}, {"id": 146, "tree": "prot", "row": 3, "col": 0, "max": 3, "name": "强化破甲攻击", "parent": 0, "parentRank": 0, "d1": "使你的破甲攻击消耗的怒气减少1点。", "dn": "使你的破甲攻击消耗的怒气减少3点。", "icon": "ability_warrior_sunder", "flag": null}, {"id": 105966, "tree": "prot", "row": 3, "col": 1, "max": 1, "name": "先锋", "parent": 0, "parentRank": 0, "d1": "你的冲锋技能现在可以在防御姿态下使用。", "dn": "你的冲锋技能现在可以在防御姿态下使用。", "icon": "ability_warrior_shieldcharge", "flag": "new"}, {"id": 149, "tree": "prot", "row": 3, "col": 2, "max": 2, "name": "强化盾击", "parent": 0, "parentRank": 0, "d1": "使你的盾击技能有50%的几率令目标沉默3秒。", "dn": "使你的盾击技能有100%的几率令目标沉默3秒。", "icon": "ability_warrior_shieldbash", "flag": "changed"}, {"id": 150, "tree": "prot", "row": 4, "col": 0, "max": 2, "name": "强化盾墙", "parent": 0, "parentRank": 0, "d1": "使你的盾墙技能的冷却时间缩短5.5分钟。", "dn": "使你的盾墙技能的冷却时间缩短11分钟。", "icon": "ability_warrior_shieldwall", "flag": null}, {"id": 152, "tree": "prot", "row": 4, "col": 1, "max": 1, "name": "震荡猛击", "parent": 0, "parentRank": 0, "d1": "使目标昏迷，持续5秒。", "dn": "使目标昏迷，持续5秒。", "icon": "ability_thunderbolt", "flag": null}, {"id": 105961, "tree": "prot", "row": 4, "col": 2, "max": 3, "name": "怒火聚焦", "parent": 0, "parentRank": 0, "d1": "使你的进攻技能消耗的怒气降低1点。", "dn": "使你的进攻技能消耗的怒气降低3点。", "icon": "ability_warrior_focusedrage", "flag": "new"}, {"id": 702, "tree": "prot", "row": 5, "col": 2, "max": 5, "name": "坚城", "parent": 0, "parentRank": 0, "d1": "装备盾牌时，你造成的所有伤害提高2%。", "dn": "装备盾牌时，你造成的所有伤害提高10%。", "icon": "inv_shield_04", "flag": null}, {"id": 148, "tree": "prot", "row": 6, "col": 1, "max": 1, "name": "盾牌猛击", "parent": 152, "parentRank": 1, "d1": "用盾牌猛击目标，造成430点伤害，该伤害受格挡值加成，并有50%的几率驱散目标身上的1个魔法效果。产生极高的威胁。", "dn": "用盾牌猛击目标，造成430点伤害，该伤害受格挡值加成，并有50%的几率驱散目标身上的1个魔法效果。产生极高的威胁。", "icon": "inv_shield_05", "flag": null}];
+</script>
+
+<script>
+(function(){
+  var viewButtons = document.querySelectorAll("button[data-view]");
+  var navButtons = document.querySelectorAll("nav.viewnav button");
+  var views = {guide:document.getElementById("view-guide"), macros:document.getElementById("view-macros"), talent:document.getElementById("view-talent")};
+
+  function switchView(name){
+    Object.keys(views).forEach(function(k){ views[k].hidden = (k !== name); });
+    navButtons.forEach(function(b){ b.classList.toggle("active", b.dataset.view === name); });
+    if(name === "talent"){
+      requestAnimationFrame(function(){ renderTalent(); requestAnimationFrame(function(){ drawAll(); }); });
+    }
+  }
+  viewButtons.forEach(function(b){ b.onclick = function(){ switchView(b.dataset.view); }; });
+
+  // ===== 指南 =====
+  function el(tag, cls, text){
+    var e = document.createElement(tag);
+    if(cls) e.className = cls;
+    if(text != null) e.textContent = text;
+    return e;
+  }
+
+  function renderRoute(){
+    var root = document.getElementById("guide-route");
+    root.textContent = "";
+    ROUTES.forEach(function(sec){
+      var stage = el("div", "stage");
+      var badge = el("div", "stage-badge");
+      badge.appendChild(el("span", "lv", sec.lv));
+      badge.appendChild(el("span", "seg", sec.seg));
+      stage.appendChild(badge);
+      var dot = el("div", "stage-dot"); dot.appendChild(el("i")); stage.appendChild(dot);
+
+      var card = el("div", "stage-card");
+      card.appendChild(el("div", "stage-title", sec.title));
+      card.appendChild(el("div", "stage-tag", sec.tag));
+      sec.blocks.forEach(function(b){
+        var rg = el("div", "rg");
+        rg.appendChild(el("div", "rg-tag", b.tag));
+        var body = el("div", "rg-body");
+        var ul = el("ul");
+        b.items.forEach(function(it){
+          var li = el("li");
+          li.textContent = it.text;
+          if(it.todo){ li.appendChild(document.createTextNode(" ")); li.appendChild(el("span", "todo", "待核")); }
+          ul.appendChild(li);
+        });
+        body.appendChild(ul);
+        rg.appendChild(body);
+        card.appendChild(rg);
+      });
+      stage.appendChild(card);
+      root.appendChild(stage);
+    });
+  }
+
+  function renderSpells(){
+    var tbody = document.getElementById("guide-spells");
+    tbody.textContent = "";
+    SKILLS.forEach(function(row){
+      var tr = el("tr");
+      row.forEach(function(cell, i){
+        var td = el("td");
+        if(i === 0) td.style.fontWeight = "600";
+        if(cell === "待核"){ td.appendChild(el("span", "todo", "待核")); }
+        else td.textContent = cell;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  var guideSections = Array.prototype.slice.call(document.querySelectorAll(".g-section"));
+  var guideTabBtns = Array.prototype.slice.call(document.querySelectorAll("#guideTabs button"));
+  function setSectionActive(id){
+    guideTabBtns.forEach(function(b){ b.classList.toggle("active", b.dataset.target === id); });
+  }
+  guideTabBtns.forEach(function(btn){
+    btn.onclick = function(){
+      var sec = document.getElementById(btn.dataset.target);
+      if(!sec) return;
+      sec.classList.remove("collapsed");
+      setSectionActive(btn.dataset.target);
+      sec.scrollIntoView({behavior:"smooth", block:"start"});
+    };
+  });
+  guideSections.forEach(function(sec){
+    var head = sec.querySelector(".g-head");
+    if(head) head.onclick = function(){ sec.classList.toggle("collapsed"); };
+  });
+  var toggleAllBtn = document.getElementById("guideToggleAll");
+  var guideCollapsedAll = false;
+  toggleAllBtn.onclick = function(){
+    guideCollapsedAll = !guideCollapsedAll;
+    guideSections.forEach(function(sec){ sec.classList.toggle("collapsed", guideCollapsedAll); });
+    toggleAllBtn.textContent = guideCollapsedAll ? "全部展开" : "全部收起";
+  };
+
+  // ===== 宏 =====
+  var listEl = document.getElementById("list");
+  var catTabs = document.querySelectorAll("#tabs button");
+  var macroState = {cat:"all"};
+
+  function fallbackCopy(text, done){
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e) {}
+    document.body.removeChild(ta);
+    done();
+  }
+
+  function renderMacros(){
+    var groups = {};
+    MACROS.forEach(function(m){
+      if(macroState.cat !== "all" && m.cat !== macroState.cat) return;
+      (groups[m.cat] = groups[m.cat] || []).push(m);
+    });
+    listEl.textContent = "";
+    Object.keys(CATS).forEach(function(cat){
+      var items = groups[cat];
+      if(!items || !items.length) return;
+      var group = el("div", "cat-group");
+      var head = el("button", "cat-head");
+      head.type = "button";
+      head.appendChild(el("span", null, CATS[cat]));
+      var caret = el("span", "caret");
+      caret.innerHTML = '<svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>';
+      head.appendChild(caret);
+      head.onclick = function(){ group.classList.toggle("collapsed"); };
+      group.appendChild(head);
+
+      items.forEach(function(m){
+        var card = el("div", "card");
+        var ch = el("div", "card-head");
+        ch.appendChild(el("span", "card-name", m.name));
+        card.appendChild(ch);
+        card.appendChild(el("div", "card-desc", m.desc));
+
+        var bar = el("div", "codebar");
+        var pre = el("pre"); pre.textContent = m.code.join("\n");
+        bar.appendChild(pre);
+        var btn = el("button", "copy", "复制");
+        btn.type = "button";
+        btn.onclick = function(){
+          var text = pre.textContent;
+          function done(){ btn.classList.add("done"); btn.textContent = "已复制"; setTimeout(function(){ btn.classList.remove("done"); btn.textContent = "复制"; }, 1500); }
+          fallbackCopy(text, done);
+          if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).catch(function(){}); }
+        };
+        bar.appendChild(btn);
+        card.appendChild(bar);
+        if(m.note) card.appendChild(el("p", "note", m.note));
+        group.appendChild(card);
+      });
+      listEl.appendChild(group);
+    });
+  }
+
+  catTabs.forEach(function(b){
+    b.onclick = function(){
+      macroState.cat = b.dataset.cat;
+      catTabs.forEach(function(x){ x.classList.toggle("active", x === b); });
+      renderMacros();
+    };
+  });
+  var macroToggleAll = document.getElementById("toggleAll");
+  var macroOpenAll = true;
+  macroToggleAll.onclick = function(){
+    macroOpenAll = !macroOpenAll;
+    document.querySelectorAll("#list .cat-group").forEach(function(g){ g.classList.toggle("collapsed", !macroOpenAll); });
+    macroToggleAll.textContent = macroOpenAll ? "全部展开" : "全部收起";
+  };
+  var howto = document.getElementById("howtoBox"), howtoHead = document.getElementById("howtoHead");
+  if(howtoHead) howtoHead.onclick = function(){ howto.classList.toggle("collapsed"); };
+
+  // ===== 天赋模拟器 =====
+  var MAX_POINTS = 51;
+  var TREES = ["arms","fury","prot"];
+  var TREE_LABEL = {arms:"武器", fury:"狂怒", prot:"防护"};
+  var talentState = {};
+  var byId = {};
+  TALENTS.forEach(function(t){ byId[t.id] = t; });
+
+  var PRESET_ORDER = [124, 124, 124, 127, 127, 127, 126, 126, 131, 131, 121, 121, 121, 641, 641, 136, 136, 136, 662, 662, 133, 105944, 105944, 105944, 105944, 105944, 641, 137, 110524, 110524, 135, 157, 157, 157, 157, 157, 159, 159, 159, 159, 159, 158, 158, 661, 661, 661, 155, 155, 155, 155, 155];
+  var PRESET = {};
+  var ORDER_INDEX = {};
+  PRESET_ORDER.forEach(function(id, i){
+    PRESET[id] = (PRESET[id] || 0) + 1;
+    if(ORDER_INDEX[id] == null) ORDER_INDEX[id] = i + 1;
+  });
+  var showOrder = true;
+
+  function rankOf(id){ return talentState[id] || 0; }
+  function treePoints(tree){
+    var s = 0;
+    TALENTS.forEach(function(t){ if(t.tree === tree) s += rankOf(t.id); });
+    return s;
+  }
+  function totalPoints(){
+    var s = 0;
+    TALENTS.forEach(function(t){ s += rankOf(t.id); });
+    return s;
+  }
+  function rowPointsBefore(tree, row){
+    var s = 0;
+    TALENTS.forEach(function(t){ if(t.tree === tree && t.row < row) s += rankOf(t.id); });
+    return s;
+  }
+  function canAdd(t){
+    if(totalPoints() >= MAX_POINTS) return false;
+    if(rankOf(t.id) >= t.max) return false;
+    if(rowPointsBefore(t.tree, t.row) < t.row * 5) return false;
+    if(t.parent && byId[t.parent] && rankOf(t.parent) < t.parentRank) return false;
+    return true;
+  }
+  function isValid(){
+    if(totalPoints() > MAX_POINTS) return false;
+    for(var i=0;i<TALENTS.length;i++){
+      var t = TALENTS[i];
+      if(!rankOf(t.id)) continue;
+      if(rowPointsBefore(t.tree, t.row) < t.row * 5) return false;
+      if(t.parent && byId[t.parent] && rankOf(t.parent) < t.parentRank) return false;
+    }
+    return true;
+  }
+  function sameAsPreset(){
+    for(var id in PRESET){ if((talentState[id]||0) !== PRESET[id]) return false; }
+    for(var id2 in talentState){ if(talentState[id2] && !PRESET[id2]) return false; }
+    return true;
+  }
+
+  var tipEl = null;
+  function ensureTip(){
+    if(tipEl) return tipEl;
+    tipEl = el("div", "tip");
+    document.body.appendChild(tipEl);
+    return tipEl;
+  }
+  function reqText(t){
+    var parts = [];
+    if(t.row > 0) parts.push("需要" + TREE_LABEL[t.tree] + "本系 " + (t.row * 5) + " 点");
+    if(t.parent && byId[t.parent]) parts.push("需要「" + byId[t.parent].name + "」" + t.parentRank + " 级");
+    return parts.join("；");
+  }
+  function showTip(t, x, y){
+    var tip = ensureTip();
+    var rank = rankOf(t.id);
+    tip.innerHTML = "";
+    tip.appendChild(el("div", "tip-name", t.name));
+    if(t.flag) tip.appendChild(el("div", "tip-flag", t.flag === "new" ? "本版本新增" : "相较经典旧世有改动"));
+    tip.appendChild(el("div", "tip-rank", "当前 " + rank + " / " + t.max + (t.max === 1 ? "（单点天赋）" : "")));
+    tip.appendChild(el("div", "tip-desc", rank >= t.max && t.dn ? t.dn : t.d1));
+    var req = reqText(t);
+    if(req) tip.appendChild(el("div", "tip-req", rank > 0 ? "已投入" : req));
+    tip.style.display = "block";
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = x + 14, top = y + 14;
+    if(left + w > window.innerWidth - 8) left = x - w - 14;
+    if(top + h > window.innerHeight - 8) top = y - h - 14;
+    tip.style.left = Math.max(8, left) + "px";
+    tip.style.top = Math.max(8, top) + "px";
+  }
+  function hideTip(){ if(tipEl) tipEl.style.display = "none"; }
+
+  function renderTalent(){
+    TREES.forEach(function(tree){
+      var body = document.getElementById("body-" + tree);
+      if(!body) return;
+      var svg = body.querySelector(".tree-lines");
+      Array.prototype.slice.call(body.children).forEach(function(c){ if(c !== svg) body.removeChild(c); });
+      TALENTS.forEach(function(t){
+        if(t.tree !== tree) return;
+        var node = el("div", "talent");
+        node.dataset.id = t.id;
+        node.style.gridRow = (t.row + 1);
+        node.style.gridColumn = (t.col + 1);
+        var rank = rankOf(t.id);
+        node.classList.toggle("on", rank > 0);
+        node.classList.toggle("locked", rank === 0 && !canAdd(t));
+        node.classList.toggle("avail", rank === 0 && canAdd(t));
+
+        var btn = el("button", "ticon");
+        btn.type = "button";
+        btn.setAttribute("aria-label", t.name);
+        var img = el("img", "ticon-img");
+        img.src = "assets/talents/" + t.icon + ".jpg";
+        img.alt = t.name;
+        img.loading = "lazy";
+        btn.appendChild(img);
+        var rankEl = el("span", "rank", rank + "/" + t.max);
+        btn.appendChild(rankEl);
+        if(showOrder && ORDER_INDEX[t.id]){
+          btn.appendChild(el("span", "order-badge", String(ORDER_INDEX[t.id])));
+        }
+        btn.onclick = function(ev){ ev.preventDefault(); if(ev.shiftKey){ removePoint(t); } else { addPoint(t); } };
+        btn.oncontextmenu = function(ev){ ev.preventDefault(); removePoint(t); };
+        btn.onmouseenter = function(ev){ showTip(t, ev.clientX, ev.clientY); };
+        btn.onmousemove = function(ev){ if(tipEl && tipEl.style.display === "block") showTip(t, ev.clientX, ev.clientY); };
+        btn.onmouseleave = hideTip;
+
+        node.appendChild(btn);
+        node.appendChild(el("div", "tname", t.name));
+        body.appendChild(node);
+      });
+    });
+    updateCounters();
+  }
+
+  function updateCounters(){
+    var used = totalPoints();
+    document.getElementById("tp-used").textContent = used;
+    document.getElementById("tp-level").textContent = Math.min(60, 10 + used);
+    TREES.forEach(function(t){ document.getElementById("tp-" + t).textContent = treePoints(t); });
+    document.querySelectorAll(".sim-cols .tree").forEach(function(treeEl){
+      var t = treeEl.dataset.tree;
+      treeEl.querySelector(".tree-pts b").textContent = treePoints(t);
+    });
+    drawAll();
+  }
+
+  function addPoint(t){
+    if(!canAdd(t)){
+      var why = totalPoints() >= MAX_POINTS ? "点数已满（51）" : (rankOf(t.id) >= t.max ? "已点满" : reqText(t) || "暂时无法加点");
+      showTip(t, window.innerWidth/2, 120);
+      if(tipEl && tipEl.querySelector(".tip-req")) tipEl.querySelector(".tip-req").textContent = why;
+      return;
+    }
+    talentState[t.id] = rankOf(t.id) + 1;
+    showOrder = sameAsPreset();
+    renderTalent();
+  }
+  function removePoint(t){
+    var rank = rankOf(t.id);
+    if(!rank) return;
+    talentState[t.id] = rank - 1;
+    if(talentState[t.id] === 0) delete talentState[t.id];
+    if(!isValid()){ talentState[t.id] = rank; return; }
+    showOrder = sameAsPreset();
+    renderTalent();
+  }
+
+  function drawAll(){
+    TREES.forEach(function(tree){
+      var body = document.getElementById("body-" + tree);
+      if(body) drawLines(body);
+    });
+  }
+  function drawLines(body){
+    var svg = body.querySelector(".tree-lines");
+    if(!svg) return;
+    var w = body.clientWidth, h = body.clientHeight;
+    if(!w || !h) return;
+    svg.setAttribute("width", w);
+    svg.setAttribute("height", h);
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+    svg.textContent = "";
+    var bodyRect = body.getBoundingClientRect();
+    TALENTS.forEach(function(t){
+      if(!t.parent || !byId[t.parent]) return;
+      var pNode = body.querySelector('.talent[data-id="' + t.parent + '"]');
+      var cNode = body.querySelector('.talent[data-id="' + t.id + '"]');
+      if(!pNode || !cNode) return;
+      var pr = pNode.getBoundingClientRect(), cr = cNode.getBoundingClientRect();
+      var px = pr.left - bodyRect.left + pr.width/2;
+      var py = pr.top - bodyRect.top + pr.height;
+      var cx = cr.left - bodyRect.left + cr.width/2;
+      var cy = cr.top - bodyRect.top;
+      var d;
+      if(Math.abs(px - cx) < 2){
+        d = "M" + px + " " + py + " L" + cx + " " + cy;
+      } else {
+        var midY = py + Math.max(6, (cy - py) / 2);
+        d = "M" + px + " " + py + " L" + px + " " + midY + " L" + cx + " " + midY + " L" + cx + " " + cy;
+      }
+      var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", d);
+      path.setAttribute("class", "tree-line" + (rankOf(t.id) > 0 && rankOf(t.parent) > 0 ? " hot" : ""));
+      svg.appendChild(path);
+    });
+  }
+
+  document.getElementById("btn-preset").onclick = function(){
+    talentState = {};
+    for(var id in PRESET) talentState[id] = PRESET[id];
+    showOrder = true;
+    renderTalent();
+  };
+  document.getElementById("btn-reset").onclick = function(){
+    talentState = {};
+    showOrder = false;
+    renderTalent();
+  };
+
+  var resizeTimer = null;
+  window.addEventListener("resize", function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){ if(!views.talent.hidden) drawAll(); }, 120);
+  });
+
+  // 初始状态：推荐配点
+  talentState = {};
+  for(var pid in PRESET) talentState[pid] = PRESET[pid];
+
+  renderRoute();
+  renderSpells();
+  renderMacros();
+  renderTalent();
+  switchView("guide");
+})();
+</script>
+
+</body>
+</html>
