@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>兽王猎练级笔记 · 宏命令与 1–60 指南</title>
-<meta name="description" content="魔兽世界经典旧世 / 无限服兽王猎练级笔记：1–60 级练级路线、宠物选择与训练、技能全表，15 条常用猎人宏命令，野兽控制 / 射击 / 生存三系天赋模拟器，含兽王 31 / 射击 20 推荐配点与加点顺序。">
+<meta name="description" content="魔兽世界经典旧世 / 无限服兽王猎练级笔记：1–60 级练级路线、宠物选择与训练、技能全表，15 条常用猎人宏命令，野兽控制 / 射击 / 生存三系天赋模拟器，含兽王练级、射击输出、独狼射击、生存 PvP 四套推荐配点与加点顺序。">
 <meta name="keywords" content="魔兽世界猎人,兽王猎,猎人宏命令,猎人天赋模拟器,猎人练级指南,1-60级,猎人宠物,怀旧服猎人,无限服,野兽控制,射击天赋,生存天赋">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://nose996.github.io/wow-class-notes/hunter/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="兽王猎练级笔记 · 宏命令与 1–60 指南">
-<meta property="og:description" content="1–60 级练级路线、宠物选择、常用猎人宏命令与三系天赋模拟器，兽王 31 / 射击 20 推荐配点。">
+<meta property="og:description" content="1–60 级练级路线、宠物选择、常用猎人宏命令与三系天赋模拟器，兽王练级、射击输出、独狼射击、生存 PvP 四套推荐配点。">
 <meta property="og:url" content="https://nose996.github.io/wow-class-notes/hunter/">
 <meta property="og:site_name" content="兽王猎练级笔记">
 <meta property="og:image" content="https://nose996.github.io/wow-class-notes/hunter/assets/share.png">
@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="兽王猎练级笔记 · 宏命令与 1–60 指南">
-<meta name="twitter:description" content="1–60 级练级路线、宠物选择、常用猎人宏命令与三系天赋模拟器，兽王 31 / 射击 20 推荐配点。">
+<meta name="twitter:description" content="1–60 级练级路线、宠物选择、常用猎人宏命令与三系天赋模拟器，兽王练级、射击输出、独狼射击、生存 PvP 四套推荐配点。">
 <meta name="twitter:image" content="https://nose996.github.io/wow-class-notes/hunter/assets/share.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%238F5E1E'/%3E%3Cpath d='M10 22 L16 9 L22 22 L16 18.5 Z' fill='%23FBF3E2'/%3E%3C/svg%3E">
 <style>
@@ -238,7 +238,18 @@
   .tip .tip-rank{color:#C9B894;margin-bottom:5px}
   .tip .tip-desc{color:#D8C9A8;line-height:1.55}
   .tip .tip-req{margin-top:6px;color:#B9A67F;font-size:11px}
-  .sim-note{margin-top:14px;font-size:13px;color:#B9A67F;line-height:1.7}
+    .preset-bar{margin:0 0 14px;padding:11px 13px 12px;border:1px solid #574226;border-radius:10px;background:rgba(30,22,12,.5)}
+  .preset-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin-bottom:9px}
+  .preset-label{font-size:13px;font-weight:600;color:#F0D9A0}
+  .preset-hint{font-size:11.5px;color:#9E8B6B}
+  .preset-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .preset-chip{border:1px solid #5E4728;background:#241A10;color:#D8C9A8;border-radius:7px;padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:7px}
+  .preset-chip b{font-weight:600;color:#A9946C;font-size:11.5px}
+  .preset-chip:hover{border-color:#B58A48}
+  .preset-chip.active{border-color:#E5B25A;background:#4A3316;color:#FFE2A8}
+  .preset-chip.active b{color:#E6C88A}
+  .preset-desc{margin:9px 0 0;font-size:12px;line-height:1.6;color:#B9A67F;min-height:19px}
+.sim-note{margin-top:14px;font-size:13px;color:#B9A67F;line-height:1.7}
 
   @media (max-width:640px){
     .codebar{flex-direction:column}
@@ -444,11 +455,15 @@
         <span class="sim-stat tree-mm">射击 <b id="pt-mm">0</b></span>
         <span class="sim-stat tree-sv">生存 <b id="pt-sv">0</b></span>
         <span class="spacer"></span>
-        <button id="btn-preset" class="btn primary">推荐配点</button>
         <button id="btn-reset" class="btn">重置</button>
       </div>
+      <div class="preset-bar">
+        <div class="preset-top"><span class="preset-label">推荐配点</span><span class="preset-hint">点选切换整套方案，角标数字对应当前方案首次投入的顺序</span></div>
+        <div class="preset-chips" id="preset-chips"></div>
+        <p class="preset-desc" id="preset-desc"></p>
+      </div>
       <div class="sim-cols" id="sim-cols"></div>
-      <p class="sim-note">左键点击加点，右键点击减点；默认载入推荐配点（兽王 31 / 射击 20 / 生存 0），点亮天赋左上角数字为推荐加点先后。前置门槛：本系投入 0 / 5 / 10 / 15 / 20 / 25 / 30 点逐层解锁。图标取自客户端同源图标集，具体数值与译名以游戏内实测为准。</p>
+      <p class="sim-note">左键点击加点，右键点击减点；上方四套方案可整套切换，默认兽王 31 / 射击 20 / 生存 0。点亮天赋左上角数字为当前方案首次投入的顺序。前置门槛：本系投入 0 / 5 / 10 / 15 / 20 / 25 / 30 点逐层解锁。图标取自客户端同源图标集，具体数值与译名以游戏内实测为准。</p>
     </div>
     <div id="tip" class="tip"></div>
   </main>
@@ -1081,21 +1096,28 @@
     mm:{name:'射击',     stat:'pt-mm'},
     sv:{name:'生存',     stat:'pt-sv'}
   };
-  var PRESET = {
-    deadly_aspects:5, focused_fire:2, endurance:5, bestial_swiftness:1, unleashed_fury:5,
-    summon_hawk:1, ferocity:5, intimidation:1, bestial_discipline:2, frenzy:3, bestial_wrath:1,
-    lethal_attacks:5, careful_aim:5, rapid_killing:2, efficiency:5, trueshot_aura:1, mortal_shots:2
-  };
-  // 推荐加点先后：先兽王出狂野怒火，再补射击
-  var PRESET_ORDER = [
-    'deadly_aspects','endurance','focused_fire','bestial_swiftness','unleashed_fury',
-    'ferocity','summon_hawk','intimidation','bestial_discipline','frenzy','bestial_wrath',
-    'lethal_attacks','efficiency','careful_aim','rapid_killing','trueshot_aura','mortal_shots'
+  var PRESETS = [
+    {name:"兽王练级", tag:"31 / 20 / 0", desc:"默认。兽王 31 点出狂野怒火，宠物坦度与伤害优先；射击 20 点补致命攻击、精确瞄准、致死射击，1–60 单刷和精英都稳。", build:{deadly_aspects:5,focused_fire:2,endurance:5,bestial_swiftness:1,unleashed_fury:5,summon_hawk:1,ferocity:5,intimidation:1,bestial_discipline:2,frenzy:3,bestial_wrath:1,lethal_attacks:5,careful_aim:5,rapid_killing:2,efficiency:5,trueshot_aura:1,mortal_shots:2}, order:['deadly_aspects','endurance','focused_fire','bestial_swiftness','unleashed_fury','ferocity','summon_hawk','intimidation','bestial_discipline','frenzy','bestial_wrath','lethal_attacks','efficiency','careful_aim','rapid_killing','trueshot_aura','mortal_shots']},
+    {name:"射击输出", tag:"20 / 31 / 0", desc:"宠物仍在，主输出转射击。射击 31 点出狙击、致死射击与弹幕；兽王 20 点保留耐久训练、狂怒释放和凶暴，宠物能扛但不再点胁迫。", build:{deadly_aspects:5,endurance:5,bestial_swiftness:1,unleashed_fury:5,ferocity:4,lethal_attacks:5,efficiency:5,careful_aim:5,rapid_killing:1,trueshot_aura:1,mortal_shots:5,barrage:3,ranged_spec:5,sniper:1}, order:['deadly_aspects','endurance','bestial_swiftness','unleashed_fury','ferocity','lethal_attacks','efficiency','careful_aim','rapid_killing','trueshot_aura','mortal_shots','barrage','ranged_spec','sniper']},
+    {name:"独狼射击", tag:"0 / 31 / 20", desc:"无宠物流。射击 31 点含独来独往与狙击，生存 20 点补偏斜、生存专家、稳固、威慑；不用管宠物，适合单刷和需要走位的副本。宠物相关宏不适用。", build:{lethal_attacks:5,efficiency:5,careful_aim:5,rapid_killing:1,lone_wolf:1,trueshot_aura:1,mortal_shots:5,barrage:3,ranged_spec:4,sniper:1,deflection:5,survivalist:5,entrapment:5,surefooted:3,deterrence:1,savage_strikes:1}, order:['lethal_attacks','efficiency','careful_aim','rapid_killing','lone_wolf','trueshot_aura','mortal_shots','barrage','ranged_spec','sniper','deflection','survivalist','entrapment','surefooted','deterrence','savage_strikes']},
+    {name:"生存 PvP", tag:"0 / 20 / 31", desc:"近战/陷阱向 PvP。生存 31 点出裂伤打击、反击与暴露猎物，射击 20 点补致死与精准；依赖陷阱、威慑和反击打近身，纯远程输出低于射击方案。", build:{lethal_attacks:5,efficiency:5,careful_aim:5,rapid_killing:2,trueshot_aura:1,mortal_shots:2,deflection:5,survivalist:5,entrapment:5,surefooted:3,deterrence:1,predator_claws:5,counterattack:1,expose_prey:2,lightning_reflexes:3,tear:1}, order:['lethal_attacks','efficiency','careful_aim','rapid_killing','trueshot_aura','mortal_shots','deflection','survivalist','entrapment','surefooted','deterrence','predator_claws','counterattack','expose_prey','lightning_reflexes','tear']}
   ];
+  var activePreset = 0;
+  var PRESET = {};
+  var PRESET_ORDER = [];
   var ORDER_INDEX = {};
-  PRESET_ORDER.forEach(function(id,i){ ORDER_INDEX[id]=i+1; });
+  function loadPresetData(i){
+    activePreset = i;
+    PRESET = {}; PRESET_ORDER = []; ORDER_INDEX = {};
+    var p = PRESETS[i];
+    for(var id in p.build) PRESET[id] = p.build[id];
+    p.order.forEach(function(id, idx){
+      PRESET_ORDER.push(id);
+      if(ORDER_INDEX[id] == null) ORDER_INDEX[id] = idx + 1;
+    });
+  }
   var MAX_POINTS = 51;
-  var talentState = Object.assign({}, PRESET);
+  var talentState = {};
 
   var TREE_ICON = {
     bm:'<svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="15" rx="4" ry="3.2"/><circle cx="6.5" cy="9.5" r="1.8"/><circle cx="10" cy="7" r="1.8"/><circle cx="14" cy="7" r="1.8"/><circle cx="17.5" cy="9.5" r="1.8"/></svg>',
@@ -1172,7 +1194,7 @@
     tip.appendChild(el('div','tip-name',t.name));
     tip.appendChild(el('div','tip-rank', rank+'/'+t.max+(locked?' · 未解锁':'')));
     tip.appendChild(el('div','tip-desc',t.desc));
-    if(ORDER_INDEX[t.id]) tip.appendChild(el('div','tip-req','推荐加点第 '+ORDER_INDEX[t.id]+' 步'));
+    if(ORDER_INDEX[t.id]) tip.appendChild(el('div','tip-req','当前方案首次投入：第 '+ORDER_INDEX[t.id]+' 步'));
     if(t.tier>0) tip.appendChild(el('div','tip-req','需本系投入 '+t.tier+' 点解锁'));
     tip.style.display='block';
     var r=evt.currentTarget.getBoundingClientRect();
@@ -1183,6 +1205,37 @@
     tip.style.top=Math.max(8,top)+'px';
   }
   function hideTip(){ tip.style.display='none'; }
+
+  var presetChipsEl = document.getElementById('preset-chips');
+  var presetDescEl = document.getElementById('preset-desc');
+  var presetButtons = [];
+  function stateMatches(build){
+    for(var id in talentState){ if(talentState[id] && !build[id]) return false; }
+    for(var b in build){ if((talentState[b]||0) !== build[b]) return false; }
+    return true;
+  }
+  function updatePresetUI(){
+    var active = -1;
+    for(var i=0;i<PRESETS.length;i++){ if(stateMatches(PRESETS[i].build)){ active=i; break; } }
+    presetButtons.forEach(function(btn,i){ btn.classList.toggle('active', i===active); });
+    if(active>=0) presetDescEl.textContent = PRESETS[active].desc;
+    else presetDescEl.textContent = '已手动调整或清空；点上方方案可恢复整套推荐配点。';
+  }
+  function applyPreset(i){
+    loadPresetData(i);
+    talentState = Object.assign({}, PRESET);
+    renderTalent();
+  }
+  function renderPresetChips(){
+    if(!presetChipsEl) return;
+    PRESETS.forEach(function(p,i){
+      var btn = document.createElement('button');
+      btn.type='button'; btn.className='preset-chip';
+      btn.innerHTML = p.name + ' <b>' + p.tag + '</b>';
+      btn.onclick = function(){ applyPreset(i); };
+      presetChipsEl.appendChild(btn); presetButtons.push(btn);
+    });
+  }
 
   var SVG_NS='http://www.w3.org/2000/svg';
   function drawLines(body){
@@ -1270,11 +1323,14 @@
     document.getElementById('pt-bm').textContent=treePoints('bm');
     document.getElementById('pt-mm').textContent=treePoints('mm');
     document.getElementById('pt-sv').textContent=treePoints('sv');
+    updatePresetUI();
   }
 
-  document.getElementById('btn-preset').onclick=function(){ talentState=Object.assign({},PRESET); renderTalent(); };
   document.getElementById('btn-reset').onclick=function(){ talentState={}; renderTalent(); };
 
+  renderPresetChips();
+  loadPresetData(0);
+  talentState=Object.assign({},PRESET);
   renderRoute();
   renderTable("guide-spells", GUIDE_SPELLS);
   renderTable("guide-pet-families", GUIDE_PETS);

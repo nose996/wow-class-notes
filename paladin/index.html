@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>亡灵圣骑士练级笔记 · 1–60 指南与天赋模拟</title>
-<meta name="description" content="魔兽世界：无限 亡灵圣骑士 1–60 练级笔记：惩戒练级路线、圣印与审判循环、技能全表、常用圣骑士宏命令，以及神圣 / 防护 / 惩戒三系天赋模拟器与逐级加点顺序。">
+<meta name="description" content="魔兽世界：无限 亡灵圣骑士 1–60 练级笔记：惩戒练级路线、圣印与审判循环、技能全表、常用圣骑士宏命令，以及神圣 / 防护 / 惩戒三系天赋模拟器与惩戒练级、神圣治疗、防护坦克、惩戒续航四套推荐配点。">
 <meta name="keywords" content="魔兽世界无限,亡灵圣骑士,圣骑士练级,圣骑士宏,圣骑士天赋模拟器,1-60级,惩戒骑,神圣,防护,圣印,审判">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://nose996.github.io/wow-class-notes/paladin/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="魔兽世界：无限 · 全职业笔记">
 <meta property="og:title" content="亡灵圣骑士练级笔记 · 1–60 指南与天赋模拟">
-<meta property="og:description" content="惩戒练级路线、圣印与审判循环、技能全表、20 条圣骑士宏，以及神圣 / 防护 / 惩戒三系天赋模拟器与逐级加点顺序。">
+<meta property="og:description" content="惩戒练级路线、圣印与审判循环、技能全表、20 条圣骑士宏，以及神圣 / 防护 / 惩戒三系天赋模拟器与四套推荐配点。">
 <meta property="og:url" content="https://nose996.github.io/wow-class-notes/paladin/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="亡灵圣骑士练级笔记 · 1–60">
-<meta name="twitter:description" content="魔兽世界：无限 亡灵圣骑士 1–60 练级笔记与三系天赋模拟器。">
+<meta name="twitter:description" content="魔兽世界：无限 亡灵圣骑士 1–60 练级笔记、三系天赋模拟器与四套推荐配点。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 L27 8 V16 C27 22 22 26 16 29 C10 26 5 22 5 16 V8 Z' fill='%238F5E1E'/%3E%3Cpath d='M16 9 L19 15 L26 16 L19 18 L16 24 L13 18 L6 16 L13 15 Z' fill='%23FBF3E2'/%3E%3C/svg%3E">
 <style>
   :root{
@@ -186,6 +186,17 @@
   .tip .tip-rank{color:#C9B894;margin-bottom:5px}
   .tip .tip-desc{color:#D8C9A8;line-height:1.55}
   .tip .tip-req{margin-top:6px;color:#B9A67F;font-size:11px}
+  .preset-bar{margin:0 0 14px;padding:11px 13px 12px;border:1px solid #574226;border-radius:10px;background:rgba(30,22,12,.5)}
+  .preset-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin-bottom:9px}
+  .preset-label{font-size:13px;font-weight:600;color:#F0D9A0}
+  .preset-hint{font-size:11.5px;color:#9E8B6B}
+  .preset-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .preset-chip{border:1px solid #5E4728;background:#241A10;color:#D8C9A8;border-radius:7px;padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:7px}
+  .preset-chip b{font-weight:600;color:#A9946C;font-size:11.5px}
+  .preset-chip:hover{border-color:#B58A48}
+  .preset-chip.active{border-color:#E5B25A;background:#4A3316;color:#FFE2A8}
+  .preset-chip.active b{color:#E6C88A}
+  .preset-desc{margin:9px 0 0;font-size:12px;line-height:1.6;color:#B9A67F;min-height:19px}
   .sim-note{margin-top:14px;font-size:13px;color:#B9A67F;line-height:1.7}
   .sim-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12px;color:#B9A67F}
   .sim-legend span{display:inline-flex;align-items:center;gap:6px}
@@ -277,12 +288,26 @@
     </section>
 
     <section class="g-section" id="g-build">
-      <button class="g-head" type="button">天赋配点：惩戒 31 / 神圣 15 / 防护 5 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <button class="g-head" type="button">天赋配点：四套方案 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
       <div class="g-body">
-        <p class="sub">练级主惩戒：双手慢速武器 + 圣印审判，杀怪快、停手少。40 级点出惩戒 31 点大招后转投神圣，补力量、智力与圣印伤害。</p>
+        <p class="sub">默认是惩戒练级 31/15/5：双手慢速武器 + 圣印审判，杀怪快、停手少；40 级解封之怒成型后转投神圣补续航。模拟器上方还能切换神圣治疗、防护坦克、惩戒续航三套，点方案名整套应用；40 级开双天赋后按场景切。</p>
+
+        <div class="card table-scroll">
+          <h3 style="margin-top:0">四套方案怎么选</h3>
+          <table class="build-table">
+            <colgroup><col style="width:18%"><col style="width:15%"><col style="width:67%"></colgroup>
+            <thead><tr><th>方案</th><th>惩戒 / 神圣 / 防护</th><th>适合与取舍</th></tr></thead>
+            <tbody>
+              <tr><td>惩戒练级</td><td>31 / 15 / 5</td><td>默认。40 级解封之怒成型，单体与精英怪都稳；余点补神圣之力、强化圣印和防护神圣智慧，练级续航够用。</td></tr>
+              <tr><td>神圣治疗</td><td>0 / 31 / 20</td><td>副本治疗。神圣震击、圣光守望、启发与神圣强化齐全；防护补盾牌壁垒、盾牌专精和精确。单人打怪明显慢。</td></tr>
+              <tr><td>防护坦克</td><td>5 / 5 / 41</td><td>副本主坦。神圣之盾、以盾为誓、盾牌专精、坚韧、预知、清算齐全；偏斜与神圣之力补生存和仇恨。练级别长期挂。</td></tr>
+              <tr><td>惩戒续航</td><td>31 / 20 / 0</td><td>保留惩戒 31 点爆发，防护 5 点换神圣 20 点：启发、神恩术、圣光灌注让长时间副本和单刷精英更稳。</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="card">
-          <h3 style="margin-top:0">为什么是惩戒</h3>
+          <h3 style="margin-top:0">为什么默认惩戒</h3>
           <ul class="points">
             <li><b>单体最快</b>：惩戒的单次武器伤害和圣印收益最高，配慢速双手武器最划算。</li>
             <li><b>自带保命</b>：圣佑术、34 级圣盾术、圣疗术三张底牌，被围也能脱身。</li>
@@ -303,7 +328,8 @@
           </ul>
         </div>
 
-        <h3>逐级加点顺序</h3>
+        <h3>惩戒练级逐级加点顺序</h3>
+        <p class="sub">下面只写默认惩戒练级一套；其他三套在上方模拟器点方案名整套载入，不必按这张表逐级改。</p>
         <div class="card table-scroll">
           <table class="build-table">
             <colgroup><col style="width:16%"><col style="width:84%"></colgroup>
@@ -415,8 +441,12 @@
       <span class="sim-stat tree-prot">防护 <b id="tp-prot">0</b></span>
       <span class="sim-stat tree-ret">惩戒 <b id="tp-ret">0</b></span>
       <span class="spacer"></span>
-      <button class="btn primary" id="btn-preset">推荐配点</button>
       <button class="btn" id="btn-reset">清空</button>
+    </div>
+    <div class="preset-bar">
+      <div class="preset-top"><span class="preset-label">推荐配点</span><span class="preset-hint">点选切换整套方案，角标数字对应当前方案的加点顺序</span></div>
+      <div class="preset-chips" id="preset-chips"></div>
+      <p class="preset-desc" id="preset-desc"></p>
     </div>
     <div class="sim-cols" id="sim-cols">
       <div class="tree holy" data-tree="holy">
@@ -436,9 +466,9 @@
       <span><i style="background:#AAD372"></i>已点亮</span>
       <span><i style="background:#6B5330"></i>可加点</span>
       <span><i style="background:#4A3A22"></i>未解锁</span>
-      <span>角标数字 = 推荐配点的投入顺序</span>
+      <span>角标数字 = 当前方案首次投入的顺序</span>
     </div>
-    <p class="sim-note">点击图标加一点，右键或 Shift+点击退一点。每排需要在本系先投满 5 点/排；有前置的天赋要先把父天赋点到要求等级。连线只表示前置关系，不是每个天赋都相连。11 / 16 / 21 / 31 点是关键节点，16 点天赋为本版本新增。</p>
+    <p class="sim-note">点击图标加一点，右键或 Shift+点击退一点。上方四套方案可整套切换，切换后角标与说明同步更新。每排需要在本系先投满 5 点/排；有前置的天赋要先把父天赋点到要求等级。连线只表示前置关系，不是每个天赋都相连。11 / 16 / 21 / 31 点是关键节点，16 点天赋为本版本新增。</p>
   </div>
 </main>
 </div><!-- /view-talent -->
@@ -777,13 +807,26 @@
   var byId = {};
   TALENTS.forEach(function(t){ byId[t.id] = t; });
 
-  var PRESET_ORDER = [1407,1407,1407,1407,1407, 1411,1411,1411, 105701,105701,105701, 1631,1631, 1481, 1634,1634, 1633,1633,1633, 105700, 1410,1410,1410, 1402,1402,1402, 1441, 110882,110882,110882, 105692, 1450,1450,1450,1450,1450, 1463,1463,1463,1463,1463, 1449,1449,1449,1449,1449, 1444,1444,1444, 110871,110871];
+  var PRESETS = [
+    {name:"惩戒练级", tag:"31 / 15 / 5", desc:"默认。双手慢速武器 + 命令圣印/审判，40 级解封之怒成型；余点补神圣之力、强化圣印与防护神圣智慧，练级续航够用。", build:{1407:5,1411:3,105701:3,1631:2,1481:1,1634:2,1633:3,105700:1,1410:3,1402:3,1441:1,110882:3,105692:1,1450:5,1463:5,1444:3,110871:2,1449:5}, order:[1407,1407,1407,1407,1407,1411,1411,1411,105701,105701,105701,1631,1631,1481,1634,1634,1633,1633,1633,105700,1410,1410,1410,1402,1402,1402,1441,110882,110882,110882,105692,1450,1450,1450,1450,1450,1463,1463,1463,1463,1463,1449,1449,1449,1449,1449,1444,1444,1444,110871,110871]},
+    {name:"神圣治疗", tag:"0 / 31 / 20", desc:"副本治疗主推。神圣 31 点出神圣震击与圣光守望，启发 5/5、神圣强化 5/5；防护 20 点补盾牌壁垒、盾牌专精和精确，五人本与团本都能用。", build:{1432:5,1444:3,110871:2,1433:1,1461:5,105704:2,105324:2,110873:2,1502:1,113631:2,1627:5,105320:1,1449:5,1421:5,1630:3,1425:2,1521:3,1424:2}, order:[1432,1432,1432,1432,1432,1444,1444,1444,110871,110871,1433,1461,1461,1461,1461,1461,105704,105704,105324,105324,110873,110873,1502,113631,113631,1627,1627,1627,1627,1627,105320,1449,1449,1449,1449,1449,1421,1421,1421,1421,1421,1630,1630,1630,1425,1425,1521,1521,1521,1424,1424]},
+    {name:"防护坦克", tag:"5 / 5 / 41", desc:"副本主坦。防护 41 点出神圣之盾与以盾为誓，盾牌专精、坚韧、预知、清算齐全；神圣 5 点力量、惩戒 5 点偏斜补仇恨与生存。单人打怪慢，别长期挂这套练级。", build:{1450:5,1403:5,1449:5,1421:5,1630:3,1425:2,105632:2,105625:1,1521:3,1424:2,1423:5,110878:1,1501:3,1629:1,105639:2,1430:1,1426:2,110879:2,110875:1}, order:[1449,1449,1449,1449,1449,1421,1421,1421,1421,1421,1630,1630,1630,1425,1425,105632,105632,105625,1521,1521,1521,1424,1424,1423,1423,1423,1423,1423,110878,1501,1501,1501,1629,105639,105639,1430,1426,1426,110879,110879,110875,1450,1450,1450,1450,1450,1403,1403,1403,1403,1403]},
+    {name:"惩戒续航", tag:"31 / 20 / 0", desc:"保留惩戒 31 点输出，把防护 5 点换成神圣 20 点：多出启发、神恩术、圣光灌注，长时间副本和单刷精英更稳；爆发与默认相同。", build:{1407:5,1411:3,105701:3,1631:2,1481:1,1634:2,1633:3,105700:1,1410:3,1402:3,1441:1,110882:3,105692:1,1432:5,1450:5,1444:3,110871:2,1433:1,1461:4}, order:[1407,1407,1407,1407,1407,1411,1411,1411,105701,105701,105701,1631,1631,1481,1634,1634,1633,1633,1633,105700,1410,1410,1410,1402,1402,1402,1441,110882,110882,110882,105692,1432,1432,1432,1432,1432,1450,1450,1450,1450,1450,1444,1444,1444,110871,110871,1433,1461,1461,1461,1461]}
+  ];
+  var activePreset = 0;
   var PRESET = {};
+  var PRESET_ORDER = [];
   var ORDER_INDEX = {};
-  PRESET_ORDER.forEach(function(id, i){
-    PRESET[id] = (PRESET[id] || 0) + 1;
-    if(ORDER_INDEX[id] == null) ORDER_INDEX[id] = i + 1;
-  });
+  function loadPresetData(i){
+    activePreset = i;
+    PRESET = {}; PRESET_ORDER = []; ORDER_INDEX = {};
+    var p = PRESETS[i];
+    for(var id in p.build) PRESET[id] = p.build[id];
+    p.order.forEach(function(id, idx){
+      PRESET_ORDER.push(id);
+      if(ORDER_INDEX[id] == null) ORDER_INDEX[id] = idx + 1;
+    });
+  }
   var showOrder = true;
 
   function rankOf(id){ return talentState[id] || 0; }
@@ -823,6 +866,40 @@
     for(var id in PRESET){ if((talentState[id]||0) !== PRESET[id]) return false; }
     for(var id2 in talentState){ if(talentState[id2] && !PRESET[id2]) return false; }
     return true;
+  }
+
+  var presetChipsEl = document.getElementById("preset-chips");
+  var presetDescEl = document.getElementById("preset-desc");
+  var presetButtons = [];
+  function stateMatches(build){
+    for(var id in talentState){ if(talentState[id] && !build[id]) return false; }
+    for(var b in build){ if((talentState[b]||0) !== build[b]) return false; }
+    return true;
+  }
+  function updatePresetUI(){
+    var active = -1;
+    for(var i=0;i<PRESETS.length;i++){ if(stateMatches(PRESETS[i].build)){ active=i; break; } }
+    presetButtons.forEach(function(btn,i){ btn.classList.toggle("active", i===active); });
+    if(active>=0) presetDescEl.textContent = PRESETS[active].desc;
+    else presetDescEl.textContent = "已手动调整或清空；点上方方案可恢复整套推荐配点。";
+  }
+  function applyPreset(i){
+    loadPresetData(i);
+    talentState = {};
+    for(var id in PRESET) talentState[id] = PRESET[id];
+    showOrder = true;
+    renderTalent();
+    updatePresetUI();
+  }
+  function renderPresetChips(){
+    if(!presetChipsEl) return;
+    PRESETS.forEach(function(p,i){
+      var btn = document.createElement("button");
+      btn.type="button"; btn.className="preset-chip";
+      btn.innerHTML = p.name + " <b>" + p.tag + "</b>";
+      btn.onclick = function(){ applyPreset(i); };
+      presetChipsEl.appendChild(btn); presetButtons.push(btn);
+    });
   }
 
   var tipEl = null;
@@ -923,6 +1000,7 @@
     talentState[t.id] = rankOf(t.id) + 1;
     showOrder = sameAsPreset();
     renderTalent();
+    updatePresetUI();
   }
   function removePoint(t){
     var rank = rankOf(t.id);
@@ -932,6 +1010,7 @@
     if(!isValid()){ talentState[t.id] = rank; return; }
     showOrder = sameAsPreset();
     renderTalent();
+    updatePresetUI();
   }
 
   function drawAll(){
@@ -974,16 +1053,11 @@
     });
   }
 
-  document.getElementById("btn-preset").onclick = function(){
-    talentState = {};
-    for(var id in PRESET) talentState[id] = PRESET[id];
-    showOrder = true;
-    renderTalent();
-  };
   document.getElementById("btn-reset").onclick = function(){
     talentState = {};
     showOrder = false;
     renderTalent();
+    updatePresetUI();
   };
 
   var resizeTimer = null;
@@ -993,8 +1067,11 @@
   });
 
   // 初始状态：推荐配点
+  renderPresetChips();
+  loadPresetData(0);
   talentState = {};
   for(var pid in PRESET) talentState[pid] = PRESET[pid];
+  updatePresetUI();
 
   renderRoute();
   renderSpells();
