@@ -187,6 +187,17 @@
   .tip .tip-desc{color:#D8C9A8;line-height:1.55}
   .tip .tip-req{margin-top:6px;color:#B9A67F;font-size:11px}
   .tip .tip-flag{display:inline-block;margin-bottom:4px;border:1px solid #8A6A36;border-radius:4px;padding:0 6px;font-size:10.5px;color:#E6C88A}
+  .preset-bar{margin:0 0 14px;padding:11px 13px 12px;border:1px solid #574226;border-radius:10px;background:rgba(30,22,12,.5)}
+  .preset-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin-bottom:9px}
+  .preset-label{font-size:13px;font-weight:600;color:#F0D9A0}
+  .preset-hint{font-size:11.5px;color:#9E8B6B}
+  .preset-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .preset-chip{border:1px solid #5E4728;background:#241A10;color:#D8C9A8;border-radius:7px;padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:7px}
+  .preset-chip b{font-weight:600;color:#A9946C;font-size:11.5px}
+  .preset-chip:hover{border-color:#B58A48}
+  .preset-chip.active{border-color:#E5B25A;background:#4A3316;color:#FFE2A8}
+  .preset-chip.active b{color:#E6C88A}
+  .preset-desc{margin:9px 0 0;font-size:12px;line-height:1.6;color:#B9A67F;min-height:19px}
   .sim-note{margin-top:14px;font-size:13px;color:#B9A67F;line-height:1.7}
   .sim-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12px;color:#B9A67F}
   .sim-legend span{display:inline-flex;align-items:center;gap:6px}
@@ -278,27 +289,31 @@
     </section>
 
     <section class="g-section" id="g-build">
-      <button class="g-head" type="button">天赋配点：武器 31 / 狂怒 20 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <button class="g-head" type="button">天赋配点：四套方案 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
       <div class="g-body">
-        <p class="sub">练级主武器：双手慢速武器 + 致死打击，单体和精英怪都稳；40 级武器系 31 点成型后转投狂怒，补暴击与怒气。想站桩清怪可以改防护复仇，见下面的替代方案。</p>
+        <p class="sub">默认是武器练级 31/20：双手慢速武器 + 致死打击，单体和精英怪都稳。模拟器上方还能切换狂怒双持、防护坦克、武器 PvP 三套，点方案名整套应用；40 级开双天赋后按场景切。</p>
+
+        <div class="card table-scroll">
+          <h3 style="margin-top:0">四套方案怎么选</h3>
+          <table class="build-table">
+            <colgroup><col style="width:18%"><col style="width:15%"><col style="width:67%"></colgroup>
+            <thead><tr><th>方案</th><th>武器 / 狂怒 / 防护</th><th>适合与取舍</th></tr></thead>
+            <tbody>
+              <tr><td>武器练级</td><td>31 / 20 / 0</td><td>主推。40 级致死打击成型，单体与精英最稳；双手武器收益高，双目标有横扫。1–60 主线和副本输出都能用。</td></tr>
+              <tr><td>狂怒双持</td><td>20 / 31 / 0</td><td>20 级拿到双持后刷怪更顺。嗜血 + 乱舞，武器系取重伤与穿刺；单次伤害低一些，依赖命中和两把好武器。</td></tr>
+              <tr><td>防护坦克</td><td>5 / 5 / 41</td><td>副本主坦用。盾牌专精、防御大师、盾牌猛击齐全，偏斜与残忍补生存和仇恨；打怪慢，练级别长期挂这套。挑衅效果待核，暂未纳入。</td></tr>
+              <tr><td>武器 PvP</td><td>31 / 20 / 0</td><td>偏斜 + 强化断筋提高生存和粘人，致死打击压治疗；狂怒补刺耳怒吼。适合野外遭遇和插旗，纯 PVE 输出低于武器练级。</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="card">
-          <h3 style="margin-top:0">为什么是武器</h3>
+          <h3 style="margin-top:0">为什么默认武器</h3>
           <ul class="points">
             <li><b>40 级致死打击</b>：武器系 31 点大招，单体最高，还带减疗，打精英和 PvP 都好用。</li>
             <li><b>双手武器收益高</b>：武器大师、双手武器专精、穿刺都吃单次武器伤害，慢速高上限武器最划算。</li>
             <li><b>双目标不虚</b>：横扫攻击配合顺劈斩 / 旋风斩，清两三个怪比防护快。</li>
             <li><b>起手快</b>：强化冲锋、强化英勇打击、强化撕裂让前 20 级怒气更顺，不用一直等白字。</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3 style="margin-top:0">替代方案：防护复仇</h3>
-          <ul class="points">
-            <li><b>核心</b>：防护系把盾牌专精、强化复仇点满，复仇伤害 +60%，格挡还能回怒；被围时站得住。</li>
-            <li><b>适合</b>：想站桩、要坦副本、懒得风筝的人；代价是单体慢，得靠挨打才有复仇可按。</li>
-            <li><b>怎么转</b>：40 级双天赋留一套防护，武器这套继续做野外主天赋；副本切防护，不必洗点。</li>
-            <li><b>别硬套</b>：防护练级在 20 级前很憋，盾牌专精和复仇都要点出来才成立。</li>
           </ul>
         </div>
 
@@ -417,8 +432,12 @@
       <span class="sim-stat tree-fury">狂怒 <b id="tp-fury">0</b></span>
       <span class="sim-stat tree-prot">防护 <b id="tp-prot">0</b></span>
       <span class="spacer"></span>
-      <button class="btn primary" id="btn-preset">推荐配点</button>
       <button class="btn" id="btn-reset">清空</button>
+    </div>
+    <div class="preset-bar">
+      <div class="preset-top"><span class="preset-label">推荐配点</span><span class="preset-hint">点选切换整套方案，角标数字对应当前方案的加点顺序</span></div>
+      <div class="preset-chips" id="preset-chips"></div>
+      <p class="preset-desc" id="preset-desc"></p>
     </div>
     <div class="sim-cols" id="sim-cols">
       <div class="tree arms" data-tree="arms">
@@ -438,7 +457,7 @@
       <span><i style="background:#AAD372"></i>已点亮</span>
       <span><i style="background:#6B5330"></i>可加点</span>
       <span><i style="background:#4A3A22"></i>未解锁</span>
-      <span>角标数字 = 推荐配点的投入顺序</span>
+      <span>角标数字 = 当前推荐方案的投入顺序</span>
     </div>
     <p class="sim-note">点击图标加一点，右键或 Shift+点击退一点。每排需要在本系先投满 5 点/排；有前置的天赋要先把父天赋点到要求等级。连线只表示前置关系，不是每个天赋都相连。11 / 16 / 21 / 31 点是关键节点；悬停图标可看「新」「改」标记。</p>
   </div>
@@ -648,12 +667,46 @@
   var byId = {};
   TALENTS.forEach(function(t){ byId[t.id] = t; });
 
-  var PRESET_ORDER = [124, 124, 124, 127, 127, 127, 126, 126, 131, 131, 121, 121, 121, 641, 641, 136, 136, 136, 662, 662, 133, 105944, 105944, 105944, 105944, 105944, 641, 137, 110524, 110524, 135, 157, 157, 157, 157, 157, 159, 159, 159, 159, 159, 158, 158, 661, 661, 661, 155, 155, 155, 155, 155];
+  var PRESETS = [{"name": "武器练级", "tag": "主推 31/20", "desc": "双手武器，31 点出致死打击，狂怒补残忍与狂怒；1–60 主线、副本输出都稳。", "order": [124, 124, 124, 127, 127, 127, 126, 126, 131, 131, 121, 121, 121, 641, 641, 136, 136, 136, 662, 662, 133, 105944, 105944, 105944, 105944, 105944, 641, 137, 110524, 110524, 135, 157, 157, 157, 157, 157, 159, 159, 159, 159, 159, 158, 158, 661, 661, 661, 155, 155, 155, 155, 155]}, {"name": "狂怒双持", "tag": "20/31", "desc": "双持快速武器，嗜血配合乱舞；武器系取重伤、穿刺，续航靠乘胜追击与嗜血。20 级拿到双持后刷怪更顺。", "order": [124, 124, 124, 127, 127, 127, 157, 157, 157, 157, 157, 126, 126, 641, 641, 131, 131, 159, 159, 159, 159, 159, 121, 121, 121, 155, 155, 155, 155, 155, 661, 661, 661, 136, 136, 136, 662, 662, 1581, 1581, 1581, 1581, 1581, 1541, 113569, 113569, 165, 156, 156, 156, 167]}, {"name": "防护坦克", "tag": "5/5/41", "desc": "盾牌专精、防御大师与盾牌猛击；武器点偏斜，狂怒点残忍。适合副本主坦和需要稳定仇恨的场合。挑衅效果待核，暂未纳入。", "order": [130, 130, 130, 130, 130, 157, 157, 157, 157, 157, 1601, 1601, 1601, 1601, 1601, 142, 142, 113570, 113570, 138, 138, 138, 138, 138, 147, 147, 147, 128, 128, 151, 151, 151, 105971, 105971, 153, 146, 146, 146, 149, 149, 105966, 150, 150, 105961, 105961, 152, 702, 702, 702, 702, 148]}, {"name": "武器 PvP", "tag": "31/20", "desc": "偏斜与强化断筋提高生存和粘人能力，伤害靠致死、重伤与穿刺；狂怒补刺耳怒吼。适合野外遭遇和插旗，纯 PVE 输出低于武器练级套。", "order": [130, 130, 130, 130, 130, 127, 127, 127, 124, 124, 157, 157, 157, 157, 157, 641, 641, 641, 126, 126, 131, 131, 159, 159, 159, 159, 159, 121, 121, 121, 137, 155, 155, 155, 155, 661, 661, 661, 160, 136, 136, 136, 662, 662, 1581, 1581, 133, 129, 129, 129, 135]}];
+  var activePreset = 0;
   var PRESET = {};
   var ORDER_INDEX = {};
-  PRESET_ORDER.forEach(function(id, i){
-    PRESET[id] = (PRESET[id] || 0) + 1;
-    if(ORDER_INDEX[id] == null) ORDER_INDEX[id] = i + 1;
+
+  function loadPresetData(index){
+    activePreset = index;
+    PRESET = {};
+    ORDER_INDEX = {};
+    PRESETS[index].order.forEach(function(id, i){
+      PRESET[id] = (PRESET[id] || 0) + 1;
+      if(ORDER_INDEX[id] == null) ORDER_INDEX[id] = i + 1;
+    });
+  }
+  loadPresetData(0);
+
+  var presetChipsEl = document.getElementById("preset-chips");
+  var presetDescEl = document.getElementById("preset-desc");
+  function updatePresetUI(){
+    var p = PRESETS[activePreset];
+    presetDescEl.textContent = p.name + " · " + p.tag + " — " + p.desc;
+    Array.prototype.forEach.call(presetChipsEl.children, function(b, i){
+      b.classList.toggle("active", i === activePreset);
+    });
+  }
+  function applyPreset(index){
+    loadPresetData(index);
+    talentState = {};
+    for(var id in PRESET) talentState[id] = PRESET[id];
+    showOrder = true;
+    renderTalent();
+    updatePresetUI();
+  }
+  PRESETS.forEach(function(p, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "preset-chip";
+    b.innerHTML = p.name + " <b>" + p.tag + "</b>";
+    b.onclick = function(){ applyPreset(i); };
+    presetChipsEl.appendChild(b);
   });
   var showOrder = true;
 
@@ -846,12 +899,6 @@
     });
   }
 
-  document.getElementById("btn-preset").onclick = function(){
-    talentState = {};
-    for(var id in PRESET) talentState[id] = PRESET[id];
-    showOrder = true;
-    renderTalent();
-  };
   document.getElementById("btn-reset").onclick = function(){
     talentState = {};
     showOrder = false;
@@ -867,6 +914,7 @@
   // 初始状态：推荐配点
   talentState = {};
   for(var pid in PRESET) talentState[pid] = PRESET[pid];
+  updatePresetUI();
 
   renderRoute();
   renderSpells();
