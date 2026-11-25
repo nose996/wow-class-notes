@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>德鲁伊练级笔记 · 1–60 指南与天赋模拟</title>
+<meta name="description" content="魔兽世界：无限 德鲁伊 1–60 练级笔记：野性练级路线、熊/猫手法、技能全表、20 条德鲁伊宏，以及平衡 / 野性战斗 / 恢复三系天赋模拟器与四套推荐配点。">
+<meta name="keywords" content="魔兽世界无限,德鲁伊,德鲁伊练级,德鲁伊宏,德鲁伊天赋模拟器,1-60级,野性德鲁伊,熊坦,恢复德鲁伊,平衡德鲁伊">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://nose996.github.io/wow-class-notes/druid/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="魔兽世界：无限 · 全职业笔记">
+<meta property="og:title" content="德鲁伊练级笔记 · 1–60 指南与天赋模拟">
+<meta property="og:description" content="野性练级路线、熊/猫手法、技能全表、20 条德鲁伊宏，以及平衡 / 野性战斗 / 恢复三系天赋模拟器与四套推荐配点。">
+<meta property="og:url" content="https://nose996.github.io/wow-class-notes/druid/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="德鲁伊练级笔记 · 1–60">
+<meta name="twitter:description" content="魔兽世界：无限 德鲁伊 1–60 练级笔记、三系天赋模拟器与四套推荐配点。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 C10 8 7 14 8 21 C9 27 13 29 16 28 C19 29 23 27 24 21 C25 14 22 8 16 3 Z' fill='%23587344'/%3E%3Cpath d='M16 8 L16 25' stroke='%23FBF3E2' stroke-width='1.7'/%3E%3Cpath d='M16 14 L11 10 M16 18 L20 14' stroke='%23FBF3E2' stroke-width='1.3'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#ECE4D1; --panel:#FDF9F0; --panel2:#F0E6D0; --ink:#292015; --ink2:#6B5B43;
+    --line:#D1C09C; --gold:#8F5E1E; --gold-soft:#EAD9B6; --green:#587344; --warn:#A84E32; --radius:6px;
+    --code-bg:#221A10; --code-text:#EBDBB6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,sans-serif;line-height:1.7;min-width:320px}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+
+  header.hero{padding:34px 0 18px}
+  .crumb{display:inline-block;font-size:12.5px;color:var(--ink2);text-decoration:none;margin-bottom:12px;border-bottom:1px dotted #B99A64}
+  .crumb:hover{color:var(--gold);border-color:var(--gold)}
+  h1{font-family:"Noto Serif SC","Songti SC",serif;font-size:30px;line-height:1.3;font-weight:700;letter-spacing:.01em;color:var(--ink)}
+  .sub{color:var(--ink2);font-size:14px;margin-top:8px}
+  .notice{margin-top:12px;color:var(--ink2);font-size:12.5px;line-height:1.65}
+  .notice strong{color:var(--gold)}
+
+  nav.viewnav{border-bottom:1px solid var(--line)}
+  nav.viewnav .wrap{display:flex;gap:6px;padding:14px 22px;flex-wrap:wrap}
+  nav.viewnav button{border:1px solid var(--line);background:transparent;color:var(--ink2);font-size:14px;font-weight:600;padding:8px 16px;border-radius:6px;cursor:pointer;font-family:inherit}
+  nav.viewnav button:hover{color:var(--ink);border-color:var(--gold)}
+  nav.viewnav button.active{background:var(--gold);border-color:var(--gold);color:#FBF3E2}
+
+  nav.guide-tabs{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;background:var(--paper)}
+  nav.guide-tabs .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  nav.guide-tabs ul{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:11px 0}
+  nav.guide-tabs button{border:1px solid transparent;background:none;color:var(--ink2);font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:6px;cursor:pointer;font-family:inherit}
+  nav.guide-tabs button:hover{background:var(--panel2);color:var(--ink)}
+  nav.guide-tabs button.active{background:var(--gold);color:#FBF3E2;font-weight:600}
+  .toggle-all{margin-left:auto;background:none;border:1px solid var(--line);color:var(--ink2);font-size:12.5px;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .toggle-all:hover{background:var(--panel2);color:var(--ink)}
+
+  nav.tabs{border-bottom:1px solid var(--line);background:var(--paper)}
+  nav.tabs .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  nav.tabs ul{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:11px 0}
+  nav.tabs button{border:1px solid transparent;background:none;color:var(--ink2);font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:6px;cursor:pointer;font-family:inherit}
+  nav.tabs button:hover{background:var(--panel2);color:var(--ink)}
+  nav.tabs button.active{background:var(--gold);color:#FBF3E2;font-weight:600}
+
+  main{padding:26px 0 40px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px}
+  .card-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .card-name{font-size:15.5px;font-weight:600}
+  .card-desc{color:var(--ink2);font-size:13.5px;margin:6px 0 10px}
+  .caret{margin-left:auto;color:var(--ink2);flex:none;display:inline-flex}
+  .caret svg{width:14px;height:14px;display:block}
+  .caret .ic-right{display:none}
+  .cat-group.collapsed .ic-right,.howto.collapsed .ic-right,.g-section.collapsed .ic-right{display:block}
+  .cat-group.collapsed .ic-down,.howto.collapsed .ic-down,.g-section.collapsed .ic-down{display:none}
+  .cat-group.collapsed .card{display:none}
+  .cat-head{display:flex;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:"Noto Serif SC","Songti SC",serif;font-size:18px;font-weight:700;color:var(--ink);padding:0;margin:26px 0 12px;cursor:pointer;user-select:none;text-align:left}
+  .cat-head::before{content:"";width:16px;height:2px;background:var(--gold);flex:none}
+
+  .codebar{display:flex;gap:10px;align-items:stretch}
+  pre{flex:1;background:var(--code-bg);color:var(--code-text);border-radius:6px;padding:12px 14px;font-family:ui-monospace,"Cascadia Code",Consolas,Menlo,monospace;font-size:13px;line-height:1.7;overflow-x:auto;white-space:pre}
+  .copy{flex:none;align-self:center;border:1px solid #B99A64;background:#FBF3E2;color:#7A531E;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .copy:hover{background:var(--gold);border-color:var(--gold);color:#FBF3E2}
+  .copy.done{background:var(--green);border-color:var(--green);color:#F2F8EC}
+  .note{margin-top:8px;font-size:12.5px;color:var(--ink2)}
+
+  .howto{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-top:26px}
+  .howto h2{font-family:"Noto Serif SC","Songti SC",serif;font-size:18px;margin-bottom:12px}
+  .howto-head{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+  .howto-head h2{margin-bottom:0}
+  .howto.collapsed ol{display:none}
+  .howto ol{padding-left:20px}
+  .howto li{margin-bottom:8px;font-size:14px}
+  .howto code{background:var(--panel2);border-radius:4px;padding:1px 6px;font-size:13px}
+
+  footer{padding:22px 0 44px;color:var(--ink2);font-size:12.5px}
+  footer p{margin-bottom:8px}
+  .feedback-line{margin-top:10px}
+
+  .guide{padding:26px 0 40px}
+  .guide-intro{margin:0 0 22px;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+  .guide-intro p{margin:0 0 12px;font-size:14px;color:var(--ink2);line-height:1.7}
+  .quick-chips{display:flex;gap:8px;flex-wrap:wrap}
+  .quick-chips button{border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:13.5px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;font-family:inherit}
+  .quick-chips button:hover{background:var(--gold-soft)}
+  .g-section{padding:26px 0;border-bottom:1px solid var(--line);scroll-margin-top:68px}
+  .g-section:last-child{border-bottom:none}
+  .g-head{display:flex;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:"Noto Serif SC","Songti SC",serif;font-size:18.5px;font-weight:700;color:var(--ink);padding:0;margin-bottom:6px;cursor:pointer;user-select:none;text-align:left}
+  .g-head::before{content:"";width:16px;height:2px;background:var(--gold);flex:none}
+  .g-section h3{font-size:15px;font-weight:600;margin:16px 0 10px;color:var(--ink)}
+  .g-section .sub{color:var(--ink2);font-size:14px;margin-bottom:16px}
+  .g-section.collapsed .g-body{display:none}
+
+  .table-scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-word}
+  th{color:var(--ink);font-weight:600;font-size:13px;background:var(--panel2)}
+  tr:last-child td{border-bottom:none}
+
+  ul.points{margin:0;padding-left:20px}
+  ul.points li{margin-bottom:10px;font-size:14px}
+  ul.points li b{color:var(--ink)}
+  .hint{color:var(--ink2);font-size:13px}
+  .todo{display:inline-block;border:1px dashed var(--gold);color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:1px 8px;font-size:12px;white-space:nowrap}
+
+  .route{display:flex;flex-direction:column}
+  .stage{display:grid;grid-template-columns:96px 30px 1fr;gap:0 14px;padding:24px 0;position:relative}
+  .stage:not(:last-child)::after{content:"";position:absolute;left:calc(96px + 14px + 14px);top:52px;bottom:-6px;width:1px;background:var(--line)}
+  .stage-badge{text-align:right;padding-top:4px}
+  .stage-badge .lv{font-family:"Noto Serif SC","Songti SC",serif;font-size:19px;font-weight:700;color:var(--gold)}
+  .stage-badge .seg{display:block;font-size:12px;color:var(--ink2);margin-top:2px}
+  .stage-dot{display:flex;justify-content:center;position:relative;z-index:1}
+  .stage-dot i{width:13px;height:13px;border-radius:50%;background:var(--panel2);border:2px solid var(--gold);margin-top:8px}
+  .stage-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+  .stage-title{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .stage-tag{color:var(--ink2);font-size:13.5px;margin-bottom:10px}
+  .rg{display:grid;grid-template-columns:82px 1fr;gap:6px 12px;padding:9px 0;border-top:1px dashed var(--line)}
+  .rg:first-of-type{border-top:none;padding-top:2px}
+  .rg-tag{color:var(--gold);font-size:13px;font-weight:600;padding-top:1px}
+  .rg-body{font-size:14px;min-width:0}
+  .rg-body ul{margin:0;padding-left:18px}
+  .rg-body li{margin-bottom:6px}
+  .rg-body li:last-child{margin-bottom:0}
+  .rg-body b{color:var(--ink)}
+
+  /* ===== 天赋模拟器 ===== */
+  .talent-wrap{padding:26px 0 40px}
+  .sim-frame{background:linear-gradient(180deg,#2A2015,#1C150D);border:1px solid #6B5330;border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(40,26,10,.35)}
+  .sim-bar{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:14px}
+  .sim-stat{font-size:13px;color:#C9B894}
+  .sim-stat b{color:#F0D9A0;font-size:17px;font-family:"Noto Serif SC",serif;margin-left:2px}
+  .sim-stat.tree-holy b{color:#EFD48A}
+  .sim-stat.tree-prot b{color:#8FB9CC}
+  .sim-stat.tree-ret b{color:#E0A266}
+  .sim-bar .spacer{flex:1}
+  .btn{border:1px solid #6B5330;background:#332716;color:#E9D9B4;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer;font-family:inherit}
+  .btn:hover{border-color:#E6C88A}
+  .btn.primary{background:#E5B25A;color:#241A0C;border-color:#E5B25A;font-weight:600}
+
+  .sim-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .tree{border:1px solid #574226;border-radius:12px;overflow:hidden}
+  .tree.holy{background:linear-gradient(180deg,#3B3218,#1C1708)}
+  .tree.prot{background:linear-gradient(180deg,#1F2C36,#101820)}
+  .tree.ret{background:linear-gradient(180deg,#39201A,#1C0E0A)}
+  .tree-head{display:flex;align-items:center;gap:9px;padding:11px 13px;border-bottom:1px solid rgba(120,90,45,.4)}
+  .tree-name{font-size:14px;font-weight:600;color:#F0D9A0}
+  .tree-pts{margin-left:auto;font-size:12.5px;color:#C9B894}
+  .tree-pts b{color:#F0D9A0}
+  .tree-body{padding:14px 12px 18px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(7,66px);gap:12px 2px;min-height:120px;position:relative}
+  .talent{display:flex;flex-direction:column;align-items:center;gap:4px;width:62px;justify-self:center;align-self:start;position:relative;z-index:1}
+  .tree-lines{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:visible}
+  .tree-line{stroke:#5C4722;stroke-width:2;fill:none;stroke-linecap:round}
+  .tree-line.hot{stroke:#7E9A55}
+  .ticon{position:relative;width:46px;height:46px;border-radius:9px;border:1px solid #4A3A22;background:#221A10;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+  .ticon-img{width:100%;height:100%;object-fit:cover;display:block}
+  .talent.avail .ticon-img{filter:grayscale(.45) brightness(.8)}
+  .talent.on .ticon-img{filter:none}
+  .talent.locked .ticon-img{filter:grayscale(.85) brightness(.55)}
+  .talent.avail .ticon{border-color:#6B5330}
+  .talent.avail .ticon:hover{border-color:#E6C88A;box-shadow:0 0 9px rgba(216,164,65,.4)}
+  .talent.on .ticon{border-color:#AAD372;background:#2E3316;box-shadow:0 0 11px rgba(170,211,114,.4)}
+  .talent.locked{opacity:.74}
+  .rank{position:absolute;right:3px;bottom:1px;font-size:10px;color:#E6C88A;text-shadow:0 1px 2px #000}
+  .order-badge{position:absolute;left:2px;top:2px;min-width:15px;height:15px;padding:0 3px;border-radius:4px;background:rgba(20,14,6,.88);color:#E6C88A;font-size:10px;font-weight:700;line-height:15px;text-align:center}
+  .tname{font-size:10.5px;color:#C9B894;text-align:center;line-height:1.2;white-space:nowrap}
+  .talent.on .tname{color:#F0D9A0}
+  .talent.locked .tname{color:#8A7A5E}
+
+  .tip{position:fixed;z-index:30;max-width:270px;background:#1C150C;border:1px solid #8A6A36;border-radius:8px;padding:10px 12px;font-size:12.5px;color:#E9D9B4;box-shadow:0 6px 18px rgba(0,0,0,.6);display:none;pointer-events:none}
+  .tip .tip-name{font-size:14px;font-weight:600;color:#E6C88A;margin-bottom:3px}
+  .tip .tip-rank{color:#C9B894;margin-bottom:5px}
+  .tip .tip-desc{color:#D8C9A8;line-height:1.55}
+  .tip .tip-req{margin-top:6px;color:#B9A67F;font-size:11px}
+  .preset-bar{margin:0 0 14px;padding:11px 13px 12px;border:1px solid #574226;border-radius:10px;background:rgba(30,22,12,.5)}
+  .preset-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin-bottom:9px}
+  .preset-label{font-size:13px;font-weight:600;color:#F0D9A0}
+  .preset-hint{font-size:11.5px;color:#9E8B6B}
+  .preset-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .preset-chip{border:1px solid #5E4728;background:#241A10;color:#D8C9A8;border-radius:7px;padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:7px}
+  .preset-chip b{font-weight:600;color:#A9946C;font-size:11.5px}
+  .preset-chip:hover{border-color:#B58A48}
+  .preset-chip.active{border-color:#E5B25A;background:#4A3316;color:#FFE2A8}
+  .preset-chip.active b{color:#E6C88A}
+  .preset-desc{margin:9px 0 0;font-size:12px;line-height:1.6;color:#B9A67F;min-height:19px}
+  .sim-note{margin-top:14px;font-size:13px;color:#B9A67F;line-height:1.7}
+  .sim-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12px;color:#B9A67F}
+  .sim-legend span{display:inline-flex;align-items:center;gap:6px}
+  .sim-legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+  .build-table td:first-child{font-weight:600;color:var(--gold);white-space:nowrap}
+  .build-note{background:var(--panel2);border-left:3px solid var(--gold);padding:12px 14px;font-size:13.5px;color:var(--ink2);margin-top:14px;line-height:1.7}
+
+  @media (max-width:640px){
+    .codebar{flex-direction:column}
+    .copy{align-self:stretch}
+    h1{font-size:23px}
+    .stage{grid-template-columns:1fr;gap:8px;padding:18px 0}
+    .stage:not(:last-child)::after{display:none}
+    .stage-badge{text-align:left;display:flex;align-items:baseline;gap:10px}
+    .stage-dot{display:none}
+    .rg{grid-template-columns:1fr;gap:2px}
+    .sim-cols{grid-template-columns:1fr}
+    .tree-body{gap:8px 2px;padding:12px 8px;grid-template-rows:repeat(7,62px)}
+    .talent{width:58px}
+    .ticon{width:42px;height:42px}
+    .tname{font-size:9px}
+  }
+
+  .sim-stat.tree-balance b{color:#9FD0C0}
+  .sim-stat.tree-feral b{color:#E0B06A}
+  .sim-stat.tree-resto b{color:#A8C77A}
+  .tree.balance{background:linear-gradient(180deg,#1F3036,#101A20)}
+  .tree.feral{background:linear-gradient(180deg,#392A18,#1C1208)}
+  .tree.resto{background:linear-gradient(180deg,#22351C,#101A0C)}
+  .tip .tip-note{margin-top:5px;color:#A8C77A;font-size:11px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="crumb" href="../index.html">← 魔兽世界：无限 · 全职业笔记</a>
+    <h1>德鲁伊练级笔记</h1>
+    <p class="sub">1–60 级 · 野性练级 · 猫熊切换 · 三系天赋模拟，《魔兽世界：无限》。</p>
+    <div class="notice">
+      <strong>数据口径：</strong>技能等级、天赋列位与父子关系按《魔兽世界：无限》客户端 1.60.1.70862 数据整理；德鲁伊的经典种族是暗夜精灵与牛头人。路线、掉落与数值请以游戏内实测为准，本页不替代客户端。
+    </div>
+  </div>
+</header>
+
+<nav class="viewnav">
+  <div class="wrap">
+    <button data-view="guide" class="active">练级指南</button>
+    <button data-view="macros">宏命令</button>
+    <button data-view="talent">天赋模拟</button>
+  </div>
+</nav>
+
+<div id="view-guide">
+  <nav class="guide-tabs" id="guideTabs">
+    <div class="wrap">
+      <ul>
+        <li><button data-target="g-route" class="active">路线图</button></li>
+        <li><button data-target="g-spells">技能全表</button></li>
+        <li><button data-target="g-build">天赋配点</button></li>
+        <li><button data-target="g-race">种族与专业</button></li>
+      </ul>
+      <button id="guideToggleAll" class="toggle-all">全部收起</button>
+    </div>
+  </nav>
+  <main class="wrap guide">
+
+    <div class="guide-intro">
+      <p>顺着 1–60 级往下走：去哪张图、几级拿关键技能、天赋点在哪都在本页；要抄一键宏去「宏命令」，想自己改配点去「天赋模拟」。</p>
+      <div class="quick-chips">
+        <button type="button" data-view="macros">宏命令速查</button>
+        <button type="button" data-view="talent">天赋模拟器</button>
+      </div>
+    </div>
+
+    <section class="g-section" id="g-route">
+      <button class="g-head" type="button">练级路线图 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <div class="g-body">
+        <p class="sub">按等级段往下翻：每段写去哪张图、拿什么关键技能、天赋点在哪。暗夜精灵与牛头人的起始图不同，20 级后路线大体合流；新区域和任务密度以游戏内为准。</p>
+        <div class="route" id="guide-route"></div>
+      </div>
+    </section>
+
+    <section class="g-section" id="g-spells">
+      <button class="g-head" type="button">技能全表 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <div class="g-body">
+        <p class="sub">各等级首次可学的新技能；技能等级还要在训练师处花钱提升。带「天赋」的技能需要先点出对应天赋。</p>
+        <div class="card table-scroll">
+          <table>
+            <colgroup><col style="width:12%"><col style="width:36%"><col style="width:52%"></colgroup>
+            <thead><tr><th>等级</th><th>技能</th><th>用途 / 备注</th></tr></thead>
+            <tbody id="guide-spells"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="g-section" id="g-build">
+      <button class="g-head" type="button">天赋配点：四套方案 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <div class="g-body">
+        <p class="sub">默认是野性练级 0/34/17：猎豹输出、熊形态扛硬仗，恢复补 17 点续航。模拟器上方还能切换平衡输出、熊坦、恢复治疗三套，点方案名整套应用；40 级开双天赋后按场景切。</p>
+
+        <div class="card table-scroll">
+          <h3 style="margin-top:0">四套方案怎么选</h3>
+          <table class="build-table">
+            <colgroup><col style="width:18%"><col style="width:16%"><col style="width:66%"></colgroup>
+            <thead><tr><th>方案</th><th>平衡 / 野性 / 恢复</th><th>适合与取舍</th></tr></thead>
+            <tbody>
+              <tr><td>野性练级</td><td>0 / 34 / 17</td><td>默认。激怒 5/5、凶暴 5/5，猫形态输出、熊形态扛硬怪；恢复补野性之心、自然主义、自然变形与反射，练级少坐地。</td></tr>
+              <tr><td>平衡输出</td><td>31 / 0 / 20</td><td>副本法系输出。枭兽形态、月光、月怒、复仇、起源与自然之赐；恢复补自然集中、自然赐福、强化回春与迅捷治愈。单人打怪比野性慢。</td></tr>
+              <tr><td>熊坦</td><td>0 / 41 / 10</td><td>副本主坦。厚皮、野性本能、野蛮冲撞、野性冲锋、割伤、原始撕咬、自然反射、狂乱撕扯；恢复补野性之心与自然变形。群体仇恨强，单人清怪慢。</td></tr>
+              <tr><td>恢复治疗</td><td>10 / 0 / 41</td><td>副本治疗。自然集中、自然赐福、强化回春、迅捷治愈、自然迅捷、生命之魂、强化愈合、野性成长、绽放；平衡补起源、月光与自然之威。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">为什么默认野性</h3>
+          <ul class="points">
+            <li><b>跑图与杀怪一体</b>：猎豹形态移动快，潜行能绕怪，爪击攒星、撕扯/凶猛收尾，练级节奏比平衡和恢复顺。</li>
+            <li><b>熊形态兜底</b>：精英、两只以上或副本切熊，护甲和生命值足够，低吼、槌击、挥击把仇恨拉住。</li>
+            <li><b>激怒解决变形资源</b>：本版本激怒在野性第一排，变形后立刻有怒气/能量，不用先等资源。</li>
+            <li><b>恢复 17 点补续航</b>：野性之心、自然主义、自然变形、反射与自然赐福，减少坐地和变形消耗。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">无限版的改动要点</h3>
+          <ul class="points">
+            <li><b>药水与武器附魔在形态下生效</b>：变形形态的伤害会随武器成长，练级期别忽略武器升级。</li>
+            <li><b>愤怒法力消耗大幅降低</b>：平衡前期更顺，强化愤怒还会继续降耗。</li>
+            <li><b>猎豹形态 20 级任务线获得</b>：按本版本，20 级去月光林地做「大猫之灵」任务线，不再像经典旧世那样只在训练师处学。</li>
+            <li><b>撕碎 20 级可学</b>：比经典旧世提前，猫形态一到位就能背后开怪。</li>
+            <li><b>割伤是新增内容</b>：天赋树与技能表都有它，具体学习/训练等级以游戏内为准。</li>
+            <li><b>天赋树每系 7 层</b>：每排需本系先投 5 点；数据中有 15 个节点标记为《无限》新增。60 级共 51 点，40 级起可开双天赋。</li>
+          </ul>
+        </div>
+
+        <h3>野性练级逐级加点顺序</h3>
+        <p class="sub">下面只写默认野性练级一套；其他三套在上方模拟器点方案名整套载入，不必按这张表逐级改。</p>
+        <div class="card table-scroll">
+          <table class="build-table">
+            <colgroup><col style="width:16%"><col style="width:84%"></colgroup>
+            <thead><tr><th>等级</th><th>加点</th></tr></thead>
+            <tbody>
+              <tr><td>10–14</td><td>野性 · 激怒 5/5</td></tr>
+              <tr><td>15–19</td><td>野性 · 凶暴 5/5</td></tr>
+              <tr><td>20–21</td><td>野性 · 豹之迅捷 2/2</td></tr>
+              <tr><td>22–24</td><td>恢复 · 野性之心 3/5</td></tr>
+              <tr><td>25–26</td><td>野性 · 锋利兽爪 2/2</td></tr>
+              <tr><td>27–28</td><td>野性 · 野蛮暴怒 2/2</td></tr>
+              <tr><td>29</td><td>野性 · 撕碎攻击 1/3</td></tr>
+              <tr><td>30–31</td><td>野性 · 撕碎攻击 3/3</td></tr>
+              <tr><td>32–34</td><td>野性 · 猛兽攻击 3/3</td></tr>
+              <tr><td>35–36</td><td>野性 · 血性狂乱 2/2</td></tr>
+              <tr><td>37</td><td>野性 · 割伤 1/1</td></tr>
+              <tr><td>38</td><td>野性 · 兽群领袖 1/1</td></tr>
+              <tr><td>39</td><td>野性 · 自然本能 1/2</td></tr>
+              <tr><td>40</td><td>野性 · 自然本能 2/2</td></tr>
+              <tr><td>41–45</td><td>野性 · 狂乱撕扯 5/5</td></tr>
+              <tr><td>46</td><td>野性 · 原始撕咬 1/1（野性 34 点成型）</td></tr>
+              <tr><td>47–48</td><td>恢复 · 野性之心 5/5</td></tr>
+              <tr><td>49</td><td>恢复 · 自然主义 1/5</td></tr>
+              <tr><td>50–53</td><td>恢复 · 自然主义 5/5</td></tr>
+              <tr><td>54–56</td><td>恢复 · 自然变形 3/3</td></tr>
+              <tr><td>57–59</td><td>恢复 · 反射 3/3</td></tr>
+              <tr><td>60</td><td>恢复 · 自然赐福 1/5，收满 野性 34 / 恢复 17</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="build-note">
+          <b>天赋规则：</b>10 级拿第一点，每级一点，60 级共 51 点；每棵树每排解锁，需要在本系先投满 5 点/排；有前置的天赋要先把父天赋点到要求等级。40 级起可开双天赋，练级一套、副本一套，不用来回洗点。
+        </div>
+      </div>
+    </section>
+
+    <section class="g-section" id="g-race">
+      <button class="g-head" type="button">暗夜精灵、牛头人与专业 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></button>
+      <div class="g-body">
+        <p class="sub">德鲁伊的经典种族是暗夜精灵与牛头人；若本版本放开其他种族组合，以游戏内创建界面为准。下面按「能补什么短板」来看。</p>
+
+        <div class="card">
+          <h3 style="margin-top:0">暗夜精灵</h3>
+          <ul class="points">
+            <li><b>影遁</b>：脱战隐匿，潜行开怪、躲巡逻和重置战斗都好用；猫形态配合潜行更顺。</li>
+            <li><b>闪避与自然抗性</b>：猫形态近战和熊形态扛自然伤害时更稳，具体数值以游戏内为准。</li>
+            <li><b>精灵之魂</b>：跑尸速度更快，开荒和副本灭团后省时间。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">牛头人</h3>
+          <ul class="points">
+            <li><b>战争践踏</b>：群体昏迷，猫起手、熊拉怪都能用，副本救场很实在。</li>
+            <li><b>耐久</b>：生命值上限提高 5%，熊坦更厚；猫形态也多点容错。</li>
+            <li><b>自然抗性 / 草药学加成</b>：自然抗性应对自然伤害；草药学加成适合走炼金。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">专业怎么选</h3>
+          <ul class="points">
+            <li><b>草药 + 炼金</b>：自给自足做药水，练级和副本都省药钱；德鲁伊跑图快，采药顺手。</li>
+            <li><b>剥皮 + 制皮</b>：皮甲自用，早期能做护甲和护腕；适合想少花钱的猫/熊。</li>
+            <li><b>双采集（草药 + 剥皮/采矿）</b>：练级路上顺手采，攒钱买坐骑和技能书最实在。</li>
+            <li><b>急救</b>：战斗间隙绷带回血，省蓝；恢复德鲁伊也能多一层保险。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">上手三句话</h3>
+          <ul class="points">
+            <li>野性印记常驻；猫形态先潜行，能绕背就撕碎，不能绕背就扫击开怪。</li>
+            <li>猫输出、熊扛怪；打精英或两只以上别硬撑猫形态，切熊后低吼、槌击、挥击。</li>
+            <li>战斗间隙解除变形，用回春和愈合补血；40 级后练级与副本分两套天赋。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /view-guide -->
+
+<div id="view-macros" hidden>
+<nav class="tabs" id="tabsNav">
+  <div class="wrap">
+    <ul id="tabs">
+      <li><button data-cat="all" class="active">全部</button></li>
+      <li><button data-cat="feral">猫德输出</button></li>
+      <li><button data-cat="bear">熊坦</button></li>
+      <li><button data-cat="heal">治疗与驱散</button></li>
+      <li><button data-cat="util">变形与实用</button></li>
+    </ul>
+    <button id="toggleAll" class="toggle-all">全部展开</button>
+  </div>
+</nav>
+<main class="wrap" id="list"></main>
+
+<section class="wrap">
+  <div class="howto" id="howtoBox">
+    <h2 class="howto-head" id="howtoHead">宏怎么放进游戏 <span class="caret"><svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></h2>
+    <ol>
+      <li>按 <code>Esc</code> → 打开「宏命令设置」→ 点「新建」，选个图标、起个名字。</li>
+      <li>把代码块里的内容整段复制粘贴进去。</li>
+      <li>以 <code>#showtooltip</code> 开头的行只控制动作条图标和提示，不执行动作。</li>
+      <li>把宏图标拖到动作条，打怪时点按即可。</li>
+      <li>指向类宏按「鼠标悬停目标 &gt; 当前目标 &gt; 自己」的顺序自动选人；治疗和驱散类尤其适合这样写。</li>
+      <li>变形宏里的 <code>!</code> 用来防止连按取消形态；不要把它删掉。</li>
+    </ol>
+  </div>
+</section>
+</div><!-- /view-macros -->
+
+<div id="view-talent" hidden>
+<main class="wrap talent-wrap">
+  <div class="sim-frame">
+    <div class="sim-bar">
+      <span class="sim-stat">已用点数 <b id="tp-used">0</b> / 51</span>
+      <span class="sim-stat">对应等级 <b id="tp-level">10</b></span>
+      <span class="sim-stat tree-balance">平衡 <b id="tp-balance">0</b></span>
+      <span class="sim-stat tree-feral">野性 <b id="tp-feral">0</b></span>
+      <span class="sim-stat tree-resto">恢复 <b id="tp-resto">0</b></span>
+      <span class="spacer"></span>
+      <button class="btn" id="btn-reset">清空</button>
+    </div>
+    <div class="preset-bar">
+      <div class="preset-top"><span class="preset-label">推荐配点</span><span class="preset-hint">点选切换整套方案，角标数字对应当前方案的加点顺序</span></div>
+      <div class="preset-chips" id="preset-chips"></div>
+      <p class="preset-desc" id="preset-desc"></p>
+    </div>
+    <div class="sim-cols" id="sim-cols">
+      <div class="tree balance" data-tree="balance">
+        <div class="tree-head"><span class="tree-name">平衡</span><span class="tree-pts"><b>0</b> 点</span></div>
+        <div class="tree-body" id="body-balance"><svg class="tree-lines"></svg></div>
+      </div>
+      <div class="tree feral" data-tree="feral">
+        <div class="tree-head"><span class="tree-name">野性战斗</span><span class="tree-pts"><b>0</b> 点</span></div>
+        <div class="tree-body" id="body-feral"><svg class="tree-lines"></svg></div>
+      </div>
+      <div class="tree resto" data-tree="resto">
+        <div class="tree-head"><span class="tree-name">恢复</span><span class="tree-pts"><b>0</b> 点</span></div>
+        <div class="tree-body" id="body-resto"><svg class="tree-lines"></svg></div>
+      </div>
+    </div>
+    <div class="sim-legend">
+      <span><i style="background:#AAD372"></i>已点亮</span>
+      <span><i style="background:#6B5330"></i>可加点</span>
+      <span><i style="background:#4A3A22"></i>未解锁</span>
+      <span>角标数字 = 当前方案首次投入的顺序</span>
+    </div>
+    <p class="sim-note">点击图标加一点，右键或 Shift+点击退一点。上方四套方案可整套切换，切换后角标与说明同步更新。每排需要在本系先投满 5 点/排；有前置的天赋要先把父天赋点到要求等级。连线只表示前置关系，不是每个天赋都相连。本页按客户端 1.60.1.70862 收录 52 个天赋，其中 15 个节点标记为《无限》新增；悬停可看标注。</p>
+  </div>
+</main>
+</div><!-- /view-talent -->
+
+<footer class="wrap">
+  <p>本页面为玩家自制非官方工具，与暴雪娱乐 / 网易无关。技能等级、天赋列位按《魔兽世界：无限》客户端数据整理；路线、掉落与数值请以游戏内实测为准。</p>
+  <p class="feedback-line">德鲁伊 · 1–60 练级笔记</p>
+</footer>
+
+<script>var ROUTES = [{"lv":"1–9","seg":"起步","title":"先学会愤怒、月火与治疗之触","tag":"暗夜精灵在泰达希尔，牛头人在莫高雷；10 级前用平衡法术起手，别急着变熊。","blocks":[{"tag":"地图","items":[{"text":"暗夜精灵：泰达希尔（多纳罗尔 → 达纳苏斯）；牛头人：莫高雷（血蹄村 → 雷霆崖）。把炉石绑在出生地旅店。"}]},{"tag":"技能","items":[{"text":"1 级：治疗之触、野性印记、愤怒。"},{"text":"4 级：月火术、回春术。"},{"text":"6 级：荆棘术。"},{"text":"8 级：纠缠根须。"}]},{"tag":"手法","items":[{"text":"愤怒起手，月火术补持续伤害；血量掉了用回春，掉得多读治疗之触。"},{"text":"纠缠根须用来拉开距离或拦第二只怪；野性印记常驻。"}]},{"tag":"装备","items":[{"text":"优先智力、精神与法术伤害；低等级拿法杖和布甲也能用，别为了凑护甲牺牲施法属性。"}]}]},{"lv":"10–19","seg":"熊形态","title":"10 级拿熊形态，开始拉多只","tag":"10 级去月光林地学熊形态、低吼和槌击；副本与精英怪从这一段开始能自己扛。","blocks":[{"tag":"地图","items":[{"text":"暗夜精灵去黑海岸（奥伯丁），牛头人去贫瘠之地（十字路口）；10 级回月光林地做职业任务。"}]},{"tag":"技能","items":[{"text":"10 级：熊形态、挫志咆哮、槌击、低吼、自然之握、传送：月光林地。"},{"text":"12 级：愈合、起死回生、狂怒。"},{"text":"14 级：重击、消毒术。"},{"text":"16 级：挥击、水栖形态。"},{"text":"18 级：精灵之火、休眠。"}]},{"tag":"天赋","items":[{"text":"野性 · 激怒 5/5，再凶暴 5/5；完整顺序见「天赋配点」。"}]},{"tag":"手法","items":[{"text":"低吼拉怪，槌击建立仇恨，两只以上补挥击和挫志咆哮；开怪前用狂怒攒怒气。"},{"text":"重击打断施法或控住第二只，自然之握用来根住逃跑的怪。"}]}]},{"lv":"20–29","seg":"猫形态","title":"猎豹形态到手，猫德正式起飞","tag":"20 级是德鲁伊的分水岭：猎豹形态、爪击、潜行、撕碎、撕扯和复生一起到位。","blocks":[{"tag":"地图","items":[{"text":"灰谷、石爪山脉、希尔斯布莱德丘陵；副本可去哀嚎洞穴、影牙城堡、黑暗深渊。"}]},{"tag":"技能","items":[{"text":"20 级：猎豹形态、爪击、潜行、撕碎、撕扯、清晰预兆、星火术、复生。"},{"text":"22 级：安抚动物。"},{"text":"24 级：扫击、凶猛撕咬、解除诅咒。"},{"text":"26 级：急奔、驱毒术。"},{"text":"28 级：畏缩、挑战咆哮。"}]},{"tag":"天赋","items":[{"text":"豹之迅捷 2/2 → 野性之心 3/5 → 锋利兽爪 2/2 → 野蛮暴怒 2/2 → 撕碎攻击 1/3。"}]},{"tag":"手法","items":[{"text":"潜行起手：扫击开怪，或绕到背后用撕碎；爪击攒连击点，撕扯/凶猛撕咬收尾。"},{"text":"打精英或两只以上切熊形态；战斗间隙解除变形，用回春和愈合补血，少坐地。"}]},{"tag":"提醒","items":[{"text":"按本版本，20 级去月光林地做「大猫之灵」任务线拿猎豹形态；若你的客户端仍是训练师直接学，以游戏内提示为准。"}]}]},{"lv":"30–39","seg":"旅行与突袭","title":"旅行形态跑图，突袭与狂暴回复补强","tag":"30 级旅行形态让跑图速度质变；36 级突袭和狂暴回复让猫起手与熊保命更完整。","blocks":[{"tag":"地图","items":[{"text":"荆棘谷（格罗姆高 / 藏宝海湾）、阿拉希高地、凄凉之地；副本血色修道院、剃刀高地。"}]},{"tag":"技能","items":[{"text":"30 级：旅行形态、宁静。"},{"text":"32 级：毁灭、追踪人型生物。"},{"text":"36 级：突袭、狂暴回复。"}]},{"tag":"天赋","items":[{"text":"撕碎攻击 3/3 → 猛兽攻击 3/3 → 血性狂乱 2/2 → 割伤 1/1 → 兽群领袖 1/1 → 自然本能 1/2。"}]},{"tag":"手法","items":[{"text":"旅行形态在户外赶路，进洞或战斗前切回猫；潜行后用毁灭或突袭起手。"},{"text":"熊形态血量危险时开狂暴回复，配合树皮术和重击拖时间。"}]}]},{"lv":"40–49","seg":"巨熊与飓风","title":"40 级巨熊形态、飓风，副本定位成型","tag":"40 级拿巨熊形态、飓风和豹之优雅；46 级原始撕咬是熊坦的高仇恨收尾。","blocks":[{"tag":"地图","items":[{"text":"塔纳利斯（加基森）、菲拉斯（莫沙彻营地）、荒芜之地；副本奥达曼、祖尔法拉克。"}]},{"tag":"技能","items":[{"text":"40 级：巨熊形态、飓风、豹之优雅。"},{"text":"44 级：树皮术。"},{"text":"50 级：野性赐福（下一段收尾）。"}]},{"tag":"天赋","items":[{"text":"自然本能 2/2 → 狂乱撕扯 5/5 → 原始撕咬 1/1 → 野性之心 5/5 → 自然主义 1/5。"}]},{"tag":"手法","items":[{"text":"巨熊拉群怪：槌击、挥击、割伤轮流上，挫志咆哮减伤；猫形态继续单体输出。"},{"text":"飓风只在有治疗跟随时铺，单人引导容易被打断；开怪前树皮术。"}]}]},{"lv":"50–60","seg":"收尾","title":"野性赐福与满级技能","tag":"50 级野性赐福给全队加属性；之后把恢复的减耗与回蓝补满，准备进团本。","blocks":[{"tag":"地图","items":[{"text":"安戈洛环形山、费伍德森林、东西瘟疫之地、冬泉谷、希利苏斯；副本黑石深渊、厄运之槌、通灵学院、斯坦索姆。"}]},{"tag":"技能","items":[{"text":"50 级：野性赐福。"},{"text":"60 级：治疗之触、愈合、回春、撕扯、凶猛撕咬、槌击等升到最高等级。"},{"text":"恢复向可点野性成长；具体学习方式以游戏内为准。"}]},{"tag":"天赋","items":[{"text":"自然主义 5/5 → 自然变形 3/3 → 反射 3/3 → 自然赐福 1/5，收满 野性 34 / 恢复 17。"}]},{"tag":"提醒","items":[{"text":"到训练师处把常用技能升满；40 级起可开双天赋，练级一套、副本一套，不用来回洗点。"}]}]}];
+var SKILLS = [["1","治疗之触 / 野性印记 / 愤怒","治疗之触是主力治疗；野性印记给全队加属性；愤怒是前期起手法术。"],["4","月火术 / 回春术","月火术瞬发直伤加持续伤害；回春术是练级最常用的持续治疗。"],["6","荆棘术","给坦克或自己套反伤，拉多只怪时收益高。"],["8","纠缠根须","定身敌人，用来拉开距离、拦逃跑怪或控第二只。"],["10","熊形态 / 挫志咆哮 / 槌击 / 低吼 / 自然之握 / 传送：月光林地","熊形态是10级后的坦克形态；低吼拉怪，槌击建立仇恨，挫志咆哮减攻；自然之握被动触发的根须很有用。"],["12","愈合 / 起死回生 / 狂怒","愈合是直接治疗加持续治疗；起死回生是非战斗复活；狂怒变形后立刻获得怒气。"],["14","重击 / 消毒术","重击晕住目标并打断施法；消毒术解疾病。"],["16","挥击 / 水栖形态","挥击是熊形态群体伤害与仇恨；水栖形态用于水下任务。"],["18","精灵之火 / 休眠","精灵之火降低目标护甲并反潜行；休眠让野兽或龙类睡着。"],["20","猎豹形态 / 爪击 / 潜行 / 撕碎 / 撕扯 / 清晰预兆 / 星火术 / 复生","猎豹形态是练级主输出形态；爪击攒连击点，撕碎背后开怪，撕扯持续流血，凶猛撕咬收尾；复生是战斗复活。"],["22","安抚动物","让野兽平静，减少不必要的战斗。"],["24","扫击 / 凶猛撕咬 / 解除诅咒","扫击是猫形态范围伤害；凶猛撕咬消耗连击点收尾；解除诅咒解魔法诅咒。"],["26","急奔 / 驱毒术","急奔短时间加速；驱毒术解中毒。"],["28","畏缩 / 挑战咆哮","畏缩降低仇恨；挑战咆哮强制周围敌人攻击熊形态的你。"],["30","旅行形态 / 宁静","旅行形态户外加速；宁静是引导型群体治疗，副本应急用。"],["32","毁灭 / 追踪人型生物","毁灭是潜行状态下的高伤开怪；追踪人型生物方便找任务怪。"],["36","突袭 / 狂暴回复","突袭是潜行起手昏迷；狂暴回复在熊形态下持续回血。"],["40","巨熊形态 / 飓风 / 豹之优雅","巨熊形态是40级后的坦克形态；飓风是范围自然伤害；豹之优雅降低范围伤害。"],["44","树皮术","短时间提高护甲，熊形态开怪或扛爆发时用。"],["50","野性赐福","给全队加属性，副本与组队常驻。"],["60","最高等级技能","治疗之触、愈合、回春、撕扯、凶猛撕咬、槌击等都要回训练师升满；只学一级会明显吃力。"]];
+var CATS = {"feral":"猫德输出","bear":"熊坦","heal":"治疗与驱散","util":"变形与实用"};
+var MACROS = [{"cat":"feral","name":"突袭或扫击","desc":"潜行时用突袭起手，否则用扫击；36 级起。","code":["#showtooltip","/cast [stealth] 突袭; 扫击"]},{"cat":"feral","name":"毁灭或撕碎","desc":"潜行时用毁灭，否则用撕碎；两者都要站在敌人背后。32 级起。","code":["#showtooltip","/cast [stealth] 毁灭; 撕碎"]},{"cat":"feral","name":"月火术（鼠标指向）","desc":"对鼠标悬停的敌人放月火，不用切目标；4 级起。","code":["#showtooltip","/cast [@mouseover,harm,nodead][] 月火术"]},{"cat":"bear","name":"槌击 + 自动攻击","desc":"熊形态一个键同时开自动攻击和槌击；10 级起。","code":["#showtooltip 槌击","/startattack","/cast 槌击"]},{"cat":"bear","name":"割伤 + 自动攻击","desc":"熊坦叠割伤并开自动攻击；先点出野性天赋「割伤」，等级以游戏内为准。","code":["#showtooltip 割伤","/startattack","/cast 割伤"]},{"cat":"heal","name":"治疗之触（鼠标指向）","desc":"优先治疗鼠标悬停的友方，其次当前目标，最后自己。","code":["#showtooltip","/cast [@mouseover,help,nodead][help,nodead][@player] 治疗之触"]},{"cat":"heal","name":"回春术（鼠标指向）","desc":"给鼠标悬停的友方上回春，没指向就治疗目标或自己；4 级起。","code":["#showtooltip","/cast [@mouseover,help,nodead][help,nodead][@player] 回春术"]},{"cat":"heal","name":"愈合（鼠标指向）","desc":"直接治疗加持续治疗，指向逻辑同上；12 级起。","code":["#showtooltip","/cast [@mouseover,help,nodead][help,nodead][@player] 愈合"]},{"cat":"heal","name":"野性成长（鼠标指向）","desc":"治疗目标及其小队；恢复天赋点出后使用，等级以游戏内为准。","code":["#showtooltip","/cast [@mouseover,help,nodead][help,nodead][@player] 野性成长"]},{"cat":"heal","name":"自然迅捷 + 治疗之触","desc":"紧急时下一个治疗之触瞬发；需要恢复天赋自然迅捷。","code":["#showtooltip 治疗之触","/cast 自然迅捷","/cast [@mouseover,help,nodead][help,nodead][@player] 治疗之触"]},{"cat":"heal","name":"解除诅咒（鼠标指向）","desc":"解除鼠标悬停友方身上的诅咒，否则解目标或自己；24 级起。","code":["#showtooltip","/cast [@mouseover,help,nodead][help,nodead][@player] 解除诅咒"]},{"cat":"heal","name":"驱毒术（鼠标指向）","desc":"解除中毒，指向逻辑同上；26 级起。","code":["#showtooltip","/cast [@mouseover,help,nodead][help,nodead][@player] 驱毒术"]},{"cat":"heal","name":"复生（鼠标指向）","desc":"战斗中复活鼠标悬停的队友，否则复活目标；20 级起。","code":["#showtooltip","/cast [@mouseover,help,dead][] 复生"]},{"cat":"util","name":"猎豹形态（不变回人形）","desc":"感叹号防止连按取消形态；20 级起。","code":["#showtooltip","/cast !猎豹形态"]},{"cat":"util","name":"旅行或水栖形态","desc":"水里用水栖，户外用旅行，室内用猎豹；30 级起。","code":["#showtooltip","/cast [swimming] 水栖形态; [outdoors] 旅行形态; 猎豹形态"]},{"cat":"util","name":"纠缠根须（鼠标指向）","desc":"定身鼠标悬停的敌人，否则定身当前目标；8 级起。","code":["#showtooltip","/cast [@mouseover,harm,nodead][] 纠缠根须"]},{"cat":"util","name":"休眠（鼠标指向）","desc":"让鼠标悬停的野兽或龙类睡着；18 级起。","code":["#showtooltip","/cast [@mouseover,harm,nodead][] 休眠"]},{"cat":"util","name":"枭兽形态（不被取消）","desc":"感叹号防止连按变回人形；平衡天赋点出枭兽形态后使用。","code":["#showtooltip","/cast !枭兽形态"]},{"cat":"util","name":"野性印记（目标或自己）","desc":"给友方目标上印记，没有目标就给自己。","code":["#showtooltip","/cast [help][@player] 野性印记"]},{"cat":"util","name":"荆棘术（鼠标指向）","desc":"给鼠标悬停的友方套荆棘，通常给坦克；6 级起。","code":["#showtooltip","/cast [@mouseover,help,nodead][help,nodead][@player] 荆棘术"]}];
+var TALENTS = [{"id":762,"tree":"balance","row":0,"col":1,"max":5,"name":"强化愤怒","parent":0,"parentRank":0,"d1":"使你的愤怒法术的施法时间缩短0.1秒，法力值消耗降低10%。","dn":"使你的愤怒法术的施法时间缩短0.5秒，法力值消耗降低50%。","icon":"spell_nature_abolishmagic","icon_path":"/bilder/icons/spell_nature_abolishmagic.jpg","isNew":false,"changed":false},{"id":104924,"tree":"balance","row":0,"col":2,"max":5,"name":"起源","parent":0,"parentRank":0,"d1":"使你的法术和技能造成的周期性伤害和治疗量提高2%。","dn":"使你的法术和技能造成的周期性伤害和治疗量提高10%。","icon":"spell_arcane_arcane03","icon_path":"/bilder/icons/spell_arcane_arcane03.jpg","isNew":true,"changed":false},{"id":783,"tree":"balance","row":1,"col":0,"max":3,"name":"月光","parent":0,"parentRank":0,"d1":"你的伤害性法术的法力消耗降低8%。","dn":"你的伤害性法术的法力消耗降低25%。","icon":"spell_nature_sentinal","icon_path":"/bilder/icons/spell_nature_sentinal.jpg","isNew":false,"changed":true},{"id":763,"tree":"balance","row":1,"col":1,"max":2,"name":"强化月火术","parent":0,"parentRank":0,"d1":"使你的月火术的伤害和爆击几率提高5%。","dn":"使你的月火术的伤害和爆击几率提高10%。","icon":"spell_nature_starfall","icon_path":"/bilder/icons/spell_nature_starfall.jpg","isNew":false,"changed":true},{"id":104927,"tree":"balance","row":1,"col":2,"max":2,"name":"自然的威严","parent":0,"parentRank":0,"d1":"使你的法术和近战攻击的爆击几率提高2%。","dn":"使你的法术和近战攻击的爆击几率提高4%。","icon":"inv_staff_01","icon_path":"/bilder/icons/inv_staff_01.jpg","isNew":true,"changed":false},{"id":764,"tree":"balance","row":1,"col":3,"max":2,"name":"自然延伸","parent":0,"parentRank":0,"d1":"使你的进攻性平衡法术射程提高10%，命中几率提高2%。","dn":"使你的进攻性平衡法术射程提高20%，命中几率提高4%。","icon":"spell_nature_naturetouchgrow","icon_path":"/bilder/icons/spell_nature_naturetouchgrow.jpg","isNew":false,"changed":true},{"id":787,"tree":"balance","row":2,"col":0,"max":3,"name":"强化纠缠根须","parent":0,"parentRank":0,"d1":"使你的纠缠根须造成的伤害提高25%，且受其影响的目标可额外承受最多25%的伤害而不会打断该效果。","dn":"使你的纠缠根须造成的伤害提高75%，且受其影响的目标可额外承受最多75%的伤害而不会打断该效果。","icon":"spell_nature_stranglevines","icon_path":"/bilder/icons/spell_nature_stranglevines.jpg","isNew":false,"changed":true},{"id":104928,"tree":"balance","row":2,"col":2,"max":1,"name":"自然的壮美","parent":104927,"parentRank":2,"d1":"使你的月火术和回春术的持续时间延长3秒，愈合的持续时间延长6秒，虫群的持续时间延长2秒。","dn":"使你的月火术和回春术的持续时间延长3秒，愈合的持续时间延长6秒，虫群的持续时间延长2秒。","icon":"spell_nature_natureresistancetotem","icon_path":"/bilder/icons/spell_nature_natureresistancetotem.jpg","isNew":true,"changed":false},{"id":827,"tree":"balance","row":3,"col":0,"max":1,"name":"虫群","parent":0,"parentRank":0,"d1":"敌人被飞虫围绕，攻击命中几率降低2%，在12秒内受到总计48点自然伤害。","dn":"敌人被飞虫围绕，攻击命中几率降低2%，在12秒内受到总计48点自然伤害。","icon":"spell_nature_insectswarm","icon_path":"/bilder/icons/spell_nature_insectswarm.jpg","isNew":false,"changed":true},{"id":792,"tree":"balance","row":3,"col":1,"max":5,"name":"复仇","parent":763,"parentRank":2,"d1":"使你的奥术和自然法术的爆击伤害加成提高20%。","dn":"使你的奥术和自然法术的爆击伤害加成提高100%。","icon":"spell_nature_purge","icon_path":"/bilder/icons/spell_nature_purge.jpg","isNew":false,"changed":false},{"id":784,"tree":"balance","row":3,"col":2,"max":5,"name":"强化星火术","parent":0,"parentRank":0,"d1":"使你的星火术的施法时间缩短0.1秒，并有3%的几率使目标昏迷3秒。","dn":"使你的星火术的施法时间缩短0.5秒，并有15%的几率使目标昏迷3秒。","icon":"spell_arcane_starfire","icon_path":"/bilder/icons/spell_arcane_starfire.jpg","isNew":false,"changed":false},{"id":921,"tree":"balance","row":4,"col":0,"max":2,"name":"繁茂","parent":0,"parentRank":0,"d1":"使你同时可被纠缠根须影响的目标数量上限提高1个。","dn":"使你同时可被纠缠根须影响的目标数量上限提高2个。","icon":"inv_misc_herb_15","icon_path":"/bilder/icons/inv_misc_herb_15.jpg","isNew":false,"changed":true},{"id":789,"tree":"balance","row":4,"col":1,"max":1,"name":"自然之赐","parent":0,"parentRank":0,"d1":"你的所有非周期性法术爆击都会使你获得自然的赐福，使施法速度提高并公共冷却时间缩短10%，持续3秒。","dn":"你的所有非周期性法术爆击都会使你获得自然的赐福，使施法速度提高并公共冷却时间缩短10%，持续3秒。","icon":"spell_nature_naturesblessing","icon_path":"/bilder/icons/spell_nature_naturesblessing.jpg","isNew":false,"changed":false},{"id":104935,"tree":"balance","row":4,"col":2,"max":3,"name":"日月之蚀","parent":0,"parentRank":0,"d1":"你的愤怒使接下来2次星火术的施法时间缩短0.2秒。最多储存4层。持续15秒。","dn":"你的愤怒使接下来2次星火术的施法时间缩短0.5秒。最多储存4层。持续15秒。","icon":"ability_druid_eclipse","icon_path":"/bilder/icons/ability_druid_eclipse.jpg","isNew":true,"changed":false},{"id":790,"tree":"balance","row":5,"col":1,"max":5,"name":"月怒","parent":0,"parentRank":0,"d1":"使你的奥术和自然法术造成的伤害提高2%。","dn":"使你的奥术和自然法术造成的伤害提高10%。","icon":"spell_nature_moonglow","icon_path":"/bilder/icons/spell_nature_moonglow.jpg","isNew":false,"changed":false},{"id":793,"tree":"balance","row":6,"col":1,"max":1,"name":"枭兽形态","parent":0,"parentRank":0,"d1":"进入枭兽形态，使清晰预兆触发的几率提高100%，物品提供的护甲值提高360%，并使45码内所有队伍或团队成员的爆击几率提高3%。免疫变形效果，枭兽形态下无法施放治疗法术。 变形可解除施法者身上的变形术和移动限制效果。","dn":"进入枭兽形态，使清晰预兆触发的几率提高100%，物品提供的护甲值提高360%，并使45码内所有队伍或团队成员的爆击几率提高3%。免疫变形效果，枭兽形态下无法施放治疗法术。 变形可解除施法者身上的变形术和移动限制效果。","icon":"spell_nature_forceofnature","icon_path":"/bilder/icons/spell_nature_forceofnature.jpg","isNew":false,"changed":false},{"id":796,"tree":"feral","row":0,"col":1,"max":5,"name":"凶暴","parent":0,"parentRank":0,"d1":"使你的槌击、原始撕咬、挥击、爪击和扫击技能消耗的怒气或能量减少1点。","dn":"使你的槌击、原始撕咬、挥击、爪击和扫击技能消耗的怒气或能量减少5点。","icon":"ability_hunter_pet_hyena","icon_path":"/bilder/icons/ability_hunter_pet_hyena.jpg","isNew":false,"changed":false},{"id":822,"tree":"feral","row":0,"col":2,"max":5,"name":"激怒","parent":0,"parentRank":0,"d1":"使你有20%的几率在变身为熊形态或巨熊形态时获得10点怒气。变身为猎豹形态时，恢复上次处于猎豹形态时所拥有能量的20%，并根据你离开熊形态和巨熊形态的时长，按每秒2点额外恢复能量，总计最多恢复20点能量。","dn":"使你有100%的几率在变身为熊形态或巨熊形态时获得10点怒气。变身为猎豹形态时，恢复上次处于猎豹形态时所拥有能量的100%，并根据你离开熊形态和巨熊形态的时长，按每秒10点额外恢复能量，总计最多恢复100点能量。","icon":"spell_holy_blessingofstamina","icon_path":"/bilder/icons/spell_holy_blessingofstamina.jpg","isNew":false,"changed":true},{"id":807,"tree":"feral","row":1,"col":0,"max":2,"name":"豹之迅捷","parent":0,"parentRank":0,"d1":"使你在猎豹形态下的移动速度提高15%，躲闪几率提高2%。","dn":"使你在猎豹形态下的移动速度提高30%，躲闪几率提高4%。","icon":"spell_nature_spiritwolf","icon_path":"/bilder/icons/spell_nature_spiritwolf.jpg","isNew":false,"changed":true},{"id":799,"tree":"feral","row":1,"col":1,"max":3,"name":"野性本能","parent":0,"parentRank":0,"d1":"使你的挥击造成的伤害提高10%，并在潜行时使敌人侦测到你的几率降低，效果相当于你高出1级。","dn":"使你的挥击造成的伤害提高30%，并在潜行时使敌人侦测到你的几率降低，效果相当于你高出3级。","icon":"ability_ambush","icon_path":"/bilder/icons/ability_ambush.jpg","isNew":false,"changed":true},{"id":797,"tree":"feral","row":1,"col":2,"max":2,"name":"野蛮冲撞","parent":0,"parentRank":0,"d1":"使你的重击和突袭的昏迷持续时间延长0.5秒，并使重击的冷却时间缩短15秒。","dn":"使你的重击和突袭的昏迷持续时间延长1秒，并使重击的冷却时间缩短30秒。","icon":"ability_druid_bash","icon_path":"/bilder/icons/ability_druid_bash.jpg","isNew":false,"changed":false},{"id":794,"tree":"feral","row":1,"col":3,"max":3,"name":"厚皮","parent":0,"parentRank":0,"d1":"处于熊形态、猎豹形态、巨熊形态或枭兽形态时，你每级获得1点额外基础护甲；防御技能超过你等级五倍后，每一点还会提供0.7点基础护甲。该数值可进一步受到这些形态的倍率加成。","dn":"处于熊形态、猎豹形态、巨熊形态或枭兽形态时，你每级获得3点额外基础护甲；防御技能超过你等级五倍后，每一点还会提供2点基础护甲。该数值可进一步受到这些形态的倍率加成。","icon":"inv_misc_pelt_bear_03","icon_path":"/bilder/icons/inv_misc_pelt_bear_03.jpg","isNew":false,"changed":true},{"id":802,"tree":"feral","row":2,"col":0,"max":3,"name":"撕碎攻击","parent":0,"parentRank":0,"d1":"使你的撕碎消耗的能量值降低6点，割伤消耗的怒气降低1点。","dn":"使你的撕碎消耗的能量值降低18点，割伤消耗的怒气降低3点。","icon":"spell_shadow_vampiricaura","icon_path":"/bilder/icons/spell_shadow_vampiricaura.jpg","isNew":false,"changed":true},{"id":805,"tree":"feral","row":2,"col":1,"max":2,"name":"野蛮暴怒","parent":0,"parentRank":0,"d1":"使你的爪击、扫击、撕碎、槌击和横扫技能造成的伤害提高5%。","dn":"使你的爪击、扫击、撕碎、槌击和横扫技能造成的伤害提高10%。","icon":"ability_druid_ravage","icon_path":"/bilder/icons/ability_druid_ravage.jpg","isNew":false,"changed":true},{"id":104944,"tree":"feral","row":2,"col":2,"max":1,"name":"野性冲锋","parent":0,"parentRank":0,"d1":"|CFFFF2020需要熊形态或巨熊形态|R 向敌人冲锋，使其无法移动，并打断其正在施放的任何法术，持续4秒。 跳跃到敌人的背后。","dn":"|CFFFF2020需要熊形态或巨熊形态|R 向敌人冲锋，使其无法移动，并打断其正在施放的任何法术，持续4秒。 跳跃到敌人的背后。","icon":"ability_hunter_pet_bear","icon_path":"/bilder/icons/ability_hunter_pet_bear.jpg","isNew":true,"changed":false},{"id":798,"tree":"feral","row":2,"col":3,"max":2,"name":"锋利兽爪","parent":0,"parentRank":0,"d1":"使你在熊形态、巨熊形态或猎豹形态下的爆击几率提高3%。","dn":"使你在熊形态、巨熊形态或猎豹形态下的爆击几率提高6%。","icon":"inv_misc_monsterclaw_04","icon_path":"/bilder/icons/inv_misc_monsterclaw_04.jpg","isNew":false,"changed":true},{"id":803,"tree":"feral","row":3,"col":0,"max":3,"name":"猛兽攻击","parent":0,"parentRank":0,"d1":"使你在猎豹形态、熊形态和巨熊形态下的近战攻击强度提高，数值相当于你等级的50%。","dn":"使你在猎豹形态、熊形态和巨熊形态下的近战攻击强度提高，数值相当于你等级的150%。","icon":"ability_hunter_pet_cat","icon_path":"/bilder/icons/ability_hunter_pet_cat.jpg","isNew":false,"changed":false},{"id":104949,"tree":"feral","row":3,"col":1,"max":1,"name":"割伤","parent":805,"parentRank":2,"d1":"割伤敌方目标并使其流血，在15秒内受到20点伤害，目标身上的每层割伤额外附加10%的武器伤害。造成高额威胁值。该效果对同一个目标最多叠加5次。","dn":"割伤敌方目标并使其流血，在15秒内受到20点伤害，目标身上的每层割伤额外附加10%的武器伤害。造成高额威胁值。该效果对同一个目标最多叠加5次。","icon":"ability_druid_lacerate","icon_path":"/bilder/icons/ability_druid_lacerate.jpg","isNew":true,"changed":false},{"id":104951,"tree":"feral","row":3,"col":2,"max":1,"name":"掠食戒律","parent":0,"parentRank":0,"d1":"你的凶猛撕咬不再将额外能量转化为伤害，但额外伤害仍取决于你的额外能量。","dn":"你的凶猛撕咬不再将额外能量转化为伤害，但额外伤害仍取决于你的额外能量。","icon":"spell_druid_savagery","icon_path":"/bilder/icons/spell_druid_savagery.jpg","isNew":true,"changed":false},{"id":801,"tree":"feral","row":3,"col":3,"max":2,"name":"血性狂乱","parent":798,"parentRank":2,"d1":"使你在熊形态或巨熊形态下造成爆击时，有50%的几率额外获得5点怒气。此外，你的猎豹形态下可产生连击点数的技能的非周期性爆击有50%的几率额外增加一个连击点数。","dn":"使你在熊形态或巨熊形态下造成爆击时，有100%的几率额外获得5点怒气。此外，你的猎豹形态下可产生连击点数的技能的非周期性爆击有100%的几率额外增加一个连击点数。","icon":"ability_ghoulfrenzy","icon_path":"/bilder/icons/ability_ghoulfrenzy.jpg","isNew":false,"changed":false},{"id":809,"tree":"feral","row":4,"col":1,"max":1,"name":"兽群领袖","parent":0,"parentRank":0,"d1":"处于猎豹、熊或巨熊形态时，兽群领袖使45码内所有小队或团队成员的爆击几率提高3%。","dn":"处于猎豹、熊或巨熊形态时，兽群领袖使45码内所有小队或团队成员的爆击几率提高3%。","icon":"spell_nature_unyeildingstamina","icon_path":"/bilder/icons/spell_nature_unyeildingstamina.jpg","isNew":false,"changed":true},{"id":104950,"tree":"feral","row":4,"col":3,"max":2,"name":"自然本能","parent":0,"parentRank":0,"d1":"近战技能的爆击伤害加成提高10%，并使你的法术治疗效果获得相当于智力12%的加成。","dn":"近战技能的爆击伤害加成提高20%，并使你的法术治疗效果获得相当于智力25%的加成。","icon":"ability_druid_predatoryinstincts","icon_path":"/bilder/icons/ability_druid_predatoryinstincts.jpg","isNew":true,"changed":false},{"id":104953,"tree":"feral","row":5,"col":0,"max":5,"name":"狂乱撕扯","parent":803,"parentRank":3,"d1":"使你的近战技能对流血目标造成的伤害提高3%。","dn":"使你的近战技能对流血目标造成的伤害提高15%。","icon":"ability_druid_primalagression","icon_path":"/bilder/icons/ability_druid_primalagression.jpg","isNew":true,"changed":false},{"id":104954,"tree":"feral","row":5,"col":3,"max":5,"name":"自然反射","parent":0,"parentRank":0,"d1":"使你的躲闪几率提高1%，并且每次躲闪有20%的几率获得5点怒气。","dn":"使你的躲闪几率提高5%，并且每次躲闪有100%的几率获得5点怒气。","icon":"ability_bullrush","icon_path":"/bilder/icons/ability_bullrush.jpg","isNew":true,"changed":false},{"id":104956,"tree":"feral","row":6,"col":1,"max":1,"name":"原始撕咬","parent":809,"parentRank":1,"d1":"撕咬目标，造成100%普通伤害外加42点伤害，并产生大量威胁值。","dn":"撕咬目标，造成100%普通伤害外加42点伤害，并产生大量威胁值。","icon":"ability_racial_cannibalize","icon_path":"/bilder/icons/ability_racial_cannibalize.jpg","isNew":true,"changed":false},{"id":113563,"tree":"feral","row":6,"col":2,"max":1,"name":"变形之力","parent":104951,"parentRank":1,"d1":"立即将一部分法力值转化为能量。降低变形法术消耗的效果也会降低变形之力的消耗。","dn":"立即将一部分法力值转化为能量。降低变形法术消耗的效果也会降低变形之力的消耗。","icon":"spell_druid_displacement","icon_path":"/bilder/icons/spell_druid_displacement.jpg","isNew":true,"changed":false},{"id":823,"tree":"resto","row":0,"col":1,"max":5,"name":"自然集中","parent":0,"parentRank":0,"d1":"使你的奥术和自然法术有14%的几率在受到伤害时不损失施法时间。","dn":"使你的奥术和自然法术有70%的几率在受到伤害时不损失施法时间。","icon":"spell_nature_healingwavegreater","icon_path":"/bilder/icons/spell_nature_healingwavegreater.jpg","isNew":false,"changed":true},{"id":808,"tree":"resto","row":0,"col":2,"max":5,"name":"野性之心","parent":0,"parentRank":0,"d1":"使你的智力提高2%。此外，在熊形态或巨熊形态下，耐力提高4%；在猎豹形态下，力量提高2%。","dn":"使你的智力提高10%。此外，在熊形态或巨熊形态下，耐力提高20%；在猎豹形态下，力量提高10%。","icon":"spell_holy_blessingofagility","icon_path":"/bilder/icons/spell_holy_blessingofagility.jpg","isNew":false,"changed":true},{"id":824,"tree":"resto","row":1,"col":0,"max":5,"name":"自然主义","parent":0,"parentRank":0,"d1":"使你的治疗之触和野性成长的施法时间缩短0.1秒，并使你造成的所有伤害提高2%。","dn":"使你的治疗之触和野性成长的施法时间缩短0.5秒，并使你造成的所有伤害提高10%。","icon":"spell_nature_healingtouch","icon_path":"/bilder/icons/spell_nature_healingtouch.jpg","isNew":false,"changed":false},{"id":829,"tree":"resto","row":1,"col":1,"max":3,"name":"反射","parent":0,"parentRank":0,"d1":"使你在施法时仍保持17%的法力回复速度。","dn":"使你在施法时仍保持50%的法力回复速度。","icon":"spell_frost_windwalkon","icon_path":"/bilder/icons/spell_frost_windwalkon.jpg","isNew":false,"changed":true},{"id":781,"tree":"resto","row":1,"col":2,"max":3,"name":"自然变形","parent":0,"parentRank":0,"d1":"使你的所有变形法术所消耗的法力值降低10%。","dn":"使你的所有变形法术所消耗的法力值降低30%。","icon":"spell_nature_wispsplode","icon_path":"/bilder/icons/spell_nature_wispsplode.jpg","isNew":false,"changed":true},{"id":841,"tree":"resto","row":2,"col":1,"max":3,"name":"微妙","parent":0,"parentRank":0,"d1":"使你的自然和奥术法术产生的威胁降低10%。","dn":"使你的自然和奥术法术产生的威胁降低30%。","icon":"ability_eyeoftheowl","icon_path":"/bilder/icons/ability_eyeoftheowl.jpg","isNew":false,"changed":true},{"id":828,"tree":"resto","row":2,"col":2,"max":5,"name":"自然赐福","parent":0,"parentRank":0,"d1":"使你的所有治疗法术效果提高2%。","dn":"使你的所有治疗法术效果提高10%。","icon":"spell_nature_protectionformnature","icon_path":"/bilder/icons/spell_nature_protectionformnature.jpg","isNew":false,"changed":true},{"id":104918,"tree":"resto","row":2,"col":3,"max":1,"name":"绽放","parent":0,"parentRank":0,"d1":"当你施放的回春术或愈合持续时间结束时，立即为目标恢复相当于你精神值100%的生命值。若效果被驱散，则改为恢复相当于你精神值50%的生命值。","dn":"当你施放的回春术或愈合持续时间结束时，立即为目标恢复相当于你精神值100%的生命值。若效果被驱散，则改为恢复相当于你精神值50%的生命值。","icon":"inv_misc_herb_felblossom","icon_path":"/bilder/icons/inv_misc_herb_felblossom.jpg","isNew":true,"changed":false},{"id":843,"tree":"resto","row":3,"col":1,"max":5,"name":"宁静之魂","parent":0,"parentRank":0,"d1":"使你的治疗之触和宁静所消耗的法力值减少2%。","dn":"使你的治疗之触和宁静所消耗的法力值减少10%。","icon":"spell_holy_elunesgrace","icon_path":"/bilder/icons/spell_holy_elunesgrace.jpg","isNew":false,"changed":false},{"id":830,"tree":"resto","row":3,"col":2,"max":3,"name":"强化回春术","parent":0,"parentRank":0,"d1":"使你的回春术的效果提高5%。","dn":"使你的回春术的效果提高15%。","icon":"spell_nature_rejuvenation","icon_path":"/bilder/icons/spell_nature_rejuvenation.jpg","isNew":false,"changed":false},{"id":844,"tree":"resto","row":3,"col":3,"max":1,"name":"迅捷治愈","parent":0,"parentRank":0,"d1":"立即为一个带有你施放的回春术或愈合效果的目标恢复生命值，数值等于该效果在完整持续时间内的周期性治疗总量。","dn":"立即为一个带有你施放的回春术或愈合效果的目标恢复生命值，数值等于该效果在完整持续时间内的周期性治疗总量。","icon":"inv_relics_idolofrejuvenation","icon_path":"/bilder/icons/inv_relics_idolofrejuvenation.jpg","isNew":false,"changed":true},{"id":831,"tree":"resto","row":4,"col":0,"max":1,"name":"自然迅捷","parent":824,"parentRank":5,"d1":"激活之后，你的下一个自然法术会成为瞬发法术。","dn":"激活之后，你的下一个自然法术会成为瞬发法术。","icon":"spell_nature_ravenform","icon_path":"/bilder/icons/spell_nature_ravenform.jpg","isNew":false,"changed":false},{"id":104911,"tree":"resto","row":4,"col":1,"max":3,"name":"生命之魂","parent":0,"parentRank":0,"d1":"使你的精神提高5%。","dn":"使你的精神提高15%。","icon":"spell_nature_giftofthewaterspirit","icon_path":"/bilder/icons/spell_nature_giftofthewaterspirit.jpg","isNew":true,"changed":false},{"id":842,"tree":"resto","row":4,"col":3,"max":2,"name":"强化宁静","parent":0,"parentRank":0,"d1":"使你的宁静产生的威胁值降低50%，冷却时间缩短30%。","dn":"使你的宁静产生的威胁值降低100%，冷却时间缩短60%。","icon":"spell_nature_tranquility","icon_path":"/bilder/icons/spell_nature_tranquility.jpg","isNew":false,"changed":false},{"id":825,"tree":"resto","row":5,"col":2,"max":5,"name":"强化愈合","parent":830,"parentRank":3,"d1":"使你的愈合法术产生极效治疗效果的几率提高10%。","dn":"使你的愈合法术产生极效治疗效果的几率提高50%。","icon":"spell_nature_resistnature","icon_path":"/bilder/icons/spell_nature_resistnature.jpg","isNew":false,"changed":false},{"id":104910,"tree":"resto","row":6,"col":1,"max":1,"name":"野性成长","parent":104911,"parentRank":3,"d1":"在7秒内为目标及其43.5码内的小队成员恢复280点生命值。治疗效果起初较快，随着野性成长接近结束而变慢。","dn":"在7秒内为目标及其43.5码内的小队成员恢复280点生命值。治疗效果起初较快，随着野性成长接近结束而变慢。","icon":"ability_druid_flourish","icon_path":"/bilder/icons/ability_druid_flourish.jpg","isNew":true,"changed":false}];</script>
+
+<script>
+(function(){
+  var viewButtons = document.querySelectorAll("button[data-view]");
+  var navButtons = document.querySelectorAll("nav.viewnav button");
+  var views = {guide:document.getElementById("view-guide"), macros:document.getElementById("view-macros"), talent:document.getElementById("view-talent")};
+
+  function switchView(name){
+    Object.keys(views).forEach(function(k){ views[k].hidden = (k !== name); });
+    navButtons.forEach(function(b){ b.classList.toggle("active", b.dataset.view === name); });
+    if(name === "talent"){
+      requestAnimationFrame(function(){ renderTalent(); requestAnimationFrame(function(){ drawAll(); }); });
+    }
+  }
+  viewButtons.forEach(function(b){ b.onclick = function(){ switchView(b.dataset.view); }; });
+
+  // ===== 指南 =====
+  function el(tag, cls, text){
+    var e = document.createElement(tag);
+    if(cls) e.className = cls;
+    if(text != null) e.textContent = text;
+    return e;
+  }
+
+  function renderRoute(){
+    var root = document.getElementById("guide-route");
+    root.textContent = "";
+    ROUTES.forEach(function(sec){
+      var stage = el("div", "stage");
+      var badge = el("div", "stage-badge");
+      badge.appendChild(el("span", "lv", sec.lv));
+      badge.appendChild(el("span", "seg", sec.seg));
+      stage.appendChild(badge);
+      var dot = el("div", "stage-dot"); dot.appendChild(el("i")); stage.appendChild(dot);
+
+      var card = el("div", "stage-card");
+      card.appendChild(el("div", "stage-title", sec.title));
+      card.appendChild(el("div", "stage-tag", sec.tag));
+      sec.blocks.forEach(function(b){
+        var rg = el("div", "rg");
+        rg.appendChild(el("div", "rg-tag", b.tag));
+        var body = el("div", "rg-body");
+        var ul = el("ul");
+        b.items.forEach(function(it){
+          var li = el("li");
+          li.textContent = it.text;
+          if(it.todo){ li.appendChild(document.createTextNode(" ")); li.appendChild(el("span", "todo", "待核")); }
+          ul.appendChild(li);
+        });
+        body.appendChild(ul);
+        rg.appendChild(body);
+        card.appendChild(rg);
+      });
+      stage.appendChild(card);
+      root.appendChild(stage);
+    });
+  }
+
+  function renderSpells(){
+    var tbody = document.getElementById("guide-spells");
+    tbody.textContent = "";
+    SKILLS.forEach(function(row){
+      var tr = el("tr");
+      row.forEach(function(cell, i){
+        var td = el("td");
+        if(i === 0) td.style.fontWeight = "600";
+        if(cell === "待核"){ td.appendChild(el("span", "todo", "待核")); }
+        else td.textContent = cell;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  var guideSections = Array.prototype.slice.call(document.querySelectorAll(".g-section"));
+  var guideTabBtns = Array.prototype.slice.call(document.querySelectorAll("#guideTabs button"));
+  function setSectionActive(id){
+    guideTabBtns.forEach(function(b){ b.classList.toggle("active", b.dataset.target === id); });
+  }
+  guideTabBtns.forEach(function(btn){
+    btn.onclick = function(){
+      var sec = document.getElementById(btn.dataset.target);
+      if(!sec) return;
+      sec.classList.remove("collapsed");
+      setSectionActive(btn.dataset.target);
+      sec.scrollIntoView({behavior:"smooth", block:"start"});
+    };
+  });
+  guideSections.forEach(function(sec){
+    var head = sec.querySelector(".g-head");
+    if(head) head.onclick = function(){ sec.classList.toggle("collapsed"); };
+  });
+  var toggleAllBtn = document.getElementById("guideToggleAll");
+  var guideCollapsedAll = false;
+  toggleAllBtn.onclick = function(){
+    guideCollapsedAll = !guideCollapsedAll;
+    guideSections.forEach(function(sec){ sec.classList.toggle("collapsed", guideCollapsedAll); });
+    toggleAllBtn.textContent = guideCollapsedAll ? "全部展开" : "全部收起";
+  };
+
+  // ===== 宏 =====
+  var listEl = document.getElementById("list");
+  var catTabs = document.querySelectorAll("#tabs button");
+  var macroState = {cat:"all"};
+
+  function fallbackCopy(text, done){
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e) {}
+    document.body.removeChild(ta);
+    done();
+  }
+
+  function renderMacros(){
+    var groups = {};
+    MACROS.forEach(function(m){
+      if(macroState.cat !== "all" && m.cat !== macroState.cat) return;
+      (groups[m.cat] = groups[m.cat] || []).push(m);
+    });
+    listEl.textContent = "";
+    Object.keys(CATS).forEach(function(cat){
+      var items = groups[cat];
+      if(!items || !items.length) return;
+      var group = el("div", "cat-group");
+      var head = el("button", "cat-head");
+      head.type = "button";
+      head.appendChild(el("span", null, CATS[cat]));
+      var caret = el("span", "caret");
+      caret.innerHTML = '<svg class="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg><svg class="ic-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>';
+      head.appendChild(caret);
+      head.onclick = function(){ group.classList.toggle("collapsed"); };
+      group.appendChild(head);
+
+      items.forEach(function(m){
+        var card = el("div", "card");
+        var ch = el("div", "card-head");
+        ch.appendChild(el("span", "card-name", m.name));
+        card.appendChild(ch);
+        card.appendChild(el("div", "card-desc", m.desc));
+
+        var bar = el("div", "codebar");
+        var pre = el("pre"); pre.textContent = m.code.join("\n");
+        bar.appendChild(pre);
+        var btn = el("button", "copy", "复制");
+        btn.type = "button";
+        btn.onclick = function(){
+          var text = pre.textContent;
+          function done(){ btn.classList.add("done"); btn.textContent = "已复制"; setTimeout(function(){ btn.classList.remove("done"); btn.textContent = "复制"; }, 1500); }
+          fallbackCopy(text, done);
+          if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).catch(function(){}); }
+        };
+        bar.appendChild(btn);
+        card.appendChild(bar);
+        if(m.note) card.appendChild(el("p", "note", m.note));
+        group.appendChild(card);
+      });
+      listEl.appendChild(group);
+    });
+  }
+
+  catTabs.forEach(function(b){
+    b.onclick = function(){
+      macroState.cat = b.dataset.cat;
+      catTabs.forEach(function(x){ x.classList.toggle("active", x === b); });
+      renderMacros();
+    };
+  });
+  var macroToggleAll = document.getElementById("toggleAll");
+  var macroOpenAll = true;
+  macroToggleAll.onclick = function(){
+    macroOpenAll = !macroOpenAll;
+    document.querySelectorAll("#list .cat-group").forEach(function(g){ g.classList.toggle("collapsed", !macroOpenAll); });
+    macroToggleAll.textContent = macroOpenAll ? "全部展开" : "全部收起";
+  };
+  var howto = document.getElementById("howtoBox"), howtoHead = document.getElementById("howtoHead");
+  if(howtoHead) howtoHead.onclick = function(){ howto.classList.toggle("collapsed"); };
+
+  // ===== 天赋模拟器 =====
+  var MAX_POINTS = 51;
+  var TREES = ["balance","feral","resto"];
+  var TREE_LABEL = {balance:"平衡", feral:"野性战斗", resto:"恢复"};
+  var talentState = {};
+  var byId = {};
+  TALENTS.forEach(function(t){ byId[t.id] = t; });
+
+  var PRESETS = [{"name":"野性练级","tag":"0 / 34 / 17","desc":"默认。野性 34 点：激怒 5/5、凶暴 5/5，豹之迅捷、锋利兽爪、野蛮暴怒、撕碎攻击、猛兽攻击、血性狂乱、割伤、兽群领袖、自然本能、狂乱撕扯、原始撕咬；恢复 17 点补野性之心、自然主义、自然变形、反射与自然赐福。猫形态输出，熊形态扛硬怪，练级少坐地。","build":{"822":5,"796":5,"807":2,"808":5,"798":2,"805":2,"802":3,"803":3,"801":2,"104949":1,"809":1,"104950":2,"104953":5,"104956":1,"824":5,"781":3,"829":3,"828":1},"order":[822,822,822,822,822,796,796,796,796,796,807,807,808,808,808,798,798,805,805,802,802,802,803,803,803,801,801,104949,809,104950,104950,104953,104953,104953,104953,104953,104956,808,808,824,824,824,824,824,781,781,781,829,829,829,828]},{"name":"平衡输出","tag":"31 / 0 / 20","desc":"副本法系输出。平衡 31 点出枭兽形态，月光、月怒、复仇、起源与自然之赐；恢复 20 点补自然集中、自然赐福、强化回春与迅捷治愈，兼应急治疗。单人打怪比野性慢。","build":{"762":5,"104924":5,"783":3,"763":2,"764":2,"104927":2,"792":5,"789":1,"790":5,"793":1,"823":5,"829":3,"824":3,"828":5,"830":3,"844":1},"order":[762,762,762,762,762,104924,104924,104924,104924,104924,783,783,783,763,763,764,764,104927,104927,792,792,792,792,792,789,790,790,790,790,790,793,823,823,823,823,823,829,829,829,824,824,824,828,828,828,828,828,830,830,830,844]},{"name":"熊坦","tag":"0 / 41 / 10","desc":"副本主坦。野性 41 点：厚皮、野性本能、野蛮冲撞、野性冲锋、割伤、原始撕咬、自然反射、狂乱撕扯；恢复 10 点补野性之心与自然变形。群体仇恨和生存强，单人清怪慢。","build":{"822":5,"808":5,"796":5,"794":3,"799":3,"797":2,"798":2,"805":2,"104944":1,"801":2,"803":3,"104949":1,"809":1,"104950":2,"104953":4,"104954":4,"104956":1,"781":3,"829":2},"order":[822,822,822,822,822,808,808,808,808,808,796,796,796,796,796,794,794,794,799,799,799,797,797,798,798,805,805,104944,801,801,803,803,803,104949,809,104950,104950,104953,104953,104953,104953,104954,104954,104954,104954,104956,781,781,781,829,829]},{"name":"恢复治疗","tag":"10 / 0 / 41","desc":"副本治疗。恢复 41 点：自然集中、自然赐福、强化回春、迅捷治愈、自然迅捷、生命之魂、强化愈合、野性成长、绽放；平衡 10 点补起源、月光与自然之威。团本与五人本主奶，打怪最慢。","build":{"823":5,"829":3,"828":5,"841":3,"830":3,"844":1,"824":5,"831":1,"104911":3,"825":5,"104910":1,"842":2,"104918":1,"781":3,"104924":5,"783":3,"104927":2},"order":[823,823,823,823,823,829,829,829,824,824,824,841,841,841,828,828,828,828,828,830,830,830,844,824,824,831,104911,104911,104911,825,825,825,825,825,104910,842,842,104918,781,781,781,104924,104924,104924,104924,104924,783,783,783,104927,104927]}];
+  var activePreset = 0;
+  var PRESET = {};
+  var PRESET_ORDER = [];
+  var ORDER_INDEX = {};
+  function loadPresetData(i){
+    activePreset = i;
+    PRESET = {}; PRESET_ORDER = []; ORDER_INDEX = {};
+    var p = PRESETS[i];
+    for(var id in p.build) PRESET[id] = p.build[id];
+    p.order.forEach(function(id, idx){
+      PRESET_ORDER.push(id);
+      if(ORDER_INDEX[id] == null) ORDER_INDEX[id] = idx + 1;
+    });
+  }
+  var showOrder = true;
+
+  function rankOf(id){ return talentState[id] || 0; }
+  function treePoints(tree){
+    var s = 0;
+    TALENTS.forEach(function(t){ if(t.tree === tree) s += rankOf(t.id); });
+    return s;
+  }
+  function totalPoints(){
+    var s = 0;
+    TALENTS.forEach(function(t){ s += rankOf(t.id); });
+    return s;
+  }
+  function rowPointsBefore(tree, row){
+    var s = 0;
+    TALENTS.forEach(function(t){ if(t.tree === tree && t.row < row) s += rankOf(t.id); });
+    return s;
+  }
+  function canAdd(t){
+    if(totalPoints() >= MAX_POINTS) return false;
+    if(rankOf(t.id) >= t.max) return false;
+    if(rowPointsBefore(t.tree, t.row) < t.row * 5) return false;
+    if(t.parent && byId[t.parent] && rankOf(t.parent) < t.parentRank) return false;
+    return true;
+  }
+  function isValid(){
+    if(totalPoints() > MAX_POINTS) return false;
+    for(var i=0;i<TALENTS.length;i++){
+      var t = TALENTS[i];
+      if(!rankOf(t.id)) continue;
+      if(rowPointsBefore(t.tree, t.row) < t.row * 5) return false;
+      if(t.parent && byId[t.parent] && rankOf(t.parent) < t.parentRank) return false;
+    }
+    return true;
+  }
+  function sameAsPreset(){
+    for(var id in PRESET){ if((talentState[id]||0) !== PRESET[id]) return false; }
+    for(var id2 in talentState){ if(talentState[id2] && !PRESET[id2]) return false; }
+    return true;
+  }
+
+  var presetChipsEl = document.getElementById("preset-chips");
+  var presetDescEl = document.getElementById("preset-desc");
+  var presetButtons = [];
+  function stateMatches(build){
+    for(var id in talentState){ if(talentState[id] && !build[id]) return false; }
+    for(var b in build){ if((talentState[b]||0) !== build[b]) return false; }
+    return true;
+  }
+  function updatePresetUI(){
+    var active = -1;
+    for(var i=0;i<PRESETS.length;i++){ if(stateMatches(PRESETS[i].build)){ active=i; break; } }
+    presetButtons.forEach(function(btn,i){ btn.classList.toggle("active", i===active); });
+    if(active>=0) presetDescEl.textContent = PRESETS[active].desc;
+    else presetDescEl.textContent = "已手动调整或清空；点上方方案可恢复整套推荐配点。";
+  }
+  function applyPreset(i){
+    loadPresetData(i);
+    talentState = {};
+    for(var id in PRESET) talentState[id] = PRESET[id];
+    showOrder = true;
+    renderTalent();
+    updatePresetUI();
+  }
+  function renderPresetChips(){
+    if(!presetChipsEl) return;
+    PRESETS.forEach(function(p,i){
+      var btn = document.createElement("button");
+      btn.type="button"; btn.className="preset-chip";
+      btn.innerHTML = p.name + " <b>" + p.tag + "</b>";
+      btn.onclick = function(){ applyPreset(i); };
+      presetChipsEl.appendChild(btn); presetButtons.push(btn);
+    });
+  }
+
+  var tipEl = null;
+  function ensureTip(){
+    if(tipEl) return tipEl;
+    tipEl = el("div", "tip");
+    document.body.appendChild(tipEl);
+    return tipEl;
+  }
+  function reqText(t){
+    var parts = [];
+    if(t.row > 0) parts.push("需要" + TREE_LABEL[t.tree] + "本系 " + (t.row * 5) + " 点");
+    if(t.parent && byId[t.parent]) parts.push("需要「" + byId[t.parent].name + "」" + t.parentRank + " 级");
+    return parts.join("；");
+  }
+  function showTip(t, x, y){
+    var tip = ensureTip();
+    var rank = rankOf(t.id);
+    tip.innerHTML = "";
+    tip.appendChild(el("div", "tip-name", t.name));
+    tip.appendChild(el("div", "tip-rank", "当前 " + rank + " / " + t.max + (t.max === 1 ? "（单点天赋）" : "")));
+    tip.appendChild(el("div", "tip-desc", rank >= t.max && t.dn ? t.dn : t.d1));
+    if(t.isNew) tip.appendChild(el("div", "tip-note", "《无限》新增天赋")); else if(t.changed) tip.appendChild(el("div", "tip-note", "相较 Classic 有改动"));
+    var req = reqText(t);
+    if(req) tip.appendChild(el("div", "tip-req", rank > 0 ? "已投入" : req));
+    tip.style.display = "block";
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = x + 14, top = y + 14;
+    if(left + w > window.innerWidth - 8) left = x - w - 14;
+    if(top + h > window.innerHeight - 8) top = y - h - 14;
+    tip.style.left = Math.max(8, left) + "px";
+    tip.style.top = Math.max(8, top) + "px";
+  }
+  function hideTip(){ if(tipEl) tipEl.style.display = "none"; }
+
+  function renderTalent(){
+    TREES.forEach(function(tree){
+      var body = document.getElementById("body-" + tree);
+      if(!body) return;
+      var svg = body.querySelector(".tree-lines");
+      Array.prototype.slice.call(body.children).forEach(function(c){ if(c !== svg) body.removeChild(c); });
+      TALENTS.forEach(function(t){
+        if(t.tree !== tree) return;
+        var node = el("div", "talent");
+        node.dataset.id = t.id;
+        node.style.gridRow = (t.row + 1);
+        node.style.gridColumn = (t.col + 1);
+        var rank = rankOf(t.id);
+        node.classList.toggle("on", rank > 0);
+        node.classList.toggle("locked", rank === 0 && !canAdd(t));
+        node.classList.toggle("avail", rank === 0 && canAdd(t));
+
+        var btn = el("button", "ticon");
+        btn.type = "button";
+        btn.setAttribute("aria-label", t.name);
+        var img = el("img", "ticon-img");
+        img.src = "assets/talents/" + t.icon + ".jpg";
+        img.alt = t.name;
+        img.loading = "lazy";
+        btn.appendChild(img);
+        var rankEl = el("span", "rank", rank + "/" + t.max);
+        btn.appendChild(rankEl);
+        if(showOrder && ORDER_INDEX[t.id]){
+          btn.appendChild(el("span", "order-badge", String(ORDER_INDEX[t.id])));
+        }
+        btn.onclick = function(ev){ ev.preventDefault(); if(ev.shiftKey){ removePoint(t); } else { addPoint(t); } };
+        btn.oncontextmenu = function(ev){ ev.preventDefault(); removePoint(t); };
+        btn.onmouseenter = function(ev){ showTip(t, ev.clientX, ev.clientY); };
+        btn.onmousemove = function(ev){ if(tipEl && tipEl.style.display === "block") showTip(t, ev.clientX, ev.clientY); };
+        btn.onmouseleave = hideTip;
+
+        node.appendChild(btn);
+        node.appendChild(el("div", "tname", t.name));
+        body.appendChild(node);
+      });
+    });
+    updateCounters();
+  }
+
+  function updateCounters(){
+    var used = totalPoints();
+    document.getElementById("tp-used").textContent = used;
+    document.getElementById("tp-level").textContent = Math.min(60, 10 + used);
+    TREES.forEach(function(t){ document.getElementById("tp-" + t).textContent = treePoints(t); });
+    document.querySelectorAll(".sim-cols .tree").forEach(function(treeEl){
+      var t = treeEl.dataset.tree;
+      treeEl.querySelector(".tree-pts b").textContent = treePoints(t);
+    });
+    drawAll();
+  }
+
+  function addPoint(t){
+    if(!canAdd(t)){
+      var why = totalPoints() >= MAX_POINTS ? "点数已满（51）" : (rankOf(t.id) >= t.max ? "已点满" : reqText(t) || "暂时无法加点");
+      showTip(t, window.innerWidth/2, 120);
+      if(tipEl && tipEl.querySelector(".tip-req")) tipEl.querySelector(".tip-req").textContent = why;
+      return;
+    }
+    talentState[t.id] = rankOf(t.id) + 1;
+    showOrder = sameAsPreset();
+    renderTalent();
+    updatePresetUI();
+  }
+  function removePoint(t){
+    var rank = rankOf(t.id);
+    if(!rank) return;
+    talentState[t.id] = rank - 1;
+    if(talentState[t.id] === 0) delete talentState[t.id];
+    if(!isValid()){ talentState[t.id] = rank; return; }
+    showOrder = sameAsPreset();
+    renderTalent();
+    updatePresetUI();
+  }
+
+  function drawAll(){
+    TREES.forEach(function(tree){
+      var body = document.getElementById("body-" + tree);
+      if(body) drawLines(body);
+    });
+  }
+  function drawLines(body){
+    var svg = body.querySelector(".tree-lines");
+    if(!svg) return;
+    var w = body.clientWidth, h = body.clientHeight;
+    if(!w || !h) return;
+    svg.setAttribute("width", w);
+    svg.setAttribute("height", h);
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+    svg.textContent = "";
+    var bodyRect = body.getBoundingClientRect();
+    TALENTS.forEach(function(t){
+      if(!t.parent || !byId[t.parent]) return;
+      var pNode = body.querySelector('.talent[data-id="' + t.parent + '"]');
+      var cNode = body.querySelector('.talent[data-id="' + t.id + '"]');
+      if(!pNode || !cNode) return;
+      var pr = pNode.getBoundingClientRect(), cr = cNode.getBoundingClientRect();
+      var px = pr.left - bodyRect.left + pr.width/2;
+      var py = pr.top - bodyRect.top + pr.height;
+      var cx = cr.left - bodyRect.left + cr.width/2;
+      var cy = cr.top - bodyRect.top;
+      var d;
+      if(Math.abs(px - cx) < 2){
+        d = "M" + px + " " + py + " L" + cx + " " + cy;
+      } else {
+        var midY = py + Math.max(6, (cy - py) / 2);
+        d = "M" + px + " " + py + " L" + px + " " + midY + " L" + cx + " " + midY + " L" + cx + " " + cy;
+      }
+      var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", d);
+      path.setAttribute("class", "tree-line" + (rankOf(t.id) > 0 && rankOf(t.parent) > 0 ? " hot" : ""));
+      svg.appendChild(path);
+    });
+  }
+
+  document.getElementById("btn-reset").onclick = function(){
+    talentState = {};
+    showOrder = false;
+    renderTalent();
+    updatePresetUI();
+  };
+
+  var resizeTimer = null;
+  window.addEventListener("resize", function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){ if(!views.talent.hidden) drawAll(); }, 120);
+  });
+
+  // 初始状态：推荐配点
+  renderPresetChips();
+  loadPresetData(0);
+  talentState = {};
+  for(var pid in PRESET) talentState[pid] = PRESET[pid];
+  updatePresetUI();
+
+  renderRoute();
+  renderSpells();
+  renderMacros();
+  renderTalent();
+  switchView("guide");
+})();
+</script>
+
+</body>
+</html>
